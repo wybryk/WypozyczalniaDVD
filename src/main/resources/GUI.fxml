@@ -29,13 +29,13 @@
                               <Font size="27.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="97.0" layoutY="123.0" />
+                        <TextField fx:id="loginText" layoutX="97.0" layoutY="123.0" />
                         <Label layoutX="29.0" layoutY="123.0" prefHeight="37.0" prefWidth="60.0" text="Login:" AnchorPane.leftAnchor="29.0">
                            <font>
                               <Font size="17.0" />
                            </font>
                         </Label>
-                        <PasswordField layoutX="97.0" layoutY="182.0" />
+                        <PasswordField fx:id="hasloText" layoutX="97.0" layoutY="182.0" />
                         <Label layoutX="29.0" layoutY="180.0" prefHeight="35.0" prefWidth="61.0" text="Hasło:" AnchorPane.leftAnchor="29.0">
                            <font>
                               <Font size="17.0" />
