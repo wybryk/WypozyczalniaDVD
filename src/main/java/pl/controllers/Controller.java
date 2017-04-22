@@ -1,5 +1,7 @@
 package pl.controllers;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,20 +13,18 @@ import pl.bazadanych.Connection;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
-import pl.bazadanych.tabels.Gatunek;
-import pl.bazadanych.tabels.Klient;
-import pl.bazadanych.tabels.Konto;
+import pl.bazadanych.tables.*;
+import pl.bazadanych.tablesFx.GatunekFx;
 
 import java.sql.SQLException;
-import java.util.*;
 import java.util.List;
 
 
 public class Controller {
     @FXML
-    private ListView<Gatunek> gatunkiList;
+    private ListView<GatunekFx> gatunekListView;
     @FXML
-    private ComboBox<Gatunek> gatunkiBox;
+    private ComboBox<GatunekFx> gatunekComboBox;
     @FXML
     private TextField imie, nazwisko, email, login, haslo, haslo2;
     @FXML
@@ -32,7 +32,8 @@ public class Controller {
     @FXML
     private TextField loginText, hasloText;
     @FXML
-    private ObservableList<Gatunek> gatunki = FXCollections.observableArrayList();
+    private ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+    private ObjectProperty<GatunekFx> gatunek = new SimpleObjectProperty<>();
     @FXML
     private void addKlientToDataBase()
     {
@@ -55,7 +56,8 @@ public class Controller {
             Connection.disconnect();
         }
     }
-    /*private void LogIn()
+    /*@FXML
+    private void LogIn()
     {
         String login, haslo;
         login = loginText.getText();
@@ -70,24 +72,26 @@ public class Controller {
             konto.setLogin(e.getLogin());
             konto.setHaslo(e.getHaslo());
         });
-
-    }
+    }*/
     @FXML
-    private void saveGatunki() {
+    private void saveGatunek()  {
 
         Connection.initDataBase();
         GatunekDao gatunekDao = new GatunekDao(Connection.getConnectionSource());
 
         List<Gatunek> gatunek = gatunekDao.queryforAll(Gatunek.class);
         gatunek.forEach(e->{
-            Gatunek g = new Gatunek();
-            g.setId(e.getId());
-            g.setNazwa(e.getNazwa());
-            this.gatunki.add(g);
+            GatunekFx gatunekFx = new GatunekFx();
+            gatunekFx.setId(e.getId());
+            gatunekFx.setNazwa(e.getNazwa());
+            gatunekList.add(gatunekFx);
         });
         Connection.disconnect();
-    }*/
+    }
     @FXML
     public void initialize() throws SQLException {
+        saveGatunek();
+        gatunekComboBox.setItems(gatunekList);
+        gatunekListView.setItems(gatunekList);
     }
 }
