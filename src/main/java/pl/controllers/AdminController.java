@@ -1,0 +1,80 @@
+package pl.controllers;
+
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import pl.bazadanych.Connection;
+import pl.bazadanych.dao.GatunekDao;
+import pl.bazadanych.dao.KlientDao;
+import pl.bazadanych.dao.KontoDao;
+import pl.bazadanych.tables.Gatunek;
+import pl.bazadanych.tables.Klient;
+import pl.bazadanych.tables.Konto;
+import pl.tablesFx.GatunekFx;
+
+import java.sql.SQLException;
+import java.util.List;
+
+/**
+ * Created by Mateusz on 2017-04-22.
+ */
+public class AdminController extends BaseController {
+
+    @FXML
+    private ComboBox<GatunekFx> gatunekComboBox;
+    @FXML
+    private TextField imie, nazwisko, email, login, haslo, haslo2;
+    @FXML
+    private CheckBox admin;
+    @FXML
+    private ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+    
+    @FXML
+    private void addKlientToDataBase()
+    {
+        Klient klient = new Klient();
+        Konto konto = new Konto();
+        klient.setImie(imie.getText());
+        klient.setNazwisko(nazwisko.getText());
+        klient.setEmail(email.getText());
+        konto.setLogin(login.getText());
+        konto.setHaslo(haslo.getText());
+        String hasloString = haslo2.getText();
+        konto.setAdmin(admin.isSelected());
+        konto.setKlient(klient);
+        if(hasloString.equals(konto.getHaslo()) == true ) {
+            Connection.initDataBase();
+            KlientDao klientDao = new KlientDao(Connection.getConnectionSource());
+            KontoDao kontoDao = new KontoDao(Connection.getConnectionSource());
+            klientDao.createOrUpdateTabel(klient);
+            kontoDao.createOrUpdateTabel(konto);
+            Connection.disconnect();
+        }
+    }
+    @FXML
+    private void saveGatunek()  {
+
+        Connection.initDataBase();
+        GatunekDao gatunekDao = new GatunekDao(Connection.getConnectionSource());
+
+        List<Gatunek> gatunek = gatunekDao.queryforAll(Gatunek.class);
+        gatunek.forEach(e->{
+            GatunekFx gatunekFx = new GatunekFx();
+            gatunekFx.setId(e.getId());
+            gatunekFx.setNazwa(e.getNazwa());
+            gatunekList.add(gatunekFx);
+        });
+        Connection.disconnect();
+    }
+    @FXML
+    public void initialize() throws SQLException {
+        saveGatunek();
+        gatunekComboBox.setItems(gatunekList);
+    }
+
+}
