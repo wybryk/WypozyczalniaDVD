@@ -10,11 +10,14 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main extends Application {
+
+    private static final String LOG_FXML = "/logowanie.fxml";
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(LOG_FXML));
         primaryStage.setTitle("Wypozyczalnia DVD");
-        primaryStage.setScene(new Scene(root, 630, 428));
+        primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
     }
 
