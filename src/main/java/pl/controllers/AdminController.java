@@ -12,7 +12,6 @@ import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
 import java.sql.SQLException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

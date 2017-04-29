@@ -5,7 +5,7 @@ import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
-import pl.bazadanych.tabels.*;
+import pl.bazadanych.tables.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
