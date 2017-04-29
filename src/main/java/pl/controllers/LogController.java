@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import pl.bazadanych.Connection;
 import pl.bazadanych.dao.KontoDao;
-import pl.bazadanych.tabels.Konto;
+import pl.bazadanych.tables.Konto;
 
 import java.util.List;
 

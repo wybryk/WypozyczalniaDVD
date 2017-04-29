@@ -17,10 +17,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource(LOG_FXML));
         primaryStage.setTitle("Wypozyczalnia DVD");
-        primaryStage.setMinWidth(640);
-        primaryStage.setMaxWidth(1024);
-        primaryStage.setMinHeight(480);
-        primaryStage.setMaxHeight(768);
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
     }

@@ -20,20 +20,27 @@ public class Gatunek implements BaseTabel{
 
     public Gatunek(){}
 
-    public int    getId() { return id; }
-    public void   setId(int id) {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
         this.id = id;
     }
+
     public String getNazwa() {
         return nazwa;
     }
-    public void   setNazwa(String nazwa) {
+
+    public void setNazwa(String nazwa) {
         this.nazwa = nazwa;
     }
+
     public ForeignCollection<Film> getFilm() {
         return film;
     }
-    public void   setFilm(ForeignCollection<Film> film) {
+
+    public void setFilm(ForeignCollection<Film> film) {
         this.film = film;
     }
 

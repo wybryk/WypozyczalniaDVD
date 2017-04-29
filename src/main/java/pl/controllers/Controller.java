@@ -13,8 +13,8 @@ import pl.bazadanych.Connection;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
-import pl.bazadanych.tabels.*;
-import pl.tablesFx.GatunekFx;
+import pl.bazadanych.tables.*;
+import pl.bazadanych.tablesFx.GatunekFx;
 
 import java.sql.SQLException;
 import java.util.List;
