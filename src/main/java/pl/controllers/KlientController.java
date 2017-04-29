@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import pl.bazadanych.Connection;
 import pl.bazadanych.dao.GatunekDao;
-import pl.bazadanych.tables.Gatunek;
+import pl.bazadanych.tabels.Gatunek;
 import pl.tablesFx.GatunekFx;
 
 
