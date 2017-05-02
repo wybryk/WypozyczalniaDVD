@@ -11,8 +11,8 @@ public class KontoFx {
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty login = new SimpleStringProperty();
     private StringProperty haslo = new SimpleStringProperty();
-    private BooleanProperty admin = new SimpleBooleanProperty();
-    private ObjectProperty<KlientFx> klientfx = new SimpleObjectProperty<>();
+    private IntegerProperty admin = new SimpleIntegerProperty();
+    private IntegerProperty klientfx = new SimpleIntegerProperty();
 
     public int getId() {
         return id.get();
@@ -50,27 +50,27 @@ public class KontoFx {
         this.haslo.set(haslo);
     }
 
-    public boolean isAdmin() {
+    public int getAdmin() {
         return admin.get();
     }
 
-    public BooleanProperty adminProperty() {
+    public IntegerProperty adminProperty() {
         return admin;
     }
 
-    public void setAdmin(boolean admin) {
+    public void setAdmin(int admin) {
         this.admin.set(admin);
     }
 
-    public KlientFx getKlientfx() {
+    public int getKlientfx() {
         return klientfx.get();
     }
 
-    public ObjectProperty<KlientFx> klientfxProperty() {
+    public IntegerProperty klientfxProperty() {
         return klientfx;
     }
 
-    public void setKlientfx(KlientFx klientfx) {
+    public void setKlientfx(int klientfx) {
         this.klientfx.set(klientfx);
     }
 

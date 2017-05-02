@@ -125,12 +125,12 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="imie" layoutX="108.0" layoutY="15.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
-                                          <TextField fx:id="nazwisko" layoutX="108.0" layoutY="55.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
-                                          <TextField fx:id="email" layoutX="108.0" layoutY="95.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
-                                          <TextField fx:id="login" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
-                                          <TextField fx:id="haslo" layoutX="108.0" layoutY="175.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
-                                          <TextField fx:id="haslo2" layoutX="108.0" layoutY="215.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="imieTextField" layoutX="108.0" layoutY="15.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="nazwiskoTextField" layoutX="108.0" layoutY="55.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="emailTextField" layoutX="108.0" layoutY="95.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="loginTextField" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="hasloTextField" layoutX="108.0" layoutY="175.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="haslo2TextField" layoutX="108.0" layoutY="215.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
                                           <Button layoutX="108.0" layoutY="301.0" mnemonicParsing="false" onAction="#addKlientToDataBase" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #99C24D;" text="Dodaj" AnchorPane.leftAnchor="108.0" />
                                           <CheckBox fx:id="adminCheckBox" layoutX="108.0" layoutY="260.0" mnemonicParsing="false" text="Nadać uprawnienia administratora?" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="245.0" />
                                        </children>
@@ -141,11 +141,11 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
                                        <children>
-                                          <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" onAction="#kontoButton" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
+                                          <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" onAction="#findKontoButton" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
                                           <TextField fx:id="kontoTextField" layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="530.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
                                           <ListView fx:id="kontoListView" layoutX="20.0" layoutY="57.0" prefHeight="195.0" prefWidth="602.0" />
-                                          <Button layoutX="557.0" layoutY="265.0" mnemonicParsing="false" text="Usuń" />
-                                          <Button layoutX="456.0" layoutY="265.0" mnemonicParsing="false" text="Edytuj" />
+                                          <Button layoutX="557.0" layoutY="265.0" mnemonicParsing="false" onAction="#deleteKontoButton" text="Usuń" />
+                                          <Button layoutX="456.0" layoutY="265.0" mnemonicParsing="false" onAction="#editKontoButton" text="Edytuj" />
                                        </children>
                                     </AnchorPane>
                                  </content>

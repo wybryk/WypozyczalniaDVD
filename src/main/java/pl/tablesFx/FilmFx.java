@@ -2,6 +2,7 @@ package pl.tablesFx;
 
 import javafx.beans.property.*;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 /**
@@ -13,9 +14,9 @@ public class FilmFx {
     private StringProperty nazwa = new SimpleStringProperty();
     private StringProperty opis = new SimpleStringProperty();
     private IntegerProperty ilosc = new SimpleIntegerProperty();
-    private ObjectProperty<LocalDate> premiera = new SimpleObjectProperty<>();
-    private ObjectProperty<GatunekFx> gatunekFx = new SimpleObjectProperty<>();
-    private ObjectProperty<RezyserFx> rezyserFx = new SimpleObjectProperty<>();
+    private ObjectProperty<Date> premiera = new SimpleObjectProperty<>();
+    private IntegerProperty gatunekFx = new SimpleIntegerProperty();
+    private IntegerProperty rezyserFx = new SimpleIntegerProperty();
 
     public int getId() {
         return id.get();
@@ -65,39 +66,39 @@ public class FilmFx {
         this.ilosc.set(ilosc);
     }
 
-    public LocalDate getPremiera() {
+    public Date getPremiera() {
         return premiera.get();
     }
 
-    public ObjectProperty<LocalDate> premieraProperty() {
+    public ObjectProperty<Date> premieraProperty() {
         return premiera;
     }
 
-    public void setPremiera(LocalDate premiera) {
+    public void setPremiera(Date premiera) {
         this.premiera.set(premiera);
     }
 
-    public GatunekFx getGatunekFx() {
+    public int getGatunekFx() {
         return gatunekFx.get();
     }
 
-    public ObjectProperty<GatunekFx> gatunekFxProperty() {
+    public IntegerProperty gatunekFxProperty() {
         return gatunekFx;
     }
 
-    public void setGatunekFx(GatunekFx gatunekFx) {
+    public void setGatunekFx(int gatunekFx) {
         this.gatunekFx.set(gatunekFx);
     }
 
-    public RezyserFx getRezyserFx() {
+    public int getRezyserFx() {
         return rezyserFx.get();
     }
 
-    public ObjectProperty<RezyserFx> rezyserFxProperty() {
+    public IntegerProperty rezyserFxProperty() {
         return rezyserFx;
     }
 
-    public void setRezyserFx(RezyserFx rezyserFx) {
+    public void setRezyserFx(int rezyserFx) {
         this.rezyserFx.set(rezyserFx);
     }
 }

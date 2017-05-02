@@ -1,43 +1,36 @@
 package pl.bazadanych.tables;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
-
 /**
  * Created by Mateusz on 2017-04-20.
  */
-@DatabaseTable(tableName = "DANE_WYPOZYCZENIA")
-public class DaneWypozyczenia implements BaseTable {
-    @DatabaseField(columnName = "ID_KLIENTA", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Klient klient;
-    @DatabaseField(columnName = "ID_WYPOZYCZENIA", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Wypozyczenie wypozyczenie;
-    @DatabaseField(columnName = "ID_EGZEMPLARZU", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Egzemplarz egzemplarz;
+public class DaneWypozyczenia {
+    private int klient;
+    private int wypozyczenie;
+    private int egzemplarz;
 
     public DaneWypozyczenia() {}
 
-    public Klient getKlient() {
+    public int getKlient() {
         return klient;
     }
 
-    public void setKlient(Klient klient) {
+    public void setKlient(int klient) {
         this.klient = klient;
     }
 
-    public Wypozyczenie getWypozyczenie() {
+    public int getWypozyczenie() {
         return wypozyczenie;
     }
 
-    public void setWypozyczenie(Wypozyczenie wypozyczenie) {
+    public void setWypozyczenie(int wypozyczenie) {
         this.wypozyczenie = wypozyczenie;
     }
 
-    public Egzemplarz getEgzemplarz() {
+    public int getEgzemplarz() {
         return egzemplarz;
     }
 
-    public void setEgzemplarz(Egzemplarz egzemplarz) {
+    public void setEgzemplarz(int egzemplarz) {
         this.egzemplarz = egzemplarz;
     }
 }

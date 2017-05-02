@@ -1,18 +1,27 @@
 package pl.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.bazadanych.Connections;
+import pl.tablesFx.GatunekFx;
+import pl.tablesFx.KontoFx;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created by Mateusz on 2017-04-23.
  */
 public abstract class BaseController {
+
 
     public void changeWindow(ActionEvent event, String path){
         Parent root;
@@ -27,5 +36,6 @@ public abstract class BaseController {
             e.printStackTrace();
         }
     }
+
 
 }

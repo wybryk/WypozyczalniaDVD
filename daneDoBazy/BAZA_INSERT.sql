@@ -3,7 +3,7 @@ DELETE FROM KONTO;
 DELETE FROM WYPOZYCZENIE;
 DELETE FROM KLIENT;
 DELETE FROM EGZEMPLARZ;
-DELETE FROM FILMY;
+DELETE FROM FILM;
 DELETE FROM REZYSER;
 DELETE FROM GATUNEK;
 
@@ -39,117 +39,117 @@ INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Rob Minkoff');
 INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Luc Besson');
 INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Roman Polański');
 
-DROP SEQUENCE FilmySeq;
-CREATE SEQUENCE FilmySeq;
+DROP SEQUENCE FilmSeq;
+CREATE SEQUENCE FilmSeq;
 
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Skazani na Shawshank', 'Adaptacja opowiadania Stephena Kinga. Historia nies�usznie skazanego na do�ywocie bankiera, kt�ry musi prze�y� w brutalnym �wiecie rz�dzonym przez stra�nik�w i wsp��wi��ni�w.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Skazani na Shawshank', 'Adaptacja opowiadania Stephena Kinga. Historia nies�usznie skazanego na do�ywocie bankiera, kt�ry musi prze�y� w brutalnym �wiecie rz�dzonym przez stra�nik�w i wsp��wi��ni�w.',
                       3, '1994-09-10', 4, 1);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Zielona mila', 'Emerytowany stra�nik wi�zienny opowiada przyjaci��ce o niezwyk�ym m��czy�nie, kt�rego skazano na �mier� za zab�jstwo dw�ch 9-letnich dziewczynek.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Zielona mila', 'Emerytowany stra�nik wi�zienny opowiada przyjaci��ce o niezwyk�ym m��czy�nie, kt�rego skazano na �mier� za zab�jstwo dw�ch 9-letnich dziewczynek.',
                        4, '1999-12-06', 4, 1);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Nietykalni', 'Sparali�owany milioner zatrudnia do opieki m�odego ch�opaka z przedmie�cia, kt�ry w�a�nie wyszed� z wi�zienia.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Nietykalni', 'Sparali�owany milioner zatrudnia do opieki m�odego ch�opaka z przedmie�cia, kt�ry w�a�nie wyszed� z wi�zienia.',
                        2, '2011-09-23', 8, 2);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Ojciec chrzestny', 'Opowie�� o nowojorskiej rodzinie mafijnej. Starzej�cy si� Don Corleone pragnie przekaza� w�adz� swojemu synowi.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny', 'Opowie�� o nowojorskiej rodzinie mafijnej. Starzej�cy si� Don Corleone pragnie przekaza� w�adz� swojemu synowi.',
                        5, '1972-03-15', 4, 3);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Ojciec chrzestny II', 'Rok 1917. M�ody Vito Corleone stawia pierwsze kroki w mafijnym �wiecie Nowego Jorku. Ponad 40 lat p��niej jego syn Michael walczy o interesy i dobro rodziny.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny II', 'Rok 1917. M�ody Vito Corleone stawia pierwsze kroki w mafijnym �wiecie Nowego Jorku. Ponad 40 lat p��niej jego syn Michael walczy o interesy i dobro rodziny.',
                        6, '1974-12-12', 4, 3);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Ojciec chrzestny III', 'Rok 1979. Starzej�cy si� Michael Corleone chce zalegalizowa� swoje interesy i wyprowadzi� rodzin� z mafijnego �wiata.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny III', 'Rok 1979. Starzej�cy si� Michael Corleone chce zalegalizowa� swoje interesy i wyprowadzi� rodzin� z mafijnego �wiata.',
                        2, '1990-12-20', 4, 3);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Forrest Gump', 'Historia �ycia Forresta, ch�opca o niskim ilorazie inteligencji z niedow�adem ko�czyn, kt�ry staje si� miliarderem i bohaterem wojny w Wietnamie.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Forrest Gump', 'Historia �ycia Forresta, ch�opca o niskim ilorazie inteligencji z niedow�adem ko�czyn, kt�ry staje si� miliarderem i bohaterem wojny w Wietnamie.',
                        3, '1994-06-23', 4, 4);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'W�adca Pier�cieni: Dru�yna Pier�cienia', 'Podr�� hobbita z Shire i jego o�miu towarzyszy, kt�rej celem jest zniszczenie pot��nego pier�cienia po��danego przez Czarnego W�adc� - Saurona.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W�adca Pier�cieni: Dru�yna Pier�cienia', 'Podr�� hobbita z Shire i jego o�miu towarzyszy, kt�rej celem jest zniszczenie pot��nego pier�cienia po��danego przez Czarnego W�adc� - Saurona.',
                        1, '2001-12-10', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'W�adca Pier�cieni: Dwie wie�e', 'Dru�yna Pier�cienia zostaje rozbita, lecz zdesperowany Frodo za wszelk� cen� chce wype�ni� powierzone mu zadanie. Aragorn z towarzyszami przygotowuje si�, by odeprze� atak hord Sarumana.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W�adca Pier�cieni: Dwie wie�e', 'Dru�yna Pier�cienia zostaje rozbita, lecz zdesperowany Frodo za wszelk� cen� chce wype�ni� powierzone mu zadanie. Aragorn z towarzyszami przygotowuje si�, by odeprze� atak hord Sarumana.',
                        4, '2002-12-05', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'W�adca Pier�cieni: Powr�t kr�la', 'Zwie�czenie filmowej trylogii wg powie�ci Tolkiena. Aragorn jednoczy si�y �r�dziemia, szykuj�c si� do bitwy, kt�ra ma odwr�ci� uwag� Saurona od pod��aj�cych w kierunku G�ry Przeznaczenia hobbit�w.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W�adca Pier�cieni: Powr�t kr�la', 'Zwie�czenie filmowej trylogii wg powie�ci Tolkiena. Aragorn jednoczy si�y �r�dziemia, szykuj�c si� do bitwy, kt�ra ma odwr�ci� uwag� Saurona od pod��aj�cych w kierunku G�ry Przeznaczenia hobbit�w.',
                        5, '2003-12-01', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Hobbit: Niezwyk�a podr��', 'Hobbit Bilbo Baggins wyrusza w niebezpieczn� podro�, by wraz z czarodziejem Gandalfem i trzynastoma krasnoludami pokona� smoka Smauga.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Niezwyk�a podr��', 'Hobbit Bilbo Baggins wyrusza w niebezpieczn� podro�, by wraz z czarodziejem Gandalfem i trzynastoma krasnoludami pokona� smoka Smauga.',
                        5, '2012-11-28', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Hobbit: Pustkowie Smauga', 'Hobbit Bilbo Baggins razem z Gandalfem oraz trzynastoma krasnoludami zmierza do legowiska smoka Smauga. Bohaterowie chc� pokona� besti� i odebra� jej z�oto, kt�re ukrad�a.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Pustkowie Smauga', 'Hobbit Bilbo Baggins razem z Gandalfem oraz trzynastoma krasnoludami zmierza do legowiska smoka Smauga. Bohaterowie chc� pokona� besti� i odebra� jej z�oto, kt�re ukrad�a.',
                        5, '2013-12-02', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Hobbit: Bitwa Pi�ciu Armii', 'Krasnoludy z Ereboru odzyskuj� ojczyzn�, �ci�gaj�c gniew smoka. Wolne istoty �r�dziemia ��cz� si�y przeciwko Sauronowi, kt�ry wysy�a legiony ork�w na Samotn� G�r�.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Bitwa Pi�ciu Armii', 'Krasnoludy z Ereboru odzyskuj� ojczyzn�, �ci�gaj�c gniew smoka. Wolne istoty �r�dziemia ��cz� si�y przeciwko Sauronowi, kt�ry wysy�a legiony ork�w na Samotn� G�r�.',
                        5, '2014-12-01', 5, 5);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Pulp Fiction', 'Przemoc i odkupienie w opowie�ci o dw�ch p�atnych mordercach pracuj�cych na zlecenie mafii, �onie gangstera, bokserze i parze okradaj�cej ludzi w restauracji.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Pulp Fiction', 'Przemoc i odkupienie w opowie�ci o dw�ch p�atnych mordercach pracuj�cych na zlecenie mafii, �onie gangstera, bokserze i parze okradaj�cej ludzi w restauracji.',
                        4, '1994-05-12', 4, 6);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'B�karty wojny', 'W okupowanej przez nazist�w Francji oddzia� z�o�ony z Amerykan�w �ydowskiego pochodzenia planuje zamach na Hitlera.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'B�karty wojny', 'W okupowanej przez nazist�w Francji oddzia� z�o�ony z Amerykan�w �ydowskiego pochodzenia planuje zamach na Hitlera.',
                        1, '2009-05-20', 14, 6);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Incepcja', 'Czasy, gdy technologia pozwala na wchodzenie w �wiat sn�w. Z�odziej Cobb ma za zadanie wszczepi� my�l do �pi�cego umys�u.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Incepcja', 'Czasy, gdy technologia pozwala na wchodzenie w �wiat sn�w. Z�odziej Cobb ma za zadanie wszczepi� my�l do �pi�cego umys�u.',
                        2, '2010-07-08', 10, 7);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Kr�l Lew', 'Targany nies�usznymi wyrzutami sumienia po �mierci ojca ma�y lew Simba skazuje si� na wygnanie rezygnuj�c z przynale�nego mu miejsca na czele stada.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Kr�l Lew', 'Targany nies�usznymi wyrzutami sumienia po �mierci ojca ma�y lew Simba skazuje si� na wygnanie rezygnuj�c z przynale�nego mu miejsca na czele stada.',
                         3, '1994-06-15', 2, 8);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL, 'Leon zawodowiec', 'P�atny morderca ratuje dwunastoletni� dziewczynk�, kt�rej rodzina zosta�a zabita przez skorumpowanych policjant�w.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Leon zawodowiec', 'P�atny morderca ratuje dwunastoletni� dziewczynk�, kt�rej rodzina zosta�a zabita przez skorumpowanych policjant�w.',
                         4, '1994-09-14', 4, 9);
-INSERT INTO FILMY VALUES(FilmySeq.NEXTVAL,'Pianista','Podczas drugiej wojny �wiatowej W�adys�aw Szpilman, znakomity polski pianista, stara si� prze�y� w okupowanej Warszawie.', 4,'2002-05-04',3,10);
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL,'Pianista','Podczas drugiej wojny �wiatowej W�adys�aw Szpilman, znakomity polski pianista, stara si� prze�y� w okupowanej Warszawie.', 4,'2002-05-04',3,10);
 
-DROP SEQUENCE z;
-CREATE SEQUENCE z;
+DROP SEQUENCE EgzemplarzSeq;
+CREATE SEQUENCE EgzemplarzSeq;
 
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 1);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 1);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 1);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 2);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 2);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 2);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 2);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 3);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 3);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 4);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 4);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 4);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 4);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 4);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 5);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 5);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 5);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 5);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 5);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 6);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 6);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 7);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 7);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 7);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 8);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 9);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 9);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 9);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 9);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 10);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 10);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 10);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 10);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 10);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 11);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 11);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 11);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 11);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 11);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 12);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 12);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 12);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 12);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 12);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 13);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 13);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 13);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 13);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 13);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 14);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 14);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 14);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 14);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 15);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 16);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 16);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 17);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 17);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 17);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 18);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 18);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 18);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 18);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 19);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 19);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 19);
-INSERT INTO EGZEMPLARZ VALUES(z.NEXTVAL, 19);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 1);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 1);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 1);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 2);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 2);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 2);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 2);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 3);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 3);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 4);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 4);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 4);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 4);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 4);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 5);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 5);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 5);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 5);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 5);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 6);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 6);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 7);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 7);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 7);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 8);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 9);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 9);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 9);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 9);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 10);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 10);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 10);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 10);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 10);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 11);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 11);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 11);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 11);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 11);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 12);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 12);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 12);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 12);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 12);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 13);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 13);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 13);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 13);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 13);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 14);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 14);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 14);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 14);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 15);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 16);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 16);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 17);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 17);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 17);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 18);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 18);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 18);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 18);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 19);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 19);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 19);
+INSERT INTO EGZEMPLARZ VALUES(EgzemplarzSeq.NEXTVAL, 19);
 
 DROP SEQUENCE KlientSeq;
 CREATE SEQUENCE KlientSeq;

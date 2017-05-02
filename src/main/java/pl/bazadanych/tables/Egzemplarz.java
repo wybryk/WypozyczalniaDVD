@@ -1,21 +1,12 @@
 package pl.bazadanych.tables;
 
-import com.j256.ormlite.dao.ForeignCollection;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
-import com.j256.ormlite.table.DatabaseTable;
-
 /**
  * Created by Mateusz on 2017-04-20.
  */
-@DatabaseTable(tableName = "EGZEMPLARZ")
-public class Egzemplarz implements BaseTable {
-    @DatabaseField(generatedId = true, columnName = "ID_EGZEMLARZU")
+public class Egzemplarz {
     private int id;
-    @DatabaseField(columnName = "ID_FILMU", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Film film;
-    @ForeignCollectionField
-    private ForeignCollection<DaneWypozyczenia> daneWypozyczenia;
+    private int idFilmu;
+
     public Egzemplarz() {}
 
     public int getId() {
@@ -26,19 +17,11 @@ public class Egzemplarz implements BaseTable {
         this.id = id;
     }
 
-    public Film getFilm() {
-        return film;
+    public int getIdFilmu() {
+        return idFilmu;
     }
 
-    public void setFilm(Film film) {
-        this.film = film;
-    }
-
-    public ForeignCollection<DaneWypozyczenia> getDaneWypozyczenia() {
-        return daneWypozyczenia;
-    }
-
-    public void setDaneWypozyczenia(ForeignCollection<DaneWypozyczenia> daneWypozyczenia) {
-        this.daneWypozyczenia = daneWypozyczenia;
+    public void setIdFilmu(int idFilmu) {
+        this.idFilmu = idFilmu;
     }
 }

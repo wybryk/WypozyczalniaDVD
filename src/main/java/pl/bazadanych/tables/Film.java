@@ -1,35 +1,19 @@
 package pl.bazadanych.tables;
 
-import com.j256.ormlite.dao.ForeignCollection;
-import com.j256.ormlite.field.DataType;
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
-import com.j256.ormlite.table.DatabaseTable;
-
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
-@DatabaseTable(tableName = "FILM")
-public class Film implements BaseTable {
+public class Film {
 
-    @DatabaseField(columnName = "ID_FILMU", generatedId = true)
     private int id;
-    @DatabaseField(columnName = "NAZWA")
     private String nazwa;
-    @DatabaseField(columnName = "OPIS")
     private String opis;
-    @DatabaseField(columnName = "ILOSC")
     private int ilosc;
-    @DatabaseField(columnName = "PREMIERA", dataType = DataType.DATE_STRING, format = "yyyy-MM-DD")
-    private Date premiera;
-    @DatabaseField(columnName = "ID_GATUNKU", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Gatunek gatunek;
-    @DatabaseField(columnName = "ID_REZYSERA", foreign = true, foreignAutoCreate = true, foreignAutoRefresh = true)
-    private Rezyser rezyser;
-    @ForeignCollectionField
-    private ForeignCollection<Egzemplarz> egzemplarz;
+    private LocalDate premiera;
+    private int gatunek;
+    private int rezyser;
 
     public Film() {}
 
@@ -65,47 +49,40 @@ public class Film implements BaseTable {
         this.ilosc = ilosc;
     }
 
-    public Date getPremiera() {
+    public LocalDate getPremiera() {
         return premiera;
     }
 
-    public void setPremiera(Date premiera) {
+    public void setPremiera(LocalDate premiera) {
         this.premiera = premiera;
     }
 
-    public Gatunek getGatunek() {
+    public int getGatunek() {
         return gatunek;
     }
 
-    public void setGatunek(Gatunek gatunek) {
+    public void setGatunek(int gatunek) {
         this.gatunek = gatunek;
     }
 
-    public Rezyser getRezyser() {
+    public int getRezyser() {
         return rezyser;
     }
 
-    public void setRezyser(Rezyser rezyser) {
+    public void setRezyser(int rezyser) {
         this.rezyser = rezyser;
     }
 
-    public ForeignCollection<Egzemplarz> getEgzemplarz() {
-        return egzemplarz;
-    }
-
-    public void setEgzemplarz(ForeignCollection<Egzemplarz> egzemplarz) {
-        this.egzemplarz = egzemplarz;
-    }
 
     @Override
     public String toString() {
-        return "Film{" +
-                "id=" + id +
+        return "id=" + id +
                 ", nazwa='" + nazwa + '\'' +
                 ", opis='" + opis + '\'' +
                 ", ilosc=" + ilosc +
                 ", premiera=" + premiera +
                 ", gatunek=" + gatunek +
+                ", rezyser=" + rezyser +
                 '}';
     }
 }
