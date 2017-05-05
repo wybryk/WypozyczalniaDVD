@@ -99,7 +99,6 @@ public class AdminController extends BaseController {
                 kontoList.add(kontoFx);
             }
         });
-
         kontoListView.setItems(kontoList);
     }
 

@@ -101,4 +101,14 @@ public class FilmFx {
     public void setRezyserFx(int rezyserFx) {
         this.rezyserFx.set(rezyserFx);
     }
+
+    @Override
+    public String toString() {
+        return  "id=" + id.getValue() +
+                ", tytuł=" + nazwa.getValue() +
+                ", opis=" + opis.getValue() +
+                ", ilosc=" + ilosc.getValue() +
+                ", premiera=" + premiera.getValue() +
+                '}';
+    }
 }

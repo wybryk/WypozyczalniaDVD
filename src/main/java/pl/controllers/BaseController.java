@@ -30,6 +30,10 @@ public abstract class BaseController {
             Stage stage = new Stage();
             stage.setTitle("Wypozyczalnia DVD");
             stage.setScene(new Scene(root, 640, 480));
+            stage.setMinHeight(480);
+            stage.setMaxHeight(768);
+            stage.setMinWidth(640);
+            stage.setMaxWidth(1024);
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
         } catch (IOException e) {
