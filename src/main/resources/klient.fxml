@@ -21,7 +21,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <ListView id="filmListView" layoutY="6.0" prefHeight="358.0" prefWidth="445.0" />
+                  <ListView fx:id="filmListView" layoutY="6.0" prefHeight="358.0" prefWidth="445.0" />
                   <Button layoutX="379.0" layoutY="376.0" mnemonicParsing="false" text="Usuń" />
                   <Button layoutX="292.0" layoutY="376.0" mnemonicParsing="false" text="Edytuj" />
                </children></AnchorPane>

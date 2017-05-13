@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import pl.bazadanych.Connections;
 import pl.bazadanych.dao.FilmDao;
@@ -27,7 +27,7 @@ public class KlientController extends BaseController{
     @FXML
     private ListView<GatunekFx> gatunekListView;
     @FXML
-    private ListView<FilmFx> filmListView;
+    protected ListView<FilmFx> filmListView;
     @FXML
     private ObservableList<FilmFx> filmList = FXCollections.observableArrayList();
     @FXML
@@ -83,6 +83,7 @@ public class KlientController extends BaseController{
                 filmList.add(filmFx);
             }
         });
+        System.out.println(filmList);
         filmListView.setItems(filmList);
     }
 
