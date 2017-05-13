@@ -104,11 +104,8 @@ public class FilmFx {
 
     @Override
     public String toString() {
-        return  "id=" + id.getValue() +
-                ", tytuł=" + nazwa.getValue() +
-                ", opis=" + opis.getValue() +
-                ", ilosc=" + ilosc.getValue() +
-                ", premiera=" + premiera.getValue() +
-                '}';
+        return " " + nazwa.getValue() +
+                "\n Premiera: " + premiera.getValue() +
+                "\n Opis: " + opis.getValue() + "";
     }
 }

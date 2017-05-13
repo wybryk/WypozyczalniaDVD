@@ -2,6 +2,7 @@ package pl.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.*;
@@ -34,6 +35,8 @@ public class KlientController extends BaseController{
     protected TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField, filmTextField;
     @FXML
     protected ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+
+    private static final String LOGIN_FXML = "/logowanie.fxml";
 
     @FXML
     private void createOrUpdateKlientInDataBase(){
@@ -83,8 +86,25 @@ public class KlientController extends BaseController{
                 filmList.add(filmFx);
             }
         });
-        System.out.println(filmList);
         filmListView.setItems(filmList);
     }
 
+    public void logOut(ActionEvent actionEvent) {
+        changeWindow(actionEvent, LOGIN_FXML);
+    }
+
+    public void viewBorrowed(ActionEvent actionEvent) {
+    }
+
+    public void viewAccount(ActionEvent actionEvent) {
+    }
+
+    public void deleteMovie(ActionEvent actionEvent) {
+    }
+
+    public void editMovie(ActionEvent actionEvent) {
+    }
+
+    public void borrowMovie(ActionEvent actionEvent) {
+    }
 }

@@ -9,24 +9,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.KlientController">
    <children>
-      <Separator layoutY="53.0" prefHeight="10.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0" />
-      <TextField fx:id="filmTextField" layoutX="117.0" layoutY="14.0" prefHeight="31.0" prefWidth="431.0" AnchorPane.leftAnchor="117.0" AnchorPane.rightAnchor="92.0" />
-      <Button layoutX="564.0" layoutY="14.0" mnemonicParsing="false"  onAction="#findMovie" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="15.0" />
-      <SplitPane dividerPositions="0.29797979797979796" layoutX="92.0" layoutY="63.0" prefHeight="417.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+      <Separator layoutY="63.0" prefHeight="0.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0" />
+      <TextField fx:id="filmTextField" layoutX="14.0" layoutY="51.0" prefHeight="31.0" prefWidth="550.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="76.0" />
+      <Button layoutX="576.0" layoutY="54.0" mnemonicParsing="false" onAction="#findMovie" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="14.0" />
+      <SplitPane dividerPositions="0.28213166144200624" layoutX="92.0" layoutY="86.0" prefHeight="394.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="177.0">
                <children>
-                  <ListView fx:id="gatunekListView" layoutX="-21.0" layoutY="49.0" prefHeight="415.0" prefWidth="186.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="gatunekListView" layoutX="-21.0" prefHeight="392.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="445.0">
                <children>
-                  <ListView fx:id="filmListView" layoutY="6.0" prefHeight="358.0" prefWidth="445.0" />
-                  <Button layoutX="379.0" layoutY="376.0" mnemonicParsing="false" text="Usuń" />
-                  <Button layoutX="292.0" layoutY="376.0" mnemonicParsing="false" text="Edytuj" />
+                  <ListView fx:id="filmListView" prefHeight="343.0" prefWidth="445.0" />
+                  <Button onAction="#deleteMovie" layoutX="370.0" layoutY="354.0" mnemonicParsing="false" text="Usuń" />
+                  <Button onAction="#editMovie" layoutX="299.0" layoutY="354.0" mnemonicParsing="false" text="Edytuj" />
+                  <Button onAction="#borrowMovie" layoutX="210.0" layoutY="354.0" mnemonicParsing="false" text="Wypożycz" />
                </children></AnchorPane>
         </items>
       </SplitPane>
-      <Button layoutX="6.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="6.0" />
+      <Button onAction="#viewAccount" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="14.0" />
+      <Button onAction="#viewBorrowed" layoutX="128.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Moje wypożyczenia" textFill="#091414" />
+      <Button  onAction="#logOut" layoutX="464.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" />
    </children>
 </AnchorPane>
