@@ -22,6 +22,12 @@ import java.util.*;
  */
 public class AdminController extends BaseController {
 
+    private static AdminController instance = new AdminController();
+
+    public static AdminController getInstance() {
+        return instance;
+    }
+
     private static final String EDIT_FXML = "/klientEdit.fxml";
 
     @FXML
@@ -52,6 +58,24 @@ public class AdminController extends BaseController {
 
     private SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
 
+    private KontoFx kontoFx;
+    private  KlientFx klientFx;
+
+    public KontoFx getKontoFx() {
+        return kontoFx;
+    }
+
+    public void setKontoFx(KontoFx kontoFx) {
+        this.kontoFx = kontoFx;
+    }
+
+    public KlientFx getKlientFx() {
+        return klientFx;
+    }
+
+    public void setKlientFx(KlientFx klientFx) {
+        this.klientFx = klientFx;
+    }
 
     @FXML
     private void addKlientToDataBase() {
@@ -180,8 +204,9 @@ public class AdminController extends BaseController {
         KlientFx klientFx = new KlientFx();
         KontoFx kontoFx = new KontoFx();
         getKontoAndKlientFromListView(kontoFx, klientFx);
-        Singleton.getInstance().setKontoFx(kontoFx);
-        Singleton.getInstance().setKlientFx(klientFx);
+        AdminController.getInstance().setKontoFx(kontoFx);
+        AdminController.getInstance().setKlientFx(klientFx);
+
         openWindow(EDIT_FXML);
     }
     @FXML

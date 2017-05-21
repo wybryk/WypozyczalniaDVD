@@ -1,5 +1,7 @@
 package pl.controllers;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
@@ -60,10 +62,11 @@ public class KlientEditController extends BaseController{
         hasloPasswordField.clear();
         haslo2PasswordField.clear();
     }
+
     @FXML
     public void initialize()  {
-        this.kontoFx = Singleton.getInstance().getKontoFx();
-        this.klientFx = Singleton.getInstance().getKlientFx();
+        this.kontoFx = AdminController.getInstance().getKontoFx();
+        this.klientFx = AdminController.getInstance().getKlientFx();
     }
 
 }
