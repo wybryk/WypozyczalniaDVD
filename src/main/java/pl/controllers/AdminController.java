@@ -1,24 +1,20 @@
 package pl.controllers;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import pl.bazadanych.Connections;
 import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
-import javax.xml.transform.Result;
-import java.sql.ResultSet;
+import javafx.event.ActionEvent;
+
+import javax.script.Bindings;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -32,11 +28,11 @@ public class AdminController extends BaseController {
     private ComboBox<GatunekFx> gatunekComboBox;
     @FXML
     private ListView<KontoFx> kontoListView;
-    //@FXML private TabableView klientTableView;
-    // @FXML TableColumn<Klient, String> idColumn;
     @FXML
-    private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField,
-            kontoTextField, nazwaTextField, rezyserTextField;
+    private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, kontoTextField, nazwaTextField,
+            rezyserTextField;
+    @FXML
+    private PasswordField hasloPasswordField, haslo2PasswordField;
     @FXML
     private TextArea opisTextArea;
     @FXML
@@ -48,38 +44,40 @@ public class AdminController extends BaseController {
     @FXML
     private ObservableList<KontoFx> kontoList = FXCollections.observableArrayList();
     @FXML
-    protected ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+    private ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
 
     private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
+
     private ObjectProperty<KontoFx> kontoFxObjectProperty = new SimpleObjectProperty<>();
 
-    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
+    private SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
+
 
     @FXML
     private void addKlientToDataBase() {
-        Klient klient = new Klient();
-        Konto konto = new Konto();
+        KlientFx klientFx = new KlientFx();
+        KontoFx kontoFx = new KontoFx();
 
-        klient.setImie(imieTextField.getText());
-        klient.setNazwisko(nazwiskoTextField.getText());
-        klient.setEmail(emailTextField.getText());
-        konto.setLogin(loginTextField.getText());
-        konto.setHaslo(hasloTextField.getText());
-        String haslo2 = haslo2TextField.getText();
+        klientFx.setImie(imieTextField.getText());
+        klientFx.setNazwisko(nazwiskoTextField.getText());
+        klientFx.setEmail(emailTextField.getText());
+        kontoFx.setLogin(loginTextField.getText());
+        kontoFx.setHaslo(hasloPasswordField.getText());
+        String haslo2 = haslo2PasswordField.getText();
 
         if(adminCheckBox.isSelected())
-            konto.setAdmin(1);
-        else konto.setAdmin(0);
+            kontoFx.setAdmin(1);
+        else kontoFx.setAdmin(0);
 
-        if(haslo2.equals(konto.getHaslo()) == true ) {
+        if(haslo2.equals(kontoFx.getHaslo()) == true ) {
             KlientDao klientDao = new KlientDao();
             KontoDao kontoDao = new KontoDao();
-            klientDao.insertKlient(klient);
-            int id = klientDao.findKlient(klient);
-            kontoDao.insertKonto(konto, id);
+            klientDao.insertKlient(klientFx);
+            int id = klientDao.findKlient(klientFx);
+            kontoDao.insertKonto(kontoFx, id);
         }
+        clearKlientTextField();
     }
-
     @FXML
     private void findKontoButton() {
 
@@ -88,13 +86,14 @@ public class AdminController extends BaseController {
         List<KontoFx> kontoFxList = kontoDao.selectAll();
 
         kontoFxList.forEach(e->{
-            if(nazwa.equals(e.getId()) || nazwa.equalsIgnoreCase(e.getLogin()))
+            if(nazwa.equals(Integer.toString(e.getId())) || nazwa.equalsIgnoreCase(e.getLogin()))
             {
                 KontoFx kontoFx = new KontoFx();
                 kontoFx.setId(e.getId());
                 kontoFx.setLogin(e.getLogin());
                 kontoFx.setHaslo(e.getHaslo());
                 kontoFx.setAdmin(e.getAdmin());
+                kontoFx.setKlientfx(e.getKlientfx());
 
                 kontoList.add(kontoFx);
             }
@@ -102,7 +101,6 @@ public class AdminController extends BaseController {
 
         kontoListView.setItems(kontoList);
     }
-
     @FXML
     private Film getFilmValues() {
         Film film = new Film();
@@ -123,41 +121,68 @@ public class AdminController extends BaseController {
 
         film.setIlosc(liczbaKopiSpinner.getValue());
 
-        System.out.println(film);
+        clearFilmTextField();
 
         return film;
     }
-
     @FXML
     private void addFilmToDataBase(){
         Film film = getFilmValues();
-
         FilmDao filmDao = new FilmDao();
         EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
 
         filmDao.insertFilm(film);
 
         egzemplarzDao.insertEgzemplarz(film.getIlosc(), filmDao.findFilm(film.getNazwa()));
-    }
 
+    }
     @FXML
-    private void deleteKontoButton(){
-        Konto konto = new Konto();
-        Klient klient = new Klient();
+    private void clearKlientTextField(){
+        imieTextField.clear();
+        nazwiskoTextField.clear();
+        emailTextField.clear();
+        loginTextField.clear();
+        hasloPasswordField.clear();
+        haslo2PasswordField.clear();
+    }
+    @FXML
+    private void clearFilmTextField(){
+        nazwaTextField.clear();
+        rezyserTextField.clear();
+        opisTextArea.clear();
+        gatunekComboBox.valueProperty().set(null);
+        premieraDatePicker.setValue(null);
+        valueFactory.setValue(1);
+    }
+    @FXML
+    private void getKontoAndKlientFromListView(KontoFx kontoFx, KlientFx klientFx){
         kontoFxObjectProperty.set(kontoListView.getSelectionModel().getSelectedItem());
-        konto.setId(kontoFxObjectProperty.getValue().getId());
-        klient.setId(kontoFxObjectProperty.getValue().getKlientfx());
+        kontoFx.setId(kontoFxObjectProperty.getValue().getId());
+        klientFx.setId(kontoFxObjectProperty.getValue().getKlientfx());
+    }
+    @FXML
+    private void deleteKonto(){
+        KontoFx kontoFx = new KontoFx();
+        KlientFx klientFx = new KlientFx();
+
+        getKontoAndKlientFromListView(kontoFx, klientFx);
 
         KontoDao kontoDao = new KontoDao();
         KlientDao klientDao = new KlientDao();
 
-        kontoDao.deleteKonto(konto);
-        klientDao.deleteKlient(klient);
+        kontoDao.deleteKonto(kontoFx);
+        //klientDao.deleteKlient(klientFx);
+
     }
-
     @FXML
-    private void editKontoButton(){
+    private void editKonto(){
 
+        KlientFx klientFx = new KlientFx();
+        KontoFx kontoFx = new KontoFx();
+        getKontoAndKlientFromListView(kontoFx, klientFx);
+        Singleton.getInstance().setKontoFx(kontoFx);
+        Singleton.getInstance().setKlientFx(klientFx);
+        openWindow(EDIT_FXML);
     }
     @FXML
     public void initialize() throws SQLException {
@@ -166,5 +191,7 @@ public class AdminController extends BaseController {
         gatunekList = gatunekDao.selectAll();
         gatunekComboBox.setItems(gatunekList);
     }
+
+
 
 }

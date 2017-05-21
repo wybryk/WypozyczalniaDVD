@@ -90,4 +90,15 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
+    public static void updateRecord(String table, String values, String warunek){
+        try {
+            stmt = conn.createStatement();
+            String sql = "UPDATE " + table + " SET " + values + " WHERE " + warunek;
+            stmt.executeUpdate(sql);
+            System.out.println("Update values...");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

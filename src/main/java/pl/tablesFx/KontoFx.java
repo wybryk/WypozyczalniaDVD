@@ -80,6 +80,6 @@ public class KontoFx {
                 ", login=" + login.getValue() +
                 ", haslo=" + haslo.getValue() +
                 ", admin=" + admin.getValue() +
-                '}';
+                ", klient=" + klientfx.getValue() ;
     }
 }

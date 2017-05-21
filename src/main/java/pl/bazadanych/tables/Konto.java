@@ -61,5 +61,4 @@ public class Konto {
                 ", admin=" + admin +
                 '}';
     }
-
 }

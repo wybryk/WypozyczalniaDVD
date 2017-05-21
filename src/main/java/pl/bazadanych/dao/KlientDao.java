@@ -32,16 +32,16 @@ public class KlientDao  {
         return klientFx;
     }
 
-    public void insertKlient(Klient klient) {
+    public void insertKlient(KlientFx klientFx) {
             Connections.initDataBase();
-            Connections.insertRecord("KLIENT", "KlientSeq.NEXTVAL, '" + klient.getImie() + "', '" + klient.getNazwisko() + "', '"
-                    + klient.getEmail() + "'");
+            Connections.insertRecord("KLIENT", "KlientSeq.NEXTVAL, '" + klientFx.getImie() + "', '" +
+                    klientFx.getNazwisko() + "', '" + klientFx.getEmail() + "'");
             Connections.closeConnection();
     }
 
-    public void deleteKlient(Klient klient) {
+    public void deleteKlient(KlientFx klientFx) {
         Connections.initDataBase();
-        Connections.deleteRecord("KLIENT", "ID_KLIENTA = " + klient.getId());
+        Connections.deleteRecord("KLIENT", "ID_KLIENTA = " + klientFx.getId());
         Connections.closeConnection();
     }
 
@@ -68,17 +68,25 @@ public class KlientDao  {
         return klientFxList;
     }
 
-    public int findKlient(Klient klient){
+    public int findKlient(KlientFx klientFx){
         ObservableList<KlientFx> klientFxList = selectAll();
         int id = 0;
         for(KlientFx e: klientFxList){
             System.out.println(e);
-            if( klient.getImie().equals(e.getImie()) && klient.getNazwisko().equals(e.getNazwisko()) && klient.getEmail().equals(e.getEmail())) {
+            if( klientFx.getImie().equals(e.getImie()) && klientFx.getNazwisko().equals(e.getNazwisko()) &&
+                    klientFx.getEmail().equals(e.getEmail())) {
                 id = e.getId();
                 break;
             }
         }
         return id;
+    }
+
+    public void updateKlient(KlientFx klientFx){
+        Connections.initDataBase();
+        Connections.updateRecord("KLIENT", "IMIE = '" + klientFx.getImie() + "', NAZWISKO = '" + klientFx.getNazwisko()
+                + "', EMAIL = '" + klientFx.getEmail() + "'"," ID_KLIENTA = " + klientFx.getId());
+        Connections.closeConnection();
     }
 
 }

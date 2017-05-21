@@ -1,5 +1,7 @@
 package pl.controllers;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -32,6 +34,19 @@ public abstract class BaseController {
             stage.setScene(new Scene(root, 640, 480));
             stage.show();
             ((Node) (event.getSource())).getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void openWindow(String path){
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource(path));
+            Stage stage = new Stage();
+            stage.setTitle("Wypozyczalnia DVD");
+            stage.setScene(new Scene(root, 640, 480));
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

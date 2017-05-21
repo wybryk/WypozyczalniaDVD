@@ -22,12 +22,13 @@ public class KontoDao {
         ResultSet resultSet = Connections.selectRecords("KONTO");
         try{
             while (resultSet.next()) {
-                //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2) +  "  " + resultSet.getString(3));
+                //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2) +  "  " + resultSet.getString(3)+"  "+resultSet.getInt(4) + "  "+resultSet.getInt(5) );
                 KontoFx kontoFx = new KontoFx();
                 kontoFx.setId(resultSet.getInt(1));
                 kontoFx.setLogin(resultSet.getString(2));
                 kontoFx.setHaslo(resultSet.getString(3));
                 kontoFx.setAdmin(resultSet.getInt(4));
+                kontoFx.setKlientfx(resultSet.getInt(5));
                 kontoFxList.add(kontoFx);
             }
             resultSet.close();
@@ -38,16 +39,23 @@ public class KontoDao {
         return kontoFxList;
     }
 
-    public void insertKonto(Konto konto, int id) {
+    public void insertKonto(KontoFx kontoFx, int id) {
         Connections.initDataBase();
-        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + konto.getLogin() + "', '" + konto.getHaslo() + "', "
-                + konto.getAdmin()+", " + id);
+        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + kontoFx.getLogin() + "', '" + kontoFx.getHaslo() + "', "
+                + kontoFx.getAdmin()+", " + id);
         Connections.closeConnection();
     }
 
-    public void deleteKonto(Konto konto){
+    public void deleteKonto(KontoFx kontoFx){
         Connections.initDataBase();
-        Connections.deleteRecord("KONTO", "ID_KONTA = " + konto.getId());
+        Connections.deleteRecord("KONTO", "ID_KONTA = " + kontoFx.getId());
+        Connections.closeConnection();
+    }
+
+    public void updateKonto(KontoFx kontoFx){
+        Connections.initDataBase();
+        Connections.updateRecord("KONTO", "LOGIN = '" + kontoFx.getLogin() + "', HASLO = '" + kontoFx.getHaslo()
+                + "', CZY_ADMIN = " + kontoFx.getAdmin()," ID_KONTA = " + kontoFx.getId());
         Connections.closeConnection();
     }
 }

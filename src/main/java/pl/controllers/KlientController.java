@@ -28,25 +28,6 @@ public class KlientController extends BaseController{
     @FXML
     protected ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
 
-    @FXML
-    private void createOrUpdateKlientInDataBase(){
-        Klient klient = new Klient();
-        Konto konto = new Konto();
-        klient.setImie(imieTextField.getText());
-        klient.setNazwisko(nazwiskoTextField.getText());
-        klient.setEmail(emailTextField.getText());
-        konto.setLogin(loginTextField.getText());
-        konto.setHaslo(hasloTextField.getText());
-        String haslo2 = haslo2TextField.getText();
-
-        if(haslo2.equals(konto.getHaslo()) == true ) {
-            KlientDao klientDao = new KlientDao();
-            KontoDao kontoDao = new KontoDao();
-            klientDao.insertKlient(klient);
-            int id = klientDao.findKlient(klient);
-            kontoDao.insertKonto(konto, id);
-        }
-    }
 
     @FXML
     public void initialize() throws SQLException {
