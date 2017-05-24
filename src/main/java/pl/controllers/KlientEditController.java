@@ -15,14 +15,8 @@ import pl.tablesFx.KontoFx;
 /**
  * Created by Mateusz on 2017-05-03.
  */
-public class KlientEditController extends BaseController{
+public class KlientEditController extends AdminController{
 
-    @FXML
-    private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField;
-    @FXML
-    private PasswordField hasloPasswordField, haslo2PasswordField;
-    @FXML
-    private CheckBox adminCheckBox;
 
     private KlientFx klientFx;
     private KontoFx kontoFx;
@@ -32,18 +26,9 @@ public class KlientEditController extends BaseController{
 
         KlientFx klientFx = new KlientFx();
         KontoFx kontoFx = new KontoFx();
-
-        klientFx.setId(this.klientFx.getId());
-        klientFx.setImie(imieTextField.getText());
-        klientFx.setNazwisko(nazwiskoTextField.getText());
-        klientFx.setEmail(emailTextField.getText());
+        String haslo2 = getKlientValues(klientFx, kontoFx);
         kontoFx.setId(this.kontoFx.getId());
-        kontoFx.setLogin(loginTextField.getText());
-        kontoFx.setHaslo(hasloPasswordField.getText());
-        String haslo2 = haslo2PasswordField.getText();
-        if(adminCheckBox.isSelected())
-            kontoFx.setAdmin(1);
-        else kontoFx.setAdmin(0);
+        klientFx.setId(this.klientFx.getId());
 
         if(haslo2.equals(kontoFx.getHaslo()) == true ) {
             KlientDao klientDao = new KlientDao();
@@ -52,15 +37,6 @@ public class KlientEditController extends BaseController{
             kontoDao.updateKonto(kontoFx);
         }
         clearKlientTextField();
-    }
-    @FXML
-    private void clearKlientTextField(){
-        imieTextField.clear();
-        nazwiskoTextField.clear();
-        emailTextField.clear();
-        loginTextField.clear();
-        hasloPasswordField.clear();
-        haslo2PasswordField.clear();
     }
 
     @FXML

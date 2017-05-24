@@ -58,4 +58,18 @@ public class FilmDao {
         return id;
     }
 
+    public void deleteFilm(FilmFx filmFx){
+        Connections.initDataBase();
+        Connections.deleteRecord("FILM", "ID_FILMU = " + filmFx.getId());
+        Connections.closeConnection();
+    }
+
+    public void updateFilm(Film film){
+        Connections.initDataBase();
+        Connections.updateRecord("FILM", "NAZWA = '"+film.getNazwa()+"', OPIS = '"+film.getOpis()+"', ILOSC = "+
+                film.getIlosc()+", PREMIERA = '" +film.getPremiera()+"', ID_GATUNKU = "+film.getGatunek()+", ID_REZYSERA = "+
+                film.getRezyser(), " Id_FILMU = " + film.getId());
+        Connections.closeConnection();
+    }
+
 }

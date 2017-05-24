@@ -72,7 +72,7 @@ public class KlientDao  {
         ObservableList<KlientFx> klientFxList = selectAll();
         int id = 0;
         for(KlientFx e: klientFxList){
-            System.out.println(e);
+            //System.out.println(e);
             if( klientFx.getImie().equals(e.getImie()) && klientFx.getNazwisko().equals(e.getNazwisko()) &&
                     klientFx.getEmail().equals(e.getEmail())) {
                 id = e.getId();
