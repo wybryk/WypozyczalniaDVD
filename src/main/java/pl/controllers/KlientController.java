@@ -36,10 +36,9 @@ public class KlientController extends BaseController{
     @FXML
     protected ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
 
-<<<<<<< HEAD
-=======
     private static final String LOGIN_FXML = "/logowanie.fxml";
 
+    /*
     @FXML
     private void createOrUpdateKlientInDataBase(){
         Klient klient = new Klient();
@@ -59,7 +58,8 @@ public class KlientController extends BaseController{
             kontoDao.insertKonto(konto, id);
         }
     }
->>>>>>> refs/remotes/origin/to-co-Damian-robi
+    */
+// refs/remotes/origin/to-co-Damian-robi
 
     @FXML
     public void initialize() throws SQLException {
