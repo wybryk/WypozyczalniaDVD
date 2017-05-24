@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.Controller">
+  <tabs>
+      <Tab style="-fx-background-color: #41BBD9;" text="Logowanie">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <AnchorPane layoutX="149.0" layoutY="39.0" prefHeight="364.0" prefWidth="343.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="148.0">
+                     <children>
+                        <Label layoutX="97.0" layoutY="14.0" prefHeight="93.0" prefWidth="149.0" text="Logowanie" textAlignment="CENTER" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="97.0">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="loginText" layoutX="97.0" layoutY="123.0" />
+                        <Label layoutX="29.0" layoutY="123.0" prefHeight="37.0" prefWidth="60.0" text="Login:" AnchorPane.leftAnchor="29.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="hasloText" layoutX="97.0" layoutY="182.0" />
+                        <Label layoutX="29.0" layoutY="180.0" prefHeight="35.0" prefWidth="61.0" text="Hasło:" AnchorPane.leftAnchor="29.0">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="124.0" layoutY="260.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="96.0" style="-fx-background-color: #99C24D;" text="Zaloguj">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab style="-fx-background-color: #41BBD9;" text="Klient">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextField layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="538.0" />
+                  <Button layoutX="564.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #99C24D;" text="Szukaj" />
+                  <SplitPane layoutX="135.0" layoutY="50.0" prefHeight="339.0" prefWidth="630.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                     <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <SplitPane dividerPositions="0.26517571884984026" layoutX="77.0" layoutY="39.0" prefHeight="337.0" prefWidth="628.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <items>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="335.0" prefWidth="90.0">
+                                       <children>
+                                          <ListView layoutX="-19.0" layoutY="14.0" prefHeight="335.0" prefWidth="162.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                       </children>
+                                    </AnchorPane>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                                 </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab style="-fx-background-color: #41BBD9;" text="Admin">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab style="-fx-background-color: #99C24D;" text="Filmy">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="640.0">
+                                 <children>
+                                    <TabPane minHeight="-Infinity" prefHeight="402.0" prefWidth="640.0" style="-fx-background-color: #fcfcfc;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <tabs>
+                                          <Tab style="-fx-background-color: #F18F01;" text="Dodaj">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="12.0" prefHeight="37.0" prefWidth="70.0" text="Nazwa:" AnchorPane.topAnchor="12.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="55.0" prefHeight="37.0" prefWidth="70.0" text="Reżyser:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="95.0" prefHeight="37.0" prefWidth="70.0" text="Opis:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField layoutX="101.0" layoutY="43.0" prefHeight="31.0" prefWidth="500.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="15.0" />
+                                                      <TextField layoutX="100.0" layoutY="55.0" prefHeight="31.0" prefWidth="501.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="39.0" />
+                                                      <TextArea layoutX="100.0" layoutY="95.0" prefHeight="70.0" prefWidth="501.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="39.0" />
+                                                      <Label layoutX="14.0" layoutY="177.0" prefHeight="37.0" prefWidth="70.0" text="Gatunek:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="279.0" layoutY="180.0" prefHeight="37.0" prefWidth="106.0" text="Data Premiery:" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="255.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <DatePicker layoutX="385.0" layoutY="180.0" AnchorPane.leftAnchor="385.0" />
+                                                      <Spinner layoutX="100.0" layoutY="234.0" prefHeight="31.0" prefWidth="150.0" AnchorPane.leftAnchor="100.0" />
+                                                      <Label layoutX="14.0" layoutY="230.0" prefHeight="40.0" prefWidth="87.0" text="Liczba kopii:" wrapText="true" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Button layoutX="437.0" layoutY="227.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="114.0" style="-fx-background-color: #99C24D;" text="Dodaj" AnchorPane.leftAnchor="437.0" />
+                                                      <ComboBox id="gatunkiBox" layoutX="100.0" layoutY="183.0" prefHeight="31.0" prefWidth="133.0" AnchorPane.leftAnchor="100.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab style="-fx-background-color: #F18F01;" text="Wyszukaj">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                                   <children>
+                                                      <TextField layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="529.0" />
+                                                      <Button layoutX="543.0" layoutY="20.0" mnemonicParsing="false" style="-fx-background-color: #99C24D;" text="Szukaj" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab style="-fx-background-color: #99C24D;" text="Konta">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="386.0" prefWidth="640.0">
+                                 <children>
+                                    <TabPane prefHeight="402.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <tabs>
+                                          <Tab style="-fx-background-color: #F18F01;" text="Dodaj">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                                   <children>
+                                                      <Label layoutX="14.0" layoutY="181.0" prefHeight="20.0" prefWidth="94.0" text="Hasło:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="221.0" prefHeight="20.0" prefWidth="94.0" text="Powtórz hasło:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="141.0" prefHeight="20.0" prefWidth="94.0" text="Login:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="101.0" prefHeight="20.0" prefWidth="94.0" text="E-mail" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="61.0" prefHeight="20.0" prefWidth="94.0" text="Nazwisko:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <Label layoutX="14.0" layoutY="21.0" prefHeight="20.0" prefWidth="94.0" text="Imię:" AnchorPane.leftAnchor="14.0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="imie" layoutX="108.0" layoutY="15.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <TextField fx:id="nazwisko" layoutX="108.0" layoutY="55.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <TextField fx:id="email" layoutX="108.0" layoutY="95.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <TextField fx:id="login" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <TextField fx:id="haslo" layoutX="108.0" layoutY="175.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <TextField fx:id="haslo2" layoutX="108.0" layoutY="215.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                                      <Button layoutX="108.0" layoutY="301.0" mnemonicParsing="false" onAction="#addKlientToDataBase" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #99C24D;" text="Dodaj" AnchorPane.leftAnchor="108.0" />
+                                                      <CheckBox fx:id="admin" layoutX="108.0" layoutY="260.0" mnemonicParsing="false" text="Czy nadać uprawnienia administratora?" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="245.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                          <Tab style="-fx-background-color: #F18F01;" text="Wyszukaj">
+                                             <content>
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                                   <children>
+                                                      <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #99C24D;" text="Szukaj" />
+                                                      <TextField layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="530.0" />
+                                                   </children>
+                                                </AnchorPane>
+                                             </content>
+                                          </Tab>
+                                       </tabs>
+                                    </TabPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

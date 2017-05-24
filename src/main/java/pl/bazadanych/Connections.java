@@ -1,6 +1,7 @@
 package pl.bazadanych;
 
 import java.sql.*;
+import java.sql.Connection;
 
 /**
  * Created by Mateusz on 2017-04-20.
