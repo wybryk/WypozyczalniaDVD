@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.AdminController">
+   <children>
+      <TabPane layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <tabs>
+            <Tab style="-fx-background-color: #99C24D;" text="Filmy">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="314.0" prefWidth="640.0">
+                     <children>
+                        <TabPane minHeight="-Infinity" prefHeight="441.0" prefWidth="640.0" style="-fx-background-color: #fcfcfc;" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <tabs>
+                              <Tab style="-fx-background-color: #F18F01;" text="Dodaj">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                       <children>
+                                          <Label layoutX="32.0" layoutY="27.0" prefHeight="37.0" prefWidth="70.0" text="Nazwa:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="27.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="30.0" layoutY="88.0" prefHeight="37.0" prefWidth="70.0" text="Reżyser:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="88.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="30.0" layoutY="152.0" prefHeight="37.0" prefWidth="70.0" text="Opis:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="152.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="nazwaTextField" layoutX="101.0" layoutY="43.0" prefHeight="31.0" prefWidth="500.0" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="39.0" AnchorPane.topAnchor="30.0" />
+                                          <TextField fx:id="rezyserTextField" layoutX="102.0" layoutY="74.0" prefHeight="31.0" prefWidth="501.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="91.0" />
+                                          <TextArea fx:id="opisTextArea" layoutX="101.0" layoutY="166.0" prefHeight="70.0" prefWidth="501.0" wrapText="true" AnchorPane.leftAnchor="101.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="152.0" />
+                                          <Label layoutX="30.0" layoutY="249.0" prefHeight="37.0" prefWidth="70.0" text="Gatunek:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="314.0" prefHeight="50.0" prefWidth="87.0" text="Data Premiery:" wrapText="true" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="premieraDatePicker" layoutX="100.0" layoutY="283.0" prefWidth="150.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="323.0" />
+                                          <Spinner fx:id="liczbaKopiSpinner" layoutX="452.0" layoutY="212.0" prefHeight="31.0" prefWidth="150.0" AnchorPane.leftAnchor="452.0" AnchorPane.topAnchor="252.0" />
+                                          <Label layoutX="352.0" layoutY="248.0" prefHeight="40.0" prefWidth="87.0" text="Liczba kopii:" wrapText="true" AnchorPane.leftAnchor="352.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Button layoutX="452.0" layoutY="314.0" mnemonicParsing="false" onAction="#addFilmToDataBase" prefHeight="47.0" prefWidth="150.0" style="-fx-background-color: #99C24D;" text="Dodaj" AnchorPane.leftAnchor="452.0" AnchorPane.topAnchor="314.0" />
+                                          <ComboBox id="gatunkiBox" fx:id="gatunekComboBox" layoutX="100.0" layoutY="280.0" prefHeight="31.0" prefWidth="150.0" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="252.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab style="-fx-background-color: #F18F01;" text="Wyszukaj">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                       <children>
+                                          <TextField fx:id="filmTextField" layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="529.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
+                                          <Button layoutX="553.0" layoutY="20.0" mnemonicParsing="false" onAction="#findFilm" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
+                                          <ListView fx:id="filmListView" layoutX="20.0" layoutY="64.0" prefHeight="275.0" prefWidth="603.0" />
+                                          <Button layoutX="562.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteFilm" text="Usuń" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="50.0" />
+                                          <Button layoutX="462.0" layoutY="357.0" mnemonicParsing="false" onAction="#editFilm" text="Edytuj" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="150.0" />
+                                          <Button layoutX="339.0" layoutY="357.0" mnemonicParsing="false" onAction="#borrowFilm" text="Wypożycz" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="250.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab style="-fx-background-color: #99C24D;" text="Konta">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="386.0" prefWidth="640.0">
+                     <children>
+                        <TabPane prefHeight="402.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <tabs>
+                              <Tab style="-fx-background-color: #F18F01;" text="Dodaj">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                       <children>
+                                          <Label layoutX="14.0" layoutY="181.0" prefHeight="20.0" prefWidth="94.0" text="Hasło:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="221.0" prefHeight="20.0" prefWidth="94.0" text="Powtórz hasło:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="141.0" prefHeight="20.0" prefWidth="94.0" text="Login:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="101.0" prefHeight="20.0" prefWidth="94.0" text="E-mail" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="61.0" prefHeight="20.0" prefWidth="94.0" text="Nazwisko:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutX="14.0" layoutY="21.0" prefHeight="20.0" prefWidth="94.0" text="Imię:" AnchorPane.leftAnchor="14.0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="imieTextField" layoutX="108.0" layoutY="15.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="nazwiskoTextField" layoutX="108.0" layoutY="55.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="emailTextField" layoutX="108.0" layoutY="96.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <TextField fx:id="loginTextField" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+                                          <Button layoutX="108.0" layoutY="301.0" mnemonicParsing="false" onAction="#addKlientToDataBase" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #99C24D;" text="Dodaj" AnchorPane.leftAnchor="108.0" />
+                                          <CheckBox fx:id="adminCheckBox" layoutX="108.0" layoutY="260.0" mnemonicParsing="false" text="Nadać uprawnienia administratora?" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="245.0" />
+                                          <PasswordField fx:id="hasloPasswordField" layoutX="108.0" layoutY="176.0" prefHeight="31.0" prefWidth="488.0" />
+                                          <PasswordField fx:id="haslo2PasswordField" layoutX="108.0" layoutY="216.0" prefWidth="488.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab style="-fx-background-color: #F18F01;" text="Wyszukaj">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
+                                       <children>
+                                          <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" onAction="#findKontoButton" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
+                                          <TextField fx:id="kontoTextField" layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="530.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
+                                          <ListView fx:id="kontoListView" layoutX="20.0" layoutY="57.0" prefHeight="195.0" prefWidth="602.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
+                                          <Button fx:id="deleteKontoButton" layoutX="557.0" layoutY="265.0" mnemonicParsing="false" onAction="#deleteKonto" text="Usuń" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="30.0" />
+                                          <Button fx:id="editKontoButton" layoutX="456.0" layoutY="265.0" mnemonicParsing="false" onAction="#editKonto" text="Edytuj" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="120.0" />
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                           </tabs>
+                        </TabPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

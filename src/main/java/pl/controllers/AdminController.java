@@ -21,13 +21,8 @@ import java.util.stream.Collectors;
 /**
  * Created by Mateusz on 2017-04-22.
  */
-public class AdminController extends BaseController {
+public class AdminController extends KlientController {
 
-    private static AdminController instance = new AdminController();
-
-    public static AdminController getInstance() {
-        return instance;
-    }
 
     private static final String EDIT_KONTO_FXML = "/klientEdit.fxml";
 
@@ -62,29 +57,6 @@ public class AdminController extends BaseController {
     private ObjectProperty<KontoFx> kontoFxObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<FilmFx> filmFxObjectProperty = new SimpleObjectProperty<>();
     protected SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
-
-    private KontoFx kontoFx;
-    private  KlientFx klientFx;
-    private FilmFx filmFx;
-
-    public KontoFx getKontoFx() {
-        return kontoFx;
-    }
-    public void setKontoFx(KontoFx kontoFx) {
-        this.kontoFx = kontoFx;
-    }
-    public KlientFx getKlientFx() {
-        return klientFx;
-    }
-    public void setKlientFx(KlientFx klientFx) {
-        this.klientFx = klientFx;
-    }
-    public FilmFx getFilmFx() {
-        return filmFx;
-    }
-    public void setFilmFx(FilmFx filmFx) {
-        this.filmFx = filmFx;
-    }
 
 
     protected String getKlientValues(KlientFx klientFx, KontoFx kontoFx){
@@ -227,8 +199,8 @@ public class AdminController extends BaseController {
         KlientFx klientFx = new KlientFx();
         KontoFx kontoFx = new KontoFx();
         getKontoAndKlientFromListView(kontoFx, klientFx);
-        AdminController.getInstance().setKontoFx(kontoFx);
-        AdminController.getInstance().setKlientFx(klientFx);
+        Singleton.getInstance().setKontoFx(kontoFx);
+        Singleton.getInstance().setKlientFx(klientFx);
 
         openWindow(EDIT_KONTO_FXML);
     }
@@ -276,7 +248,7 @@ public class AdminController extends BaseController {
     private void editFilm() {
         FilmFx filmFx = new FilmFx();
         getFilmFromListView(filmFx);
-        AdminController.getInstance().setFilmFx(filmFx);
+        Singleton.getInstance().setFilmFx(filmFx);
 
         openWindow(EDIT_FILM_FXML);
     }

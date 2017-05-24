@@ -9,27 +9,25 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.KlientController">
    <children>
-      <Separator layoutY="63.0" prefHeight="0.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0" />
-      <TextField fx:id="filmTextField" layoutX="14.0" layoutY="51.0" prefHeight="31.0" prefWidth="550.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="76.0" />
-      <Button layoutX="576.0" layoutY="54.0" mnemonicParsing="false" onAction="#findMovie" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="14.0" />
-      <SplitPane dividerPositions="0.28213166144200624" layoutX="92.0" layoutY="86.0" prefHeight="394.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
+      <Separator layoutY="47.0" prefHeight="0.0" prefWidth="640.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0" />
+      <Button layoutX="564.0" layoutY="48.0" mnemonicParsing="false" onAction="#findMovie" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="50.0" />
+      <SplitPane dividerPositions="0.21473354231974923" layoutX="92.0" layoutY="86.0" prefHeight="394.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="86.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="378.0" prefWidth="177.0">
                <children>
-                  <ListView fx:id="gatunekListView" layoutX="-21.0" prefHeight="392.0" prefWidth="177.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <ListView fx:id="gatunekListView" layoutX="-21.0" onMouseClicked="#findMovieByCategory" prefHeight="392.0" prefWidth="176.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="445.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="486.0">
                <children>
-                  <ListView fx:id="filmListView" prefHeight="343.0" prefWidth="445.0" />
-                  <Button onAction="#deleteMovie" layoutX="370.0" layoutY="354.0" mnemonicParsing="false" text="Usuń" />
-                  <Button onAction="#editMovie" layoutX="299.0" layoutY="354.0" mnemonicParsing="false" text="Edytuj" />
-                  <Button onAction="#borrowMovie" layoutX="210.0" layoutY="354.0" mnemonicParsing="false" text="Wypożycz" />
+                  <ListView fx:id="filmListView" prefHeight="344.0" prefWidth="475.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <Button layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#reserveMovie" text="Zarezerwuj" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="50.0" />
                </children></AnchorPane>
         </items>
       </SplitPane>
-      <Button onAction="#viewAccount" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="14.0" />
-      <Button onAction="#viewBorrowed" layoutX="128.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Moje wypożyczenia" textFill="#091414" />
-      <Button  onAction="#logOut" layoutX="464.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" />
+      <Button layoutX="27.0" layoutY="7.0" mnemonicParsing="false" onAction="#viewAccount" prefHeight="20.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="7.0" />
+      <Button layoutX="155.0" layoutY="7.0" mnemonicParsing="false" onAction="#viewBorrowed" prefHeight="31.0" prefWidth="165.0" text="Moje wypożyczenia" textFill="#091414" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="7.0" />
+      <Button layoutX="388.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="7.0" />
+      <TextField fx:id="filmTextField" layoutX="14.0" layoutY="48.0" prefHeight="31.0" prefWidth="533.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="50.0" />
    </children>
 </AnchorPane>

@@ -1,5 +1,7 @@
 package pl.controllers;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +18,8 @@ import pl.bazadanych.tables.Klient;
 import pl.bazadanych.tables.Konto;
 import pl.tablesFx.FilmFx;
 import pl.tablesFx.GatunekFx;
+import pl.tablesFx.KlientFx;
+import pl.tablesFx.KontoFx;
 
 
 import java.sql.SQLException;
@@ -28,48 +32,47 @@ public class KlientController extends BaseController{
     @FXML
     private ListView<GatunekFx> gatunekListView;
     @FXML
-    protected ListView<FilmFx> filmListView;
+    private ListView<FilmFx> filmListView;
     @FXML
     private ObservableList<FilmFx> filmList = FXCollections.observableArrayList();
     @FXML
-    protected TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField, filmTextField;
+    private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField, filmTextField;
     @FXML
-    protected ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+    private ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
 
-<<<<<<< HEAD
-=======
+    private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
+
+
     private static final String LOGIN_FXML = "/logowanie.fxml";
 
     @FXML
-    private void createOrUpdateKlientInDataBase(){
-        Klient klient = new Klient();
-        Konto konto = new Konto();
-        klient.setImie(imieTextField.getText());
-        klient.setNazwisko(nazwiskoTextField.getText());
-        klient.setEmail(emailTextField.getText());
-        konto.setLogin(loginTextField.getText());
-        konto.setHaslo(hasloTextField.getText());
+    private void updateKlientInDataBase(){
+        KlientFx klientFx = new KlientFx();
+        KontoFx kontoFx = new KontoFx();
+        klientFx.setImie(imieTextField.getText());
+        klientFx.setNazwisko(nazwiskoTextField.getText());
+        klientFx.setEmail(emailTextField.getText());
+        kontoFx.setLogin(loginTextField.getText());
+        kontoFx.setHaslo(hasloTextField.getText());
         String haslo2 = haslo2TextField.getText();
 
-        if(haslo2.equals(konto.getHaslo()) == true ) {
+        if(haslo2.equals(kontoFx.getHaslo()) == true ) {
             KlientDao klientDao = new KlientDao();
             KontoDao kontoDao = new KontoDao();
-            klientDao.insertKlient(klient);
-            int id = klientDao.findKlient(klient);
-            kontoDao.insertKonto(konto, id);
+            klientDao.updateKlient(klientFx);
+            kontoFx.setId(klientDao.findKlient(klientFx));
+            kontoDao.updateKonto(kontoFx);
         }
     }
->>>>>>> refs/remotes/origin/to-co-Damian-robi
-
     @FXML
     public void initialize() throws SQLException {
         GatunekDao gatunekDao = new GatunekDao();
         gatunekList = gatunekDao.selectAll();
         gatunekListView.setItems(gatunekList);
     }
-
     @FXML
     public void findMovie() {
+        filmListView.getItems().clear();
         String title = filmTextField.getText();
         FilmDao filmDao = new FilmDao();
         List<FilmFx> filmFxList = filmDao.selectAllFilm();
@@ -88,8 +91,42 @@ public class KlientController extends BaseController{
 
                 filmList.add(filmFx);
             }
+            else if(title.isEmpty()){
+                filmList = FXCollections.observableList(filmFxList);
+            }
         });
         filmListView.setItems(filmList);
+    }
+    @FXML
+    private void findMovieByCategory(){
+        filmListView.getItems().clear();
+        FilmDao filmDao = new FilmDao();
+        List<FilmFx> filmFxList = filmDao.selectAllFilm();
+
+        GatunekFx gatunekFx = new GatunekFx();
+        getGatunekFromListView(gatunekFx);
+        System.out.println(gatunekFx.getId());
+        filmFxList.forEach(e -> {
+            if (e.getGatunekFx() == gatunekFx.getId())
+            {
+                FilmFx filmFx = new FilmFx();
+                filmFx.setId(e.getId());
+                filmFx.setNazwa(e.getNazwa());
+                filmFx.setIlosc(e.getIlosc());
+                filmFx.setOpis(e.getOpis());
+                filmFx.setPremiera(e.getPremiera());
+                filmFx.setGatunekFx(e.getGatunekFx());
+                filmFx.setRezyserFx(e.getRezyserFx());
+
+                filmList.add(filmFx);
+            }
+        });
+        filmListView.setItems(filmList);
+    }
+    @FXML
+    private void getGatunekFromListView(GatunekFx gatunekFx){
+        gatunekFxObjectProperty.set(gatunekListView.getSelectionModel().getSelectedItem());
+        gatunekFx.setId(gatunekFxObjectProperty.getValue().getId());
     }
 
     public void logOut(ActionEvent actionEvent) {
@@ -102,12 +139,6 @@ public class KlientController extends BaseController{
     public void viewAccount(ActionEvent actionEvent) {
     }
 
-    public void deleteMovie(ActionEvent actionEvent) {
-    }
-
-    public void editMovie(ActionEvent actionEvent) {
-    }
-
-    public void borrowMovie(ActionEvent actionEvent) {
+    public void reserveMovie(ActionEvent actionEvent) {
     }
 }

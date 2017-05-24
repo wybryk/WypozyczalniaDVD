@@ -10,6 +10,7 @@ import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
 import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
+import pl.tablesFx.Singleton;
 
 
 /**
@@ -41,8 +42,8 @@ public class KlientEditController extends AdminController{
 
     @FXML
     public void initialize()  {
-        this.kontoFx = AdminController.getInstance().getKontoFx();
-        this.klientFx = AdminController.getInstance().getKlientFx();
+        this.kontoFx = Singleton.getInstance().getKontoFx();
+        this.klientFx = Singleton.getInstance().getKlientFx();
     }
 
 }

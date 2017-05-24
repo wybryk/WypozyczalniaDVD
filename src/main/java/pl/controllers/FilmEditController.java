@@ -5,6 +5,7 @@ import pl.bazadanych.dao.FilmDao;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.tables.Film;
 import pl.tablesFx.FilmFx;
+import pl.tablesFx.Singleton;
 
 /**
  * Created by Mateusz on 2017-05-24.
@@ -27,7 +28,7 @@ public class FilmEditController extends AdminController{
     }
     @FXML
     public void initialize()  {
-        this.filmFx = AdminController.getInstance().getFilmFx();
+        this.filmFx = Singleton.getInstance().getFilmFx();
         GatunekDao gatunekDao = new GatunekDao();
         liczbaKopiSpinner.setValueFactory(valueFactory);
         gatunekList = gatunekDao.selectAll();
