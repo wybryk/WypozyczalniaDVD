@@ -39,32 +39,12 @@ public class KlientController extends BaseController{
 
     private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
 
-
-    protected static final String LOGIN_FXML = "/logowanie.fxml";
-
     private static final String EDIT_KONTO_FXML = "/klientEditKlient.fxml";
 
     private static final String WYPOZYCZENIA_FXML = "/mojeWypozyczenia.fxml";
 
-    @FXML
-    private void updateKlientInDataBase(){
-        KlientFx klientFx = new KlientFx();
-        KontoFx kontoFx = new KontoFx();
-        klientFx.setImie(imieTextField.getText());
-        klientFx.setNazwisko(nazwiskoTextField.getText());
-        klientFx.setEmail(emailTextField.getText());
-        kontoFx.setLogin(loginTextField.getText());
-        kontoFx.setHaslo(hasloTextField.getText());
-        String haslo2 = haslo2TextField.getText();
+    private static final String LOGIN_FXML = "/logowanie.fxml";
 
-        if(haslo2.equals(kontoFx.getHaslo()) == true ) {
-            KlientDao klientDao = new KlientDao();
-            KontoDao kontoDao = new KontoDao();
-            klientDao.updateKlient(klientFx);
-            kontoFx.setId(klientDao.findKlient(klientFx));
-            kontoDao.updateKonto(kontoFx);
-        }
-    }
     @FXML
     public void initialize() throws SQLException {
         GatunekDao gatunekDao = new GatunekDao();
