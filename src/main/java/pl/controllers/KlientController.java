@@ -86,7 +86,6 @@ public class KlientController extends BaseController{
 
         GatunekFx gatunekFx = new GatunekFx();
         getGatunekFromListView(gatunekFx);
-        System.out.println(gatunekFx.getId());
         filmFxList.forEach(e -> {
             if (e.getGatunekFx() == gatunekFx.getId())
             {
