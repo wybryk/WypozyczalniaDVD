@@ -22,8 +22,6 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="445.0">
                <children>
                   <ListView fx:id="filmListView" prefHeight="343.0" prefWidth="445.0" />
-                  <Button onAction="#deleteMovie" layoutX="370.0" layoutY="354.0" mnemonicParsing="false" text="Usuń" />
-                  <Button onAction="#editMovie" layoutX="299.0" layoutY="354.0" mnemonicParsing="false" text="Edytuj" />
                   <Button onAction="#borrowMovie" layoutX="210.0" layoutY="354.0" mnemonicParsing="false" text="Wypożycz" />
                </children></AnchorPane>
         </items>

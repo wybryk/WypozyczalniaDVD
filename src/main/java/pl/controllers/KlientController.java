@@ -20,6 +20,7 @@ import pl.tablesFx.GatunekFx;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.*;
 
 /**
  * Created by Mateusz on 2017-04-22.
@@ -73,10 +74,10 @@ public class KlientController extends BaseController{
         String title = filmTextField.getText();
         FilmDao filmDao = new FilmDao();
         List<FilmFx> filmFxList = filmDao.selectAllFilm();
-
+        //czyscimy liste przy kazdym wywolaniu
+        filmList.clear();
         filmFxList.forEach(e -> {
-            if (title.equals(e.getNazwa()))
-            {
+            if (Pattern.matches("[a-zA-Z0-9\\s]*" + title + "[a-zA-Z0-9\\s]*", e.getNazwa())) {
                 FilmFx filmFx = new FilmFx();
                 filmFx.setId(e.getId());
                 filmFx.setNazwa(e.getNazwa());
@@ -100,12 +101,6 @@ public class KlientController extends BaseController{
     }
 
     public void viewAccount(ActionEvent actionEvent) {
-    }
-
-    public void deleteMovie(ActionEvent actionEvent) {
-    }
-
-    public void editMovie(ActionEvent actionEvent) {
     }
 
     public void borrowMovie(ActionEvent actionEvent) {
