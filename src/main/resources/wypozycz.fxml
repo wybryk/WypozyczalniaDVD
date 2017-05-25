@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #fcfcfc;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.WypozyczController">
+   <children>
+      <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" onAction="#findKontoButton" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
+      <TextField fx:id="kontoTextField" layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="530.0" promptText="Szukaj konta" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
+      <ListView fx:id="kontoListView" layoutX="20.0" layoutY="75.0" prefHeight="195.0" prefWidth="602.0" AnchorPane.bottomAnchor="95.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="75.0" />
+      <Button layoutX="557.0" layoutY="265.0" mnemonicParsing="false" onAction="#borrow" text="Wypożycz" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="30.0" />
+   </children>
+</AnchorPane>

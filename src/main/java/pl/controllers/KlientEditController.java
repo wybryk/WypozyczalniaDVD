@@ -19,11 +19,11 @@ import pl.tablesFx.Singleton;
 public class KlientEditController extends AdminController{
 
 
-    private KlientFx klientFx;
-    private KontoFx kontoFx;
+    protected KlientFx klientFx;
+    protected KontoFx kontoFx;
 
     @FXML
-    private void updateKlientInDataBase(){
+    protected void updateKlientInDataBase(){
 
         KlientFx klientFx = new KlientFx();
         KontoFx kontoFx = new KontoFx();
@@ -44,6 +44,7 @@ public class KlientEditController extends AdminController{
     public void initialize()  {
         this.kontoFx = Singleton.getInstance().getKontoFx();
         this.klientFx = Singleton.getInstance().getKlientFx();
+        System.out.println(klientFx + "\n" + kontoFx);
     }
 
 }

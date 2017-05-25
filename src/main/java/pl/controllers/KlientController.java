@@ -16,10 +16,7 @@ import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
 import pl.bazadanych.tables.Klient;
 import pl.bazadanych.tables.Konto;
-import pl.tablesFx.FilmFx;
-import pl.tablesFx.GatunekFx;
-import pl.tablesFx.KlientFx;
-import pl.tablesFx.KontoFx;
+import pl.tablesFx.*;
 
 
 import java.sql.SQLException;
@@ -43,7 +40,11 @@ public class KlientController extends BaseController{
     private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
 
 
-    private static final String LOGIN_FXML = "/logowanie.fxml";
+    protected static final String LOGIN_FXML = "/logowanie.fxml";
+
+    private static final String EDIT_KONTO_FXML = "/klientEditKlient.fxml";
+
+    private static final String WYPOZYCZENIA_FXML = "/mojeWypozyczenia.fxml";
 
     @FXML
     private void updateKlientInDataBase(){
@@ -128,15 +129,20 @@ public class KlientController extends BaseController{
         gatunekFxObjectProperty.set(gatunekListView.getSelectionModel().getSelectedItem());
         gatunekFx.setId(gatunekFxObjectProperty.getValue().getId());
     }
-
-    public void logOut(ActionEvent actionEvent) {
+    @FXML
+    protected void logOut(ActionEvent actionEvent) {
         changeWindow(actionEvent, LOGIN_FXML);
     }
 
     public void viewBorrowed(ActionEvent actionEvent) {
+        openWindow(WYPOZYCZENIA_FXML);
     }
 
     public void viewAccount(ActionEvent actionEvent) {
+        KontoFx kontoFx = Singleton.getInstance().getKontoFx();
+        KlientDao klientDao = new KlientDao();
+        Singleton.getInstance().setKlientFx(klientDao.findKlientById(kontoFx.getKlientfx()));
+        openWindow(EDIT_KONTO_FXML);
     }
 
     public void reserveMovie(ActionEvent actionEvent) {

@@ -28,6 +28,8 @@ public class AdminController extends KlientController {
 
     private static final String EDIT_FILM_FXML = "/filmEdit.fxml";
 
+    private static final String BORROW_FILM_FXML = "/wypozycz.fxml";
+
     @FXML
     protected ComboBox<GatunekFx> gatunekComboBox;
     @FXML
@@ -254,9 +256,13 @@ public class AdminController extends KlientController {
     }
     @FXML
     private void borrowFilm() {
+        FilmFx filmFx = new FilmFx();
+        getFilmFromListView(filmFx);
+        Singleton.getInstance().setFilmFx(filmFx);
 
+        openWindow(BORROW_FILM_FXML);
     }
-    @FXML
+
     public void initialize() throws SQLException {
         GatunekDao gatunekDao = new GatunekDao();
         liczbaKopiSpinner.setValueFactory(valueFactory);

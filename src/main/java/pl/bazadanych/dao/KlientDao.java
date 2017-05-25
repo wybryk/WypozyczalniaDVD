@@ -21,10 +21,13 @@ public class KlientDao  {
         ResultSet resultSet = Connections.selectRecords("KLIENT", "ID_KLIENTA = " + id);
         KlientFx klientFx = new KlientFx();
         try{
-            klientFx.setId(resultSet.getInt(1));
-            klientFx.setImie(resultSet.getString(2));
-            klientFx.setNazwisko(resultSet.getString(3));
-            klientFx.setEmail(resultSet.getString(4));
+            while (resultSet.next()) {
+                klientFx.setId(resultSet.getInt(1));
+                klientFx.setImie(resultSet.getString(2));
+                klientFx.setNazwisko(resultSet.getString(3));
+                klientFx.setEmail(resultSet.getString(4));
+            }
+            resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

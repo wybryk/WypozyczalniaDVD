@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.KlientEditKlientController">
+   <children>
+      <AnchorPane layoutX="10.0" layoutY="10.0" minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fcfcfc;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="14.0" layoutY="244.0" prefHeight="20.0" prefWidth="94.0" text="Hasło:" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="295.0" prefHeight="20.0" prefWidth="94.0" text="Powtórz hasło:" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="193.0" prefHeight="20.0" prefWidth="94.0" text="Login:" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="142.0" prefHeight="20.0" prefWidth="94.0" text="E-mail" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="91.0" prefHeight="20.0" prefWidth="94.0" text="Nazwisko:" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="40.0" prefHeight="20.0" prefWidth="94.0" text="Imię:" AnchorPane.leftAnchor="14.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="imieTextField" layoutX="108.0" layoutY="40.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+            <TextField fx:id="nazwiskoTextField" layoutX="108.0" layoutY="91.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+            <TextField fx:id="emailTextField" layoutX="108.0" layoutY="142.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+            <TextField fx:id="loginTextField" layoutX="108.0" layoutY="193.0" prefHeight="25.0" prefWidth="488.0" AnchorPane.leftAnchor="108.0" AnchorPane.rightAnchor="44.0" />
+            <Button layoutX="108.0" layoutY="370.0" mnemonicParsing="false" onAction="#updateKlientInDataBase" prefHeight="41.0" prefWidth="105.0" style="-fx-background-color: #99C24D;" text="Zmień" AnchorPane.leftAnchor="108.0" />
+            <PasswordField fx:id="hasloPasswordField" layoutX="108.0" layoutY="239.0" prefHeight="31.0" prefWidth="488.0" />
+            <PasswordField fx:id="haslo2PasswordField" layoutX="108.0" layoutY="290.0" prefHeight="31.0" prefWidth="488.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

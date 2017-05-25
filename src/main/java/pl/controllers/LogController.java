@@ -8,7 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import pl.bazadanych.dao.KontoDao;
+import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
+import pl.tablesFx.Singleton;
 
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class LogController extends BaseController{
                     System.out.println("Zalogowano admin");
                 }
                 else if (e.getAdmin() == 0) {
+                    Singleton.getInstance().setKontoFx(e);
                     changeWindow(event, KLIENT_FXML);
                     System.out.println("Zalogowano klient");
                 }
