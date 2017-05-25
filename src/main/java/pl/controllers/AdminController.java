@@ -16,6 +16,7 @@ import javafx.event.ActionEvent;
 import javax.script.Bindings;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -238,9 +239,10 @@ public class AdminController extends BaseController {
         String title = filmTextField.getText();
         FilmDao filmDao = new FilmDao();
         List<FilmFx> filmFxList = filmDao.selectAllFilm();
-
+        //czyscimy liste przy kazdym wywolaniu
+        filmList.clear();
         filmFxList.forEach(e -> {
-            if (title.equals(e.getNazwa()))
+            if (Pattern.matches("[a-zA-Z0-9\\s]*" + title + "[a-zA-Z0-9\\s]*", e.getNazwa()))
             {
                 FilmFx filmFx = new FilmFx();
                 filmFx.setId(e.getId());

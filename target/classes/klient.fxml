@@ -22,12 +22,12 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="388.0" prefWidth="445.0">
                <children>
                   <ListView fx:id="filmListView" prefHeight="343.0" prefWidth="445.0" />
-                  <Button onAction="#borrowMovie" layoutX="210.0" layoutY="354.0" mnemonicParsing="false" text="Wypożycz" />
+                  <Button layoutX="375.0" layoutY="353.0" mnemonicParsing="false" onAction="#borrowMovie" text="Wypożycz" />
                </children></AnchorPane>
         </items>
       </SplitPane>
-      <Button onAction="#viewAccount" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="14.0" />
-      <Button onAction="#viewBorrowed" layoutX="128.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="128.0" text="Moje wypożyczenia" textFill="#091414" />
-      <Button  onAction="#logOut" layoutX="464.0" layoutY="14.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewAccount" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="14.0" />
+      <Button layoutX="128.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewBorrowed" prefHeight="31.0" prefWidth="128.0" text="Moje wypożyczenia" textFill="#091414" />
+      <Button layoutX="464.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" />
    </children>
 </AnchorPane>
