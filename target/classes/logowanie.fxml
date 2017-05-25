@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.controllers.LogController">
    <children>
-      <AnchorPane layoutX="149.0" layoutY="39.0" prefHeight="364.0" prefWidth="343.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="148.0">
+      <AnchorPane fx:id="ap" layoutX="149.0" layoutY="39.0" prefHeight="364.0" prefWidth="343.0" AnchorPane.leftAnchor="149.0" AnchorPane.rightAnchor="148.0">
          <children>
             <Label layoutX="97.0" layoutY="14.0" prefHeight="93.0" prefWidth="149.0" text="Logowanie" textAlignment="CENTER" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="97.0">
                <font>

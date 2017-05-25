@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,7 +26,7 @@ import java.sql.SQLException;
 public abstract class BaseController {
 
 
-    public void changeWindow(ActionEvent event, String path){
+    public void changeWindow(Event event, String path){
         Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource(path));

@@ -5,12 +5,17 @@ package pl.controllers;
  */
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.layout.AnchorPane;
 import pl.bazadanych.dao.KontoDao;
 import pl.tablesFx.KontoFx;
 
 import java.util.List;
+
+
 
 
 public class LogController extends BaseController{
@@ -20,9 +25,21 @@ public class LogController extends BaseController{
 
     @FXML
     private TextField loginText, hasloText;
+    @FXML
+    private AnchorPane ap;
 
     @FXML
-    private void logIn(ActionEvent event) {
+    public void initialize() {
+        this.ap.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                logIn(event);
+                event.consume();
+            }
+        });
+    }
+
+    @FXML
+    private void logIn(Event event) {
         String login, haslo;
         login = loginText.getText();
         haslo = hasloText.getText();
