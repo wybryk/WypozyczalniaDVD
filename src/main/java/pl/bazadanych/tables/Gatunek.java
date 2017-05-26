@@ -26,12 +26,4 @@ public class Gatunek {
         this.nazwa = nazwa;
     }
 
-
-    @Override
-    public String toString() {
-        return "Gatunek{" +
-                "id=" + id +
-                ", nazwa='" + nazwa + '\'' +
-                '}';
-    }
 }

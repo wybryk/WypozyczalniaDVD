@@ -4,33 +4,40 @@ package pl.bazadanych.tables;
  * Created by Mateusz on 2017-04-20.
  */
 public class DaneWypozyczenia {
-    private int klient;
-    private int wypozyczenie;
-    private int egzemplarz;
+    private int idKlienta;
+    private int idWypozyczenia;
+    private int idEgzemplarzu;
 
-    public DaneWypozyczenia() {}
-
-    public int getKlient() {
-        return klient;
+    public int getIdKlienta() {
+        return idKlienta;
     }
 
-    public void setKlient(int klient) {
-        this.klient = klient;
+    public void setIdKlienta(int idKlienta) {
+        this.idKlienta = idKlienta;
     }
 
-    public int getWypozyczenie() {
-        return wypozyczenie;
+    public int getIdWypozyczenia() {
+        return idWypozyczenia;
     }
 
-    public void setWypozyczenie(int wypozyczenie) {
-        this.wypozyczenie = wypozyczenie;
+    public void setIdWypozyczenia(int idWypozyczenia) {
+        this.idWypozyczenia = idWypozyczenia;
     }
 
-    public int getEgzemplarz() {
-        return egzemplarz;
+    public int getIdEgzemplarzu() {
+        return idEgzemplarzu;
     }
 
-    public void setEgzemplarz(int egzemplarz) {
-        this.egzemplarz = egzemplarz;
+    public void setIdEgzemplarzu(int idEgzemplarzu) {
+        this.idEgzemplarzu = idEgzemplarzu;
+    }
+
+    @Override
+    public String toString() {
+        return "DaneWypozyczenia{" +
+                "idKlienta=" + idKlienta +
+                ", idWypozyczenia=" + idWypozyczenia +
+                ", idEgzemplarzu=" + idEgzemplarzu +
+                '}';
     }
 }

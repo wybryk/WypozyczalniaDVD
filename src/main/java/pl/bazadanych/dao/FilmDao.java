@@ -14,42 +14,42 @@ import java.sql.SQLException;
  */
 public class FilmDao {
 
-    public void insertFilm(Film film){
+    public void insertFilm(FilmFx filmFx){
         Connections.initDataBase();
-        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+film.getNazwa()+"', '"+film.getOpis()+"', "+film.getIlosc()+", '"
-                +film.getPremiera()+"', "+film.getGatunek()+", "+film.getRezyser());
+        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+filmFx.getNazwa()+"', '"+filmFx.getOpis()+"', "+filmFx.getIlosc()+", '"
+                +filmFx.getPremiera()+"', "+filmFx.getGatunekFx()+", "+filmFx.getRezyserFx());
         Connections.closeConnection();
     }
 
     public ObservableList selectAllFilm(){
-        ObservableList<FilmFx> filmFxList = FXCollections.observableArrayList();
+        ObservableList<Film> filmList = FXCollections.observableArrayList();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("FILM");
         try{
             while (resultSet.next()) {
                 //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2) +  "  " + resultSet.getString(3));
-                FilmFx filmFx = new FilmFx();
-                filmFx.setId(resultSet.getInt(1));
-                filmFx.setNazwa(resultSet.getString(2));
-                filmFx.setOpis(resultSet.getString(3));
-                filmFx.setIlosc(resultSet.getInt(4));
-                filmFx.setPremiera(resultSet.getDate(5));
-                filmFx.setGatunekFx(resultSet.getInt(6));
-                filmFx.setRezyserFx(resultSet.getInt(7));
-                filmFxList.add(filmFx);
+                Film film = new Film();
+                film.setId(resultSet.getInt(1));
+                film.setNazwa(resultSet.getString(2));
+                film.setOpis(resultSet.getString(3));
+                film.setIlosc(resultSet.getInt(4));
+                film.setPremiera(resultSet.getDate(5));
+                film.setGatunek(resultSet.getInt(6));
+                film.setRezyser(resultSet.getInt(7));
+                filmList.add(film);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return filmFxList;
+        return filmList;
     }
 
     public int findFilm(String nazwa){
-        ObservableList<FilmFx> filmFxList = selectAllFilm();
+        ObservableList<Film> filmList = selectAllFilm();
         int id = 0;
-        for(FilmFx e: filmFxList){
+        for(Film e: filmList){
             if( nazwa.equals(e.getNazwa())) {
                 id = e.getId();
                 break;
@@ -64,11 +64,11 @@ public class FilmDao {
         Connections.closeConnection();
     }
 
-    public void updateFilm(Film film){
+    public void updateFilm(FilmFx filmFx){
         Connections.initDataBase();
-        Connections.updateRecord("FILM", "NAZWA = '"+film.getNazwa()+"', OPIS = '"+film.getOpis()+"', ILOSC = "+
-                film.getIlosc()+", PREMIERA = '" +film.getPremiera()+"', ID_GATUNKU = "+film.getGatunek()+", ID_REZYSERA = "+
-                film.getRezyser(), " Id_FILMU = " + film.getId());
+        Connections.updateRecord("FILM", "NAZWA = '"+filmFx.getNazwa()+"', OPIS = '"+filmFx.getOpis()+"', ILOSC = "+
+                filmFx.getIlosc()+", PREMIERA = '" +filmFx.getPremiera()+"', ID_GATUNKU = "+filmFx.getGatunekFx()+", ID_REZYSERA = "+
+                filmFx.getRezyserFx(), " Id_FILMU = " + filmFx.getId());
         Connections.closeConnection();
     }
 

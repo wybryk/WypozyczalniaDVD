@@ -12,20 +12,20 @@ import java.sql.Date;
  */
 public class WypozyczenieFx {
 
-    private IntegerProperty idEgzemplarzu = new SimpleIntegerProperty();
+    private IntegerProperty id = new SimpleIntegerProperty();
     private ObjectProperty<Date> dataWypozyczenia = new SimpleObjectProperty<>();
     private ObjectProperty<Date> dataOddania = new SimpleObjectProperty<>();
 
-    public int getIdEgzemplarzu() {
-        return idEgzemplarzu.get();
+    public int getId() {
+        return id.get();
     }
 
-    public IntegerProperty idEgzemplarzuProperty() {
-        return idEgzemplarzu;
+    public IntegerProperty idProperty() {
+        return id;
     }
 
-    public void setIdEgzemplarzu(int idEgzemplarzu) {
-        this.idEgzemplarzu.set(idEgzemplarzu);
+    public void setId(int id) {
+        this.id.set(id);
     }
 
     public Date getDataWypozyczenia() {

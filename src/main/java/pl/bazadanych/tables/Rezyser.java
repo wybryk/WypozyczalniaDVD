@@ -21,4 +21,11 @@ public class Rezyser {
 
     public void setNazwa(String nazwa) {this.nazwa = nazwa;}
 
+    @Override
+    public String toString() {
+        return "Rezyser{" +
+                "id=" + id +
+                ", nazwa='" + nazwa + '\'' +
+                '}';
+    }
 }

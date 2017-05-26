@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import pl.accessories.Converters;
 import pl.bazadanych.dao.KontoDao;
+import pl.bazadanych.tables.Konto;
 import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
 import pl.tablesFx.Singleton;
@@ -39,7 +41,6 @@ public class LogController extends BaseController{
             }
         });
     }
-
     @FXML
     private void logIn(Event event) {
         String login, haslo;
@@ -47,9 +48,9 @@ public class LogController extends BaseController{
         haslo = hasloText.getText();
         KontoDao kontoDao = new KontoDao();
 
-        List<KontoFx> kontoList = kontoDao.selectAll();
+        List<Konto> kontoList = kontoDao.selectAll();
 
-        for(KontoFx e : kontoList){
+        for(Konto e : kontoList){
             //System.out.println(e);
             if(login.equals(e.getLogin()) && haslo.equals(e.getHaslo()))
             {
@@ -58,7 +59,7 @@ public class LogController extends BaseController{
                     System.out.println("Zalogowano admin");
                 }
                 else if (e.getAdmin() == 0) {
-                    Singleton.getInstance().setKontoFx(e);
+                    Singleton.getInstance().setKontoFx(Converters.toKontoFx(e));
                     changeWindow(event, KLIENT_FXML);
                     System.out.println("Zalogowano klient");
                 }

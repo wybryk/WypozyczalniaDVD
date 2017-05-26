@@ -14,49 +14,52 @@ import java.sql.SQLException;
  */
 public class RezyserDao{
 
-    public RezyserFx findRezyserById(int id) {
+    public Rezyser findRezyserById(int id) {
 
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSER = " + id);
-        RezyserFx rezyserFx = new RezyserFx();
-        try{
-            rezyserFx.setId(resultSet.getInt(1));
-            rezyserFx.setNazwa(resultSet.getString(2));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        Connections.closeConnection();
-        return rezyserFx;
-    }
-
-    public ObservableList selectAll(){
-        ObservableList<RezyserFx> rezyserFxList= FXCollections.observableArrayList();
-        Connections.initDataBase();
-
-        ResultSet resultSet = Connections.selectRecords("REZYSER");
+        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSERA = " + id);
+        Rezyser rezyser = new Rezyser();
         try{
             while (resultSet.next()) {
-                //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2));
-                RezyserFx rezyserFx = new RezyserFx();
-                rezyserFx.setId(resultSet.getInt(1));
-                rezyserFx.setNazwa(resultSet.getString(2));
-                rezyserFxList.add(rezyserFx);
+                rezyser.setId(resultSet.getInt(1));
+                rezyser.setNazwa(resultSet.getString(2));
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return rezyserFxList;
+        return rezyser;
+    }
+
+    public ObservableList selectAll(){
+        ObservableList<Rezyser> rezyserList= FXCollections.observableArrayList();
+        Connections.initDataBase();
+
+        ResultSet resultSet = Connections.selectRecords("REZYSER");
+        try{
+            while (resultSet.next()) {
+                //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2));
+                Rezyser rezyser = new Rezyser();
+                rezyser.setId(resultSet.getInt(1));
+                rezyser.setNazwa(resultSet.getString(2));
+                rezyserList.add(rezyser);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Connections.closeConnection();
+        return rezyserList;
     }
 
     public int findRezyser(String rezyserNazwa){
-        ObservableList<RezyserFx> rezyserFxList = selectAll();
+        ObservableList<Rezyser> rezyserList = selectAll();
         boolean exist = false;
         int id = 0;
 
-        for(RezyserFx e : rezyserFxList){
+        for(Rezyser e : rezyserList){
             if(rezyserNazwa.equals(e.getNazwa())){
                 exist = true;
                 id = e.getId();

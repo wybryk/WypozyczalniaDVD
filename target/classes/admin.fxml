@@ -74,8 +74,8 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
                                        <children>
-                                          <TextField fx:id="filmTextField" layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="529.0" promptText="Szukaj filmów" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
-                                          <Button layoutX="553.0" layoutY="20.0" mnemonicParsing="false" onAction="#findFilm" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
+                                          <TextField fx:id="filmTextField" layoutX="14.0" layoutY="20.0" prefHeight="25.0" prefWidth="529.0" promptText="Szukaj filmu" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
+                                          <Button layoutX="553.0" layoutY="20.0" mnemonicParsing="false" onAction="#findMovie" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
                                           <ListView fx:id="filmListView" layoutX="20.0" layoutY="64.0" prefHeight="275.0" prefWidth="603.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="60.0" />
                                           <Button layoutX="562.0" layoutY="357.0" mnemonicParsing="false" onAction="#deleteFilm" text="Usuń" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="50.0" />
                                           <Button layoutX="462.0" layoutY="357.0" mnemonicParsing="false" onAction="#editFilm" text="Edytuj" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="150.0" />
@@ -147,7 +147,7 @@
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #fcfcfc;">
                                        <children>
                                           <Button layoutX="552.0" layoutY="14.0" mnemonicParsing="false" onAction="#findKontoButton" style="-fx-background-color: #99C24D;" text="Szukaj" AnchorPane.rightAnchor="20.0" />
-                                          <TextField fx:id="kontoTextField" layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="530.0" promptText="Szukaj kont" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
+                                          <TextField fx:id="kontoTextField" layoutX="14.0" layoutY="15.0" prefHeight="25.0" prefWidth="530.0" promptText="Szukaj konta" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="102.0" />
                                           <ListView fx:id="kontoListView" layoutX="20.0" layoutY="57.0" prefHeight="195.0" prefWidth="602.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
                                           <Button fx:id="deleteKontoButton" layoutX="557.0" layoutY="265.0" mnemonicParsing="false" onAction="#deleteKonto" text="Usuń" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="30.0" />
                                           <Button fx:id="editKontoButton" layoutX="456.0" layoutY="265.0" mnemonicParsing="false" onAction="#editKonto" text="Edytuj" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="120.0" />

@@ -18,25 +18,25 @@ public class KontoDao {
 
     public ObservableList selectAll(){
         Connections.initDataBase();
-        ObservableList<KontoFx> kontoFxList = FXCollections.observableArrayList();
+        ObservableList<Konto> kontoList = FXCollections.observableArrayList();
         ResultSet resultSet = Connections.selectRecords("KONTO");
         try{
             while (resultSet.next()) {
                 //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2) +  "  " + resultSet.getString(3)+"  "+resultSet.getInt(4) + "  "+resultSet.getInt(5) );
-                KontoFx kontoFx = new KontoFx();
-                kontoFx.setId(resultSet.getInt(1));
-                kontoFx.setLogin(resultSet.getString(2));
-                kontoFx.setHaslo(resultSet.getString(3));
-                kontoFx.setAdmin(resultSet.getInt(4));
-                kontoFx.setKlientfx(resultSet.getInt(5));
-                kontoFxList.add(kontoFx);
+                Konto konto = new Konto();
+                konto.setId(resultSet.getInt(1));
+                konto.setLogin(resultSet.getString(2));
+                konto.setHaslo(resultSet.getString(3));
+                konto.setAdmin(resultSet.getInt(4));
+                konto.setKlient(resultSet.getInt(5));
+                kontoList.add(konto);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return kontoFxList;
+        return kontoList;
     }
 
     public void insertKonto(KontoFx kontoFx, int id) {

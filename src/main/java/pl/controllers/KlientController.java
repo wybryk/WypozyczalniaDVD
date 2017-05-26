@@ -9,17 +9,21 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.*;
 
+import pl.accessories.Converters;
 import pl.bazadanych.Connections;
 import pl.bazadanych.dao.FilmDao;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
+import pl.bazadanych.tables.Film;
+import pl.bazadanych.tables.Gatunek;
 import pl.bazadanych.tables.Klient;
 import pl.bazadanych.tables.Konto;
 import pl.tablesFx.*;
 
 
 import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,11 +35,11 @@ public class KlientController extends BaseController{
     @FXML
     private ListView<FilmFx> filmListView;
     @FXML
-    private ObservableList<FilmFx> filmList = FXCollections.observableArrayList();
+    private ObservableList<FilmFx> filmFxList = FXCollections.observableArrayList();
     @FXML
     private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField, filmTextField;
     @FXML
-    private ObservableList<GatunekFx> gatunekList = FXCollections.observableArrayList();
+    protected ObservableList<GatunekFx> gatunekFxList = FXCollections.observableArrayList();
 
     private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
 
@@ -47,61 +51,67 @@ public class KlientController extends BaseController{
 
     @FXML
     public void initialize() throws SQLException {
+        setGatunekFxList(this.gatunekFxList);
+        gatunekListView.setItems(gatunekFxList);
+    }
+    protected void setGatunekFxList(ObservableList gatunekFxList){
         GatunekDao gatunekDao = new GatunekDao();
-        gatunekList = gatunekDao.selectAll();
-        gatunekListView.setItems(gatunekList);
+        List<Gatunek> gatunekList = gatunekDao.selectAll();
+        gatunekList.forEach(e->{
+            GatunekFx gatunekFx = new GatunekFx();
+            gatunekFx.setId(e.getId());
+            gatunekFx.setNazwa(e.getNazwa());
+            gatunekFxList.add(gatunekFx);
+        });
     }
     @FXML
-    public void findMovie() {
+    protected void findMovie() {
         filmListView.getItems().clear();
         String title = filmTextField.getText();
         FilmDao filmDao = new FilmDao();
-        List<FilmFx> filmFxList = filmDao.selectAllFilm();
+        List<Film> filmList = filmDao.selectAllFilm();
 
-        filmFxList.forEach(e -> {
+        filmList.forEach(e -> {
             if (title.equals(e.getNazwa()))
             {
-                FilmFx filmFx = new FilmFx();
-                filmFx.setId(e.getId());
-                filmFx.setNazwa(e.getNazwa());
-                filmFx.setIlosc(e.getIlosc());
-                filmFx.setOpis(e.getOpis());
-                filmFx.setPremiera(e.getPremiera());
-                filmFx.setGatunekFx(e.getGatunekFx());
-                filmFx.setRezyserFx(e.getRezyserFx());
-
-                filmList.add(filmFx);
+                FilmFx filmFx = setFilmFx(e);
+                filmFxList.add(filmFx);
             }
             else if(title.isEmpty()){
-                filmList = FXCollections.observableList(filmFxList);
+                FilmFx filmFx = setFilmFx(e);
+                filmFxList.add(filmFx);
             }
         });
-        filmListView.setItems(filmList);
+        filmListView.setItems(filmFxList);
     }
     @FXML
     private void findMovieByCategory(){
         filmListView.getItems().clear();
         FilmDao filmDao = new FilmDao();
-        List<FilmFx> filmFxList = filmDao.selectAllFilm();
+        List<Film> filmList = filmDao.selectAllFilm();
 
         GatunekFx gatunekFx = new GatunekFx();
         getGatunekFromListView(gatunekFx);
-        filmFxList.forEach(e -> {
-            if (e.getGatunekFx() == gatunekFx.getId())
+        filmList.forEach(e -> {
+            if (e.getGatunek() == gatunekFx.getId())
             {
-                FilmFx filmFx = new FilmFx();
-                filmFx.setId(e.getId());
-                filmFx.setNazwa(e.getNazwa());
-                filmFx.setIlosc(e.getIlosc());
-                filmFx.setOpis(e.getOpis());
-                filmFx.setPremiera(e.getPremiera());
-                filmFx.setGatunekFx(e.getGatunekFx());
-                filmFx.setRezyserFx(e.getRezyserFx());
-
-                filmList.add(filmFx);
+                FilmFx filmFx = setFilmFx(e);
+                filmFxList.add(filmFx);
             }
         });
-        filmListView.setItems(filmList);
+        filmListView.setItems(filmFxList);
+    }
+
+    protected FilmFx setFilmFx(Film e){
+        FilmFx filmFx = new FilmFx();
+        filmFx.setId(e.getId());
+        filmFx.setNazwa(e.getNazwa());
+        filmFx.setIlosc(e.getIlosc());
+        filmFx.setOpis(e.getOpis());
+        filmFx.setPremiera(e.getPremiera());
+        filmFx.setGatunekFx(e.getGatunek());
+        filmFx.setRezyserFx(e.getRezyser());
+        return filmFx;
     }
     @FXML
     private void getGatunekFromListView(GatunekFx gatunekFx){
@@ -120,7 +130,7 @@ public class KlientController extends BaseController{
     public void viewAccount(ActionEvent actionEvent) {
         KontoFx kontoFx = Singleton.getInstance().getKontoFx();
         KlientDao klientDao = new KlientDao();
-        Singleton.getInstance().setKlientFx(klientDao.findKlientById(kontoFx.getKlientfx()));
+        Singleton.getInstance().setKlientFx(Converters.toKlientFx(klientDao.findKlientById(kontoFx.getKlientfx())));
         openWindow(EDIT_KONTO_FXML);
     }
 

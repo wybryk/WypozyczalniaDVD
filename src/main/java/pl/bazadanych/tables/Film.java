@@ -1,5 +1,6 @@
 package pl.bazadanych.tables;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 /**
@@ -11,7 +12,7 @@ public class Film {
     private String nazwa;
     private String opis;
     private int ilosc;
-    private LocalDate premiera;
+    private Date premiera;
     private int gatunek;
     private int rezyser;
 
@@ -49,11 +50,11 @@ public class Film {
         this.ilosc = ilosc;
     }
 
-    public LocalDate getPremiera() {
+    public Date getPremiera() {
         return premiera;
     }
 
-    public void setPremiera(LocalDate premiera) {
+    public void setPremiera(Date premiera) {
         this.premiera = premiera;
     }
 

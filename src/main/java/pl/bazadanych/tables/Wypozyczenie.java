@@ -36,4 +36,12 @@ public class Wypozyczenie {
         this.dataOddania = dataOddania;
     }
 
+    @Override
+    public String toString() {
+        return "Wypozyczenie{" +
+                "id=" + id +
+                ", dataWypozyczenia=" + dataWypozyczenia +
+                ", dataOddania=" + dataOddania +
+                '}';
+    }
 }

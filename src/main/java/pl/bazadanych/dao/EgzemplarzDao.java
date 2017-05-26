@@ -31,23 +31,23 @@ public class EgzemplarzDao {
     }
     public ObservableList selectAll(){
         Connections.initDataBase();
-        ObservableList<EgzemplarzFx> egzemplarzFxList = FXCollections.observableArrayList();
+        ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList();
         ResultSet resultSet = Connections.selectRecords("EGZEMPLARZ");
         try{
             while (resultSet.next()) {
                 //System.out.println(resultSet.getInt(1) + "  " + resultSet.getInt(2) +  "  " + resultSet.getInt(3));
-                EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
-                egzemplarzFx.setId(resultSet.getInt(1));
-                egzemplarzFx.setIdFilmu(resultSet.getInt(2));
+                Egzemplarz egzemplarz = new Egzemplarz();
+                egzemplarz.setId(resultSet.getInt(1));
+                egzemplarz.setIdFilmu(resultSet.getInt(2));
 
-                egzemplarzFxList.add(egzemplarzFx);
+                egzemplarzList.add(egzemplarz);
             }
             resultSet.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return egzemplarzFxList;
+        return egzemplarzList;
     }
 
 }
