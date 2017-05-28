@@ -36,4 +36,11 @@ public class DaneWypozyczeniaDao{
         Connections.closeConnection();
         return daneWypozyczeniaList;
     }
+
+    public void insertDaneWypozyczenia(DaneWypozyczeniaFx daneWypozyczeniaFx){
+        Connections.initDataBase();
+        Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczeniaFx.getIdEgzemplarzu() + ", "
+                + daneWypozyczeniaFx.getIdKlienta() + ", " + daneWypozyczeniaFx.getIdWypozyczenia());
+        Connections.closeConnection();
+    }
 }

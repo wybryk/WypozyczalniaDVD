@@ -1,15 +1,11 @@
 package pl.controllers;
 
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
-import javafx.util.Duration;
+import pl.accessories.MojeWypozyczenia;
+import pl.accessories.Singleton;
 import pl.bazadanych.dao.DaneWypozyczeniaDao;
 import pl.bazadanych.dao.EgzemplarzDao;
 import pl.bazadanych.dao.FilmDao;

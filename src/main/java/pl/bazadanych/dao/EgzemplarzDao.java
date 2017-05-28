@@ -16,17 +16,19 @@ import java.sql.SQLException;
 public class EgzemplarzDao {
 
     public void insertEgzemplarz(int n, int id ){
-        Egzemplarz egzemplarz = new Egzemplarz();
-
-        egzemplarz.setIdFilmu(id);
         Connections.initDataBase();
         for(int i = 0; i < n; i++)
-            Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + egzemplarz.getIdFilmu());
+            Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + id);
         Connections.closeConnection();
     }
-    public void deleteEgzemplarz(FilmFx filmFx){
+    public void deleteEgzemplarzByIdFilmu(FilmFx filmFx){
         Connections.initDataBase();
         Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + filmFx.getId());
+        Connections.closeConnection();
+    }
+    public void deleteEgzemplarzByIdEgzemplarzu(int id){
+        Connections.initDataBase();
+        Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + id);
         Connections.closeConnection();
     }
     public ObservableList selectAll(){

@@ -69,6 +69,17 @@ public class Connections {
         }
         return null;
     }
+    public static ResultSet selectMaxId( String table, String query) {
+        try {
+            stmt = conn.createStatement();
+            String sql = "SELECT Max(" + query + ") FROM " + table;
+            System.out.println("Selecting values...");
+            return stmt.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static void insertRecord( String table, String values){
         try {

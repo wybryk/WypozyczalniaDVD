@@ -10,20 +10,16 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.*;
 
 import pl.accessories.Converters;
-import pl.bazadanych.Connections;
+import pl.accessories.Singleton;
 import pl.bazadanych.dao.FilmDao;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.dao.KlientDao;
-import pl.bazadanych.dao.KontoDao;
 import pl.bazadanych.tables.Film;
 import pl.bazadanych.tables.Gatunek;
-import pl.bazadanych.tables.Klient;
-import pl.bazadanych.tables.Konto;
 import pl.tablesFx.*;
 
 
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -37,7 +33,7 @@ public class KlientController extends BaseController{
     @FXML
     private ObservableList<FilmFx> filmFxList = FXCollections.observableArrayList();
     @FXML
-    private TextField imieTextField, nazwiskoTextField, emailTextField, loginTextField, hasloTextField, haslo2TextField, filmTextField;
+    private TextField filmTextField;
     @FXML
     protected ObservableList<GatunekFx> gatunekFxList = FXCollections.observableArrayList();
 
@@ -51,10 +47,10 @@ public class KlientController extends BaseController{
 
     @FXML
     public void initialize() throws SQLException {
-        setGatunekFxList(this.gatunekFxList);
+        setGatunekFxList();
         gatunekListView.setItems(gatunekFxList);
     }
-    protected void setGatunekFxList(ObservableList gatunekFxList){
+    protected void setGatunekFxList(){
         GatunekDao gatunekDao = new GatunekDao();
         List<Gatunek> gatunekList = gatunekDao.selectAll();
         gatunekList.forEach(e->{

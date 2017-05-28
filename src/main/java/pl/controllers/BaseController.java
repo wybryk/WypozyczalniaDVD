@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import pl.bazadanych.Connections;
 import pl.tablesFx.GatunekFx;
@@ -55,6 +56,14 @@ public abstract class BaseController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void warningWindow(String info){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText(info);
+
+        alert.showAndWait();
     }
 
 

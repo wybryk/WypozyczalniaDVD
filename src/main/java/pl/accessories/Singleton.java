@@ -1,4 +1,8 @@
-package pl.tablesFx;
+package pl.accessories;
+
+import pl.tablesFx.FilmFx;
+import pl.tablesFx.KlientFx;
+import pl.tablesFx.KontoFx;
 
 /**
  * Created by Mateusz on 2017-05-24.
@@ -12,7 +16,7 @@ public class Singleton {
     }
 
     private KontoFx kontoFx;
-    private  KlientFx klientFx;
+    private KlientFx klientFx;
     private FilmFx filmFx;
 
     public KontoFx getKontoFx() {

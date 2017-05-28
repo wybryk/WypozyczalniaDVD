@@ -2,7 +2,6 @@ package pl.controllers;
 
 import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
-import pl.tablesFx.Singleton;
 
 /**
  * Created by Mateusz on 2017-05-24.

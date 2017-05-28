@@ -1,6 +1,9 @@
-package pl.tablesFx;
+package pl.accessories;
 
 
+import pl.tablesFx.EgzemplarzFx;
+import pl.tablesFx.FilmFx;
+import pl.tablesFx.WypozyczenieFx;
 
 /**
  * Created by Mateusz on 2017-05-26.

@@ -4,7 +4,6 @@ package pl.controllers;
  * Created by Mateusz on 2017-04-22.
  */
 
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -13,9 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import pl.accessories.Converters;
 import pl.bazadanych.dao.KontoDao;
 import pl.bazadanych.tables.Konto;
-import pl.tablesFx.KlientFx;
-import pl.tablesFx.KontoFx;
-import pl.tablesFx.Singleton;
+import pl.accessories.Singleton;
 
 import java.util.List;
 
@@ -44,6 +41,7 @@ public class LogController extends BaseController{
     @FXML
     private void logIn(Event event) {
         String login, haslo;
+        boolean exist = false;
         login = loginText.getText();
         haslo = hasloText.getText();
         KontoDao kontoDao = new KontoDao();
@@ -63,9 +61,12 @@ public class LogController extends BaseController{
                     changeWindow(event, KLIENT_FXML);
                     System.out.println("Zalogowano klient");
                 }
+                exist = true;
                 break;
             }
         }
+        if ( exist == false )
+            warningWindow("Błędna nazwa użytkownika lub hasło.");
     }
 
 

@@ -2,23 +2,18 @@ package pl.controllers;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.accessories.Converters;
+import pl.accessories.Singleton;
 import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
-import javafx.event.ActionEvent;
-
-import javax.script.Bindings;
 import java.sql.SQLException;
-import java.time.ZoneId;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by Mateusz on 2017-04-22.
@@ -35,7 +30,7 @@ public class AdminController extends KlientController {
     @FXML
     protected ComboBox<GatunekFx> gatunekComboBox;
     @FXML
-    private ListView<KontoFx> kontoListView;
+    protected ListView<KontoFx> kontoListView;
     @FXML
     protected ListView<FilmFx> filmListView;
     @FXML
@@ -53,14 +48,11 @@ public class AdminController extends KlientController {
     protected Spinner<Integer> liczbaKopiSpinner;
     @FXML
     private ObservableList<KontoFx> kontoFxList = FXCollections.observableArrayList();
-    @FXML
-    protected ObservableList<GatunekFx> gatunekFxList = FXCollections.observableArrayList();
-    @FXML
-    private ObservableList<FilmFx> filmFxList = FXCollections.observableArrayList();
 
     private ObjectProperty<GatunekFx> gatunekFxObjectProperty = new SimpleObjectProperty<>();
-    private ObjectProperty<KontoFx> kontoFxObjectProperty = new SimpleObjectProperty<>();
+    protected ObjectProperty<KontoFx> kontoFxObjectProperty = new SimpleObjectProperty<>();
     private ObjectProperty<FilmFx> filmFxObjectProperty = new SimpleObjectProperty<>();
+
     protected SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
 
 
@@ -140,7 +132,7 @@ public class AdminController extends KlientController {
         gatunekFxObjectProperty.set(gatunekComboBox.getSelectionModel().getSelectedItem());
         filmFx.setGatunekFx(gatunekFxObjectProperty.getValue().getId());
 
-        filmFx.setPremiera(Converters.toDate(premieraDatePicker));
+        filmFx.setPremiera(Converters.toDate(premieraDatePicker.getValue()));
 
         filmFx.setIlosc(liczbaKopiSpinner.getValue());
 
@@ -205,7 +197,7 @@ public class AdminController extends KlientController {
         KlientDao klientDao = new KlientDao();
 
         kontoDao.deleteKonto(kontoFx);
-        //klientDao.deleteKlient(kontoFx.getKlientfx());
+        klientDao.deleteKlient(kontoFx.getKlientfx());
 
     }
     @FXML
@@ -226,7 +218,7 @@ public class AdminController extends KlientController {
         FilmDao filmDao = new FilmDao();
         EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
 
-        egzemplarzDao.deleteEgzemplarz(filmFx);
+        egzemplarzDao.deleteEgzemplarzByIdFilmu(filmFx);
         filmDao.deleteFilm(filmFx);
 
     }
@@ -249,7 +241,7 @@ public class AdminController extends KlientController {
 
     public void initialize() throws SQLException {
         liczbaKopiSpinner.setValueFactory(valueFactory);
-        setGatunekFxList(this.gatunekFxList);
+        setGatunekFxList();
         gatunekComboBox.setItems(gatunekFxList);
     }
 

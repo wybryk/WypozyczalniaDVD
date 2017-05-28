@@ -12,6 +12,7 @@ import pl.tablesFx.RezyserFx;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * Created by Mateusz on 2017-05-26.
@@ -60,9 +61,12 @@ public class Converters {
         filmFx.setGatunekFx(film.getGatunek());
         return filmFx;
     }
-    static public Date toDate(DatePicker datePicker) {
-        return java.sql.Date.valueOf(datePicker.getValue());
+    static public Date toDate(LocalDate localDate) {
+        return java.sql.Date.valueOf(localDate);
     }
+
+    //static public Date toDate(LocalTime localTime) { return java.sql.Date.valueOf(localTime);}
+
     static public LocalDate toLocalDate(Date date){
         LocalDate localDate = new java.sql.Date(date.getTime()).toLocalDate();
         return localDate;

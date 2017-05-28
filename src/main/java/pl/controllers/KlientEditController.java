@@ -1,20 +1,12 @@
 package pl.controllers;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import pl.accessories.Converters;
 import pl.bazadanych.dao.KlientDao;
 import pl.bazadanych.dao.KontoDao;
-import pl.bazadanych.tables.Klient;
 import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
-import pl.tablesFx.Singleton;
-
-import java.util.List;
+import pl.accessories.Singleton;
 
 
 /**

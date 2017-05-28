@@ -40,4 +40,21 @@ public class WypozyczenieDao {
         Connections.closeConnection();
         return wypozyczeniesList;
     }
+
+    public int selectMaxId(){
+        int id = 0;
+        Connections.initDataBase();
+        ResultSet resultSet = Connections.selectMaxId("WYPOZYCZENIE", "ID_WYPOZYCZENIA");
+        try{
+            while (resultSet.next()) {
+                System.out.println(resultSet.getInt(1));
+                id = resultSet.getInt(1);
+            }
+            resultSet.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        Connections.closeConnection();
+        return id;
+    }
 }
