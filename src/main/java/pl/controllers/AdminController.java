@@ -14,6 +14,8 @@ import pl.tablesFx.*;
 
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * Created by Mateusz on 2017-04-22.

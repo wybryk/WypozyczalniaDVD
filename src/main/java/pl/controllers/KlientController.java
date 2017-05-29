@@ -21,6 +21,7 @@ import pl.tablesFx.*;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.regex.*;
 
 /**
  * Created by Mateusz on 2017-04-22.
@@ -66,19 +67,18 @@ public class KlientController extends BaseController{
         String title = filmTextField.getText();
         FilmDao filmDao = new FilmDao();
         List<Film> filmList = filmDao.selectAllFilm();
-
         filmList.forEach(e -> {
-            if (title.equals(e.getNazwa()))
-            {
+            if (Pattern.matches("[a-zA-Z0-9\\s]*" + title + "[a-zA-Z0-9\\s]*", e.getNazwa())) {
                 FilmFx filmFx = setFilmFx(e);
                 filmFxList.add(filmFx);
-            }
-            else if(title.isEmpty()){
+            } else if (title.isEmpty()) {
                 FilmFx filmFx = setFilmFx(e);
                 filmFxList.add(filmFx);
             }
         });
         filmListView.setItems(filmFxList);
+        //czyscimy liste przy kazdym wywolaniu
+        filmList.clear();
     }
     @FXML
     private void findMovieByCategory(){
