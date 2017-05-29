@@ -20,7 +20,6 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="392.0" prefWidth="486.0">
                <children>
-<<<<<<< HEAD
                   <ListView fx:id="filmListView" prefHeight="344.0" prefWidth="475.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                   <Button layoutX="386.0" layoutY="347.0" mnemonicParsing="false" onAction="#reserveMovie" text="Zarezerwuj" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="50.0" />
                </children></AnchorPane>
@@ -30,15 +29,5 @@
       <Button layoutX="155.0" layoutY="7.0" mnemonicParsing="false" onAction="#viewBorrowed" prefHeight="31.0" prefWidth="165.0" text="Moje wypożyczenia" textFill="#091414" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="7.0" />
       <Button layoutX="388.0" layoutY="7.0" mnemonicParsing="false" onAction="#logOut" prefHeight="25.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="7.0" />
       <TextField fx:id="filmTextField" layoutX="14.0" layoutY="48.0" prefHeight="31.0" prefWidth="533.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="50.0" />
-=======
-                  <ListView fx:id="filmListView" prefHeight="343.0" prefWidth="445.0" />
-                  <Button layoutX="375.0" layoutY="353.0" mnemonicParsing="false" onAction="#borrowMovie" text="Wypożycz" />
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewAccount" prefHeight="31.0" prefWidth="100.0" text="Moje Konto" textFill="#091414" AnchorPane.leftAnchor="14.0" />
-      <Button layoutX="128.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewBorrowed" prefHeight="31.0" prefWidth="128.0" text="Moje wypożyczenia" textFill="#091414" />
-      <Button layoutX="464.0" layoutY="14.0" mnemonicParsing="false" onAction="#logOut" prefHeight="31.0" prefWidth="100.0" text="Wyloguj" textFill="#091414" />
->>>>>>> refs/remotes/origin/branch-2
    </children>
 </AnchorPane>
