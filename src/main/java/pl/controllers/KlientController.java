@@ -14,6 +14,7 @@ import pl.accessories.Singleton;
 import pl.bazadanych.dao.FilmDao;
 import pl.bazadanych.dao.GatunekDao;
 import pl.bazadanych.dao.KlientDao;
+import pl.bazadanych.dao.RezerwacjaDao;
 import pl.bazadanych.tables.Film;
 import pl.bazadanych.tables.Gatunek;
 import pl.tablesFx.*;
@@ -45,6 +46,8 @@ public class KlientController extends BaseController{
     private static final String WYPOZYCZENIA_FXML = "/mojeWypozyczenia.fxml";
 
     private static final String LOGIN_FXML = "/logowanie.fxml";
+
+    private ObjectProperty<FilmFx> filmFxObjectProperty = new SimpleObjectProperty<>();
 
     @FXML
     public void initialize() throws SQLException {
@@ -130,6 +133,27 @@ public class KlientController extends BaseController{
         openWindow(EDIT_KONTO_FXML);
     }
 
+    private void getFilmFromListView(FilmFx filmFx){
+        filmFxObjectProperty.set(filmListView.getSelectionModel().getSelectedItem());
+        filmFx.setId(filmFxObjectProperty.getValue().getId());
+        filmFx.setNazwa(filmFxObjectProperty.getValue().getNazwa());
+        filmFx.setOpis(filmFxObjectProperty.getValue().getOpis());
+        filmFx.setIlosc(filmFxObjectProperty.getValue().getIlosc());
+        filmFx.setPremiera(filmFxObjectProperty.getValue().getPremiera());
+        filmFx.setGatunekFx(filmFxObjectProperty.getValue().getGatunekFx());
+        filmFx.setRezyserFx(filmFxObjectProperty.getValue().getRezyserFx());
+    }
+
     public void reserveMovie(ActionEvent actionEvent) {
+        FilmFx filmFx = new FilmFx();
+        getFilmFromListView(filmFx);
+        //
+        KontoFx kontoFx = Singleton.getInstance().getKontoFx();
+        int klientID = kontoFx.getKlientfx();
+
+        RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
+        rezerwacjaDao.insertRezerwacje(filmFx, klientID);
+
+        System.out.println("Dodano, kurwa.");
     }
 }

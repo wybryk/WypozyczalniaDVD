@@ -37,48 +37,48 @@ INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Quentin Tarantino');
 INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Christopher Nolan');
 INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Rob Minkoff');
 INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Luc Besson');
-INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Roman Polañski');
+INSERT INTO REZYSER VALUES(RezyserSeq.NEXTVAL, 'Roman Polaï¿½ski');
 
 DROP SEQUENCE FilmSeq;
 CREATE SEQUENCE FilmSeq;
 
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Skazani na Shawshank', 'Adaptacja opowiadania Stephena Kinga. Historia nies³usznie skazanego na do¿ywocie bankiera, który musi prze¿yæ w brutalnym œwiecie rz¹dzonym przez stra¿ników i wspó³wiêŸniów.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Skazani na Shawshank', 'Adaptacja opowiadania Stephena Kinga. Historia niesï¿½usznie skazanego na doï¿½ywocie bankiera, ktï¿½ry musi przeï¿½yï¿½ w brutalnym ï¿½wiecie rzï¿½dzonym przez straï¿½nikï¿½w i wspï¿½wiï¿½niï¿½w.',
                        3, '1994-09-10', 4, 1);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Zielona mila', 'Emerytowany stra¿nik wiêzienny opowiada przyjació³ce o niezwyk³ym mê¿czyŸnie, którego skazano na œmieræ za zabójstwo dwóch 9-letnich dziewczynek.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Zielona mila', 'Emerytowany straï¿½nik wiï¿½zienny opowiada przyjaciï¿½ce o niezwykï¿½ym mï¿½czyï¿½nie, ktï¿½rego skazano na ï¿½mierï¿½ za zabï¿½jstwo dwï¿½ch 9-letnich dziewczynek.',
                        4, '1999-12-06', 4, 1);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Nietykalni', 'Sparali¿owany milioner zatrudnia do opieki m³odego ch³opaka z przedmieœcia, który w³aœnie wyszed³ z wiêzienia.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Nietykalni', 'Sparaliï¿½owany milioner zatrudnia do opieki mï¿½odego chï¿½opaka z przedmieï¿½cia, ktï¿½ry wï¿½aï¿½nie wyszedï¿½ z wiï¿½zienia.',
                        2, '2011-09-23', 8, 2);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny', 'Opowieœæ o nowojorskiej rodzinie mafijnej. Starzej¹cy siê Don Corleone pragnie przekazaæ w³adzê swojemu synowi.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny', 'Opowieï¿½ï¿½ o nowojorskiej rodzinie mafijnej. Starzejï¿½cy siï¿½ Don Corleone pragnie przekazaï¿½ wï¿½adzï¿½ swojemu synowi.',
                        5, '1972-03-15', 4, 3);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny II', 'Rok 1917. M³ody Vito Corleone stawia pierwsze kroki w mafijnym œwiecie Nowego Jorku. Ponad 40 lat póŸniej jego syn Michael walczy o interesy i dobro rodziny.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny II', 'Rok 1917. Mï¿½ody Vito Corleone stawia pierwsze kroki w mafijnym ï¿½wiecie Nowego Jorku. Ponad 40 lat pï¿½niej jego syn Michael walczy o interesy i dobro rodziny.',
                        6, '1974-12-12', 4, 3);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny III', 'Rok 1979. Starzej¹cy siê Michael Corleone chce zalegalizowaæ swoje interesy i wyprowadziæ rodzinê z mafijnego œwiata.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Ojciec chrzestny III', 'Rok 1979. Starzejï¿½cy siï¿½ Michael Corleone chce zalegalizowaï¿½ swoje interesy i wyprowadziï¿½ rodzinï¿½ z mafijnego ï¿½wiata.',
                        2, '1990-12-20', 4, 3);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Forrest Gump', 'Historia ¿ycia Forresta, ch³opca o niskim ilorazie inteligencji z niedow³adem koñczyn, który staje siê miliarderem i bohaterem wojny w Wietnamie.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Forrest Gump', 'Historia ï¿½ycia Forresta, chï¿½opca o niskim ilorazie inteligencji z niedowï¿½adem koï¿½czyn, ktï¿½ry staje siï¿½ miliarderem i bohaterem wojny w Wietnamie.',
                        3, '1994-06-23', 4, 4);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W³adca Pierœcieni: Dru¿yna Pierœcienia', 'Podró¿ hobbita z Shire i jego oœmiu towarzyszy, której celem jest zniszczenie potê¿nego pierœcienia po¿¹danego przez Czarnego W³adcê - Saurona.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Wï¿½adca Pierï¿½cieni: Druï¿½yna Pierï¿½cienia', 'Podrï¿½ hobbita z Shire i jego oï¿½miu towarzyszy, ktï¿½rej celem jest zniszczenie potï¿½nego pierï¿½cienia poï¿½ï¿½danego przez Czarnego Wï¿½adcï¿½ - Saurona.',
                        1, '2001-12-10', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W³adca Pierœcieni: Dwie wie¿e', 'Dru¿yna Pierœcienia zostaje rozbita, lecz zdesperowany Frodo za wszelk¹ cenê chce wype³niæ powierzone mu zadanie. Aragorn z towarzyszami przygotowuje siê, by odeprzeæ atak hord Sarumana.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Wï¿½adca Pierï¿½cieni: Dwie wieï¿½e', 'Druï¿½yna Pierï¿½cienia zostaje rozbita, lecz zdesperowany Frodo za wszelkï¿½ cenï¿½ chce wypeï¿½niï¿½ powierzone mu zadanie. Aragorn z towarzyszami przygotowuje siï¿½, by odeprzeï¿½ atak hord Sarumana.',
                        4, '2002-12-05', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'W³adca Pierœcieni: Powrót króla', 'Zwieñczenie filmowej trylogii wg powieœci Tolkiena. Aragorn jednoczy si³y Œródziemia, szykuj¹c siê do bitwy, która ma odwróciæ uwagê Saurona od pod¹¿aj¹cych w kierunku Góry Przeznaczenia hobbitów.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Wï¿½adca Pierï¿½cieni: Powrï¿½t krï¿½la', 'Zwieï¿½czenie filmowej trylogii wg powieï¿½ci Tolkiena. Aragorn jednoczy siï¿½y ï¿½rï¿½dziemia, szykujï¿½c siï¿½ do bitwy, ktï¿½ra ma odwrï¿½ciï¿½ uwagï¿½ Saurona od podï¿½ï¿½ajï¿½cych w kierunku Gï¿½ry Przeznaczenia hobbitï¿½w.',
                        5, '2003-12-01', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Niezwyk³a podró¿', 'Hobbit Bilbo Baggins wyrusza w niebezpieczn¹ podro¿, by wraz z czarodziejem Gandalfem i trzynastoma krasnoludami pokonaæ smoka Smauga.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Niezwykï¿½a podrï¿½', 'Hobbit Bilbo Baggins wyrusza w niebezpiecznï¿½ podroï¿½, by wraz z czarodziejem Gandalfem i trzynastoma krasnoludami pokonaï¿½ smoka Smauga.',
                        5, '2012-11-28', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Pustkowie Smauga', 'Hobbit Bilbo Baggins razem z Gandalfem oraz trzynastoma krasnoludami zmierza do legowiska smoka Smauga. Bohaterowie chc¹ pokonaæ bestiê i odebraæ jej z³oto, które ukrad³a.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Pustkowie Smauga', 'Hobbit Bilbo Baggins razem z Gandalfem oraz trzynastoma krasnoludami zmierza do legowiska smoka Smauga. Bohaterowie chcï¿½ pokonaï¿½ bestiï¿½ i odebraï¿½ jej zï¿½oto, ktï¿½re ukradï¿½a.',
                        5, '2013-12-02', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Bitwa Piêciu Armii', 'Krasnoludy z Ereboru odzyskuj¹ ojczyznê, œci¹gaj¹c gniew smoka. Wolne istoty Œródziemia ³¹cz¹ si³y przeciwko Sauronowi, który wysy³a legiony orków na Samotn¹ Górê.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Hobbit: Bitwa Piï¿½ciu Armii', 'Krasnoludy z Ereboru odzyskujï¿½ ojczyznï¿½, ï¿½ciï¿½gajï¿½c gniew smoka. Wolne istoty ï¿½rï¿½dziemia ï¿½ï¿½czï¿½ siï¿½y przeciwko Sauronowi, ktï¿½ry wysyï¿½a legiony orkï¿½w na Samotnï¿½ Gï¿½rï¿½.',
                        5, '2014-12-01', 5, 5);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Pulp Fiction', 'Przemoc i odkupienie w opowieœci o dwóch p³atnych mordercach pracuj¹cych na zlecenie mafii, ¿onie gangstera, bokserze i parze okradaj¹cej ludzi w restauracji.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Pulp Fiction', 'Przemoc i odkupienie w opowieï¿½ci o dwï¿½ch pï¿½atnych mordercach pracujï¿½cych na zlecenie mafii, ï¿½onie gangstera, bokserze i parze okradajï¿½cej ludzi w restauracji.',
                        4, '1994-05-12', 4, 6);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Bêkarty wojny', 'W okupowanej przez nazistów Francji oddzia³ z³o¿ony z Amerykanów ¿ydowskiego pochodzenia planuje zamach na Hitlera.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Bï¿½karty wojny', 'W okupowanej przez nazistï¿½w Francji oddziaï¿½ zï¿½oï¿½ony z Amerykanï¿½w ï¿½ydowskiego pochodzenia planuje zamach na Hitlera.',
                        1, '2009-05-20', 14, 6);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Incepcja', 'Czasy, gdy technologia pozwala na wchodzenie w œwiat snów. Z³odziej Cobb ma za zadanie wszczepiæ myœl do œpi¹cego umys³u.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Incepcja', 'Czasy, gdy technologia pozwala na wchodzenie w ï¿½wiat snï¿½w. Zï¿½odziej Cobb ma za zadanie wszczepiï¿½ myï¿½l do ï¿½piï¿½cego umysï¿½u.',
                        2, '2010-07-08', 10, 7);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Król Lew', 'Targany nies³usznymi wyrzutami sumienia po œmierci ojca ma³y lew Simba skazuje siê na wygnanie rezygnuj¹c z przynale¿nego mu miejsca na czele stada.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Krï¿½l Lew', 'Targany niesï¿½usznymi wyrzutami sumienia po ï¿½mierci ojca maï¿½y lew Simba skazuje siï¿½ na wygnanie rezygnujï¿½c z przynaleï¿½nego mu miejsca na czele stada.',
                         3, '1994-06-15', 2, 8);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Leon zawodowiec', 'P³atny morderca ratuje dwunastoletni¹ dziewczynkê, której rodzina zosta³a zabita przez skorumpowanych policjantów.',
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL, 'Leon zawodowiec', 'Pï¿½atny morderca ratuje dwunastoletniï¿½ dziewczynkï¿½, ktï¿½rej rodzina zostaï¿½a zabita przez skorumpowanych policjantï¿½w.',
                         4, '1994-09-14', 4, 9);
-INSERT INTO FILM VALUES(FilmSeq.NEXTVAL,'Pianista','Podczas drugiej wojny œwiatowej W³adys³aw Szpilman, znakomity polski pianista, stara siê prze¿yæ w okupowanej Warszawie.', 4,'2002-05-04',3,10);
+INSERT INTO FILM VALUES(FilmSeq.NEXTVAL,'Pianista','Podczas drugiej wojny ï¿½wiatowej Wï¿½adysï¿½aw Szpilman, znakomity polski pianista, stara siï¿½ przeï¿½yï¿½ w okupowanej Warszawie.', 4,'2002-05-04',3,10);
 
 DROP SEQUENCE EgzemplarzSeq;
 CREATE SEQUENCE EgzemplarzSeq;
@@ -410,7 +410,7 @@ insert into WYPOZYCZENIE (ID_WYPOZYCZENIA, DATA_WYPOZYCZENIA, DATA_ODDANIA) valu
 insert into WYPOZYCZENIE (ID_WYPOZYCZENIA, DATA_WYPOZYCZENIA, DATA_ODDANIA) values (WypozyczenieSeq.NEXTVAL, '2014-04-05', '2014-12-05');
 
 DROP SEQUENCE KontoSeq;
-CREATE SEQUENCE KontoSeq;
+                         CREATE SEQUENCE KontoSeq;
 
 insert into KONTO (ID_KONTA, LOGIN, HASLO, CZY_ADMIN, ID_KLIENTA) values (KontoSeq.NEXTVAL, 'vperry0', 'X3Qv0cddK', 0, 1);
 insert into KONTO (ID_KONTA, LOGIN, HASLO, CZY_ADMIN, ID_KLIENTA) values (KontoSeq.NEXTVAL, 'wbaker1', 'uh2BBTAi1', 0, 2);
@@ -663,3 +663,9 @@ insert into DANE_WYPOZYCZENIA (ID_EGZEMPLARZU, ID_KLIENTA, ID_WYPOZYCZENIA) valu
 insert into DANE_WYPOZYCZENIA (ID_EGZEMPLARZU, ID_KLIENTA, ID_WYPOZYCZENIA) values (17, 46, 148);
 insert into DANE_WYPOZYCZENIA (ID_EGZEMPLARZU, ID_KLIENTA, ID_WYPOZYCZENIA) values (24, 41, 149);
 insert into DANE_WYPOZYCZENIA (ID_EGZEMPLARZU, ID_KLIENTA, ID_WYPOZYCZENIA) values (3, 41, 150);
+
+DROP SEQUENCE RezerwacjeSeq;
+CREATE SEQUENCE RezerwacjeSeq;
+
+insert into REZERWACJE (ID_REZERW, ID_FILMU, ID_KLIENTA) values (RezerwacjeSeq.NEXTVAL, 2, 98);
+insert into REZERWACJE (ID_REZERW, ID_FILMU, ID_KLIENTA) values (RezerwacjeSeq.NEXTVAL, 6, 98);
