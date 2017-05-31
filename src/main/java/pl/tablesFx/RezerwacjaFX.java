@@ -9,6 +9,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class RezerwacjaFX {
     private IntegerProperty id = new SimpleIntegerProperty();
     private IntegerProperty filmFx = new SimpleIntegerProperty();
+    private IntegerProperty klientFx = new SimpleIntegerProperty();
 
     public int getId() {
         return id.get();
@@ -26,8 +27,16 @@ public class RezerwacjaFX {
         this.filmFx.set(filmFx);
     }
 
+    public int getKlientFx() {
+        return klientFx.get();
+    }
+
+    public void setKlientFx(int klientFx) {
+        this.klientFx.set(klientFx);
+    }
+
     @Override
     public String toString() {
-        return "ID: " + id.getValue() + "; FILM ID: " + filmFx.getValue() + ";";
+        return "ID: " + id.getValue() + "; FILM ID: " + filmFx.getValue() + "; KLIENT ID: " + klientFx.getValue() + ";";
     }
 }

@@ -153,7 +153,7 @@ public class KlientController extends BaseController{
 
         RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
         rezerwacjaDao.insertRezerwacje(filmFx, klientID);
-
-        System.out.println("Dodano, kurwa.");
+        //
+        warningWindow("Dodano rezerwację.");
     }
 }

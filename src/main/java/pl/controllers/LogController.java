@@ -65,8 +65,8 @@ public class LogController extends BaseController{
                 break;
             }
         }
-        if ( exist == false )
-            warningWindow("Błędna nazwa użytkownika lub hasło.");
+        if ( exist == false )warningWindow("Błędna nazwa użytkownika lub hasło.");
+
     }
 
 

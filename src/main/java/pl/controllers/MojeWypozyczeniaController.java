@@ -6,14 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import pl.accessories.MojeWypozyczenia;
 import pl.accessories.Singleton;
-import pl.bazadanych.dao.DaneWypozyczeniaDao;
-import pl.bazadanych.dao.EgzemplarzDao;
-import pl.bazadanych.dao.FilmDao;
-import pl.bazadanych.dao.WypozyczenieDao;
-import pl.bazadanych.tables.DaneWypozyczenia;
-import pl.bazadanych.tables.Egzemplarz;
-import pl.bazadanych.tables.Film;
-import pl.bazadanych.tables.Wypozyczenie;
+import pl.bazadanych.dao.*;
+import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
 import java.sql.Date;
@@ -34,10 +28,13 @@ public class MojeWypozyczeniaController {
     ObservableList<EgzemplarzFx> egzemplarzFxList = FXCollections.observableArrayList();
 
     ObservableList<FilmFx> filmFxList = FXCollections.observableArrayList();
+    ObservableList<FilmFx> resFilmFxList = FXCollections.observableArrayList();
 
     ObservableList<WypozyczenieFx> wypozyczenieFxList = FXCollections.observableArrayList();
 
     ObservableList<MojeWypozyczenia> mojeWypozyczeniaList = FXCollections.observableArrayList();
+
+    ObservableList<RezerwacjaFX> rezerwacjaFxList = FXCollections.observableArrayList();
 
     private KontoFx kontoFx;
 
@@ -128,6 +125,44 @@ public class MojeWypozyczeniaController {
             });
         borrowsListView.setItems(mojeWypozyczeniaList);
     }
+    private void getReservationsFromDatabase() {
+        RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
+        List<Rezerwacja> rezerwacjaList = rezerwacjaDao.selectAll();
+        rezerwacjaList.forEach(e -> {
+            if (e.getIdKlienta() == kontoFx.getKlientfx()) {
+                RezerwacjaFX rezerwacjaFX = new RezerwacjaFX();
+                rezerwacjaFX.setId(e.getId());
+                rezerwacjaFX.setFilmFx(e.getIdFilmu());
+                rezerwacjaFX.setKlientFx(e.getIdKlienta());
+
+                rezerwacjaFxList.add(rezerwacjaFX);
+            }
+        });
+    }
+    private void getResFilms() {
+        if (rezerwacjaFxList.size() != 0) {
+            FilmDao filmDao = new FilmDao();
+            List<Film> filmList = filmDao.selectAllFilm();
+            filmList.forEach(e -> {
+                rezerwacjaFxList.forEach(ev -> {
+                    if (e.getId() == ev.getFilmFx()) {
+                        FilmFx filmFx = new FilmFx();
+                        filmFx.setId(e.getId());
+                        filmFx.setNazwa(e.getNazwa());
+                        filmFx.setRezyserFx(e.getRezyser());
+                        filmFx.setGatunekFx(e.getGatunek());
+                        filmFx.setOpis(e.getOpis());
+                        filmFx.setIlosc(e.getIlosc());
+                        filmFx.setPremiera(e.getPremiera());
+
+                        resFilmFxList.add(filmFx);
+                    }
+                });
+            });
+
+            reservationListView.setItems(resFilmFxList);
+        }
+    }
 
     public void initialize(){
         this.kontoFx = Singleton.getInstance().getKontoFx();
@@ -136,6 +171,7 @@ public class MojeWypozyczeniaController {
         getFilmFromDataBase();
         getWypozyczenieFromDataBase();
         setMojeWypozyczenia();
-
+        getReservationsFromDatabase();
+        getResFilms();
     }
 }
