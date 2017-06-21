@@ -55,10 +55,9 @@ public class Konto {
     @Override
     public String toString() {
         return "Konto{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", haslo='" + haslo + '\'' +
-                ", admin=" + admin +
+                "ID: " + id +
+                ", LOGIN: '" + login + '\'' +
+                ", CZY ADMIN?:" + admin +
                 '}';
     }
 }

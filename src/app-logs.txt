@@ -1,0 +1,13 @@
+
+[INFO] root - START APLIKACJI - Data wpisu: 2017-06-21 18:31:30,410 
+[DEBUG] root - Zalogowano Klienta - Data wpisu: 2017-06-21 18:31:34,362 
+[INFO] root - Zaktualizowano dane klienta w BD. - Data wpisu: 2017-06-21 18:31:44,222 
+[INFO] root - Wyszukano film po nazwie. - Data wpisu: 2017-06-21 18:32:09,596 
+[INFO] root - Wyszukano film po kategorii. - Data wpisu: 2017-06-21 18:32:11,049 
+[INFO] root - Wyszukano film po kategorii. - Data wpisu: 2017-06-21 18:32:14,464 
+[INFO] root - Wyszukano film po kategorii. - Data wpisu: 2017-06-21 18:32:16,330 
+[INFO] root - Klient stworzyl nowa rezerwacje. - Data wpisu: 2017-06-21 18:32:22,251 
+[INFO] root - Wylogowanie. - Data wpisu: 2017-06-21 18:32:24,987 
+[DEBUG] root - Zalogowano Admin - Data wpisu: 2017-06-21 18:32:32,044 
+[INFO] root - Wyszukano konto/a. - Data wpisu: 2017-06-21 18:32:38,154 
+[INFO] root - Wylogowanie. - Data wpisu: 2017-06-21 18:32:48,083 

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import pl.accessories.Converters;
+import pl.accessories.LoggerClass;
 import pl.accessories.Singleton;
 import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.*;
@@ -84,6 +85,10 @@ public class AdminController extends KlientController {
             klientDao.insertKlient(klientFx);
             int id = klientDao.findKlient(klientFx);
             kontoDao.insertKonto(kontoFx, id);
+            logger.logFileAndConsole("debug", "Dodano klienta do BD.");
+        }
+        else {
+            logger.logFileAndConsole("error", "Nie dodano klienta do BD.");
         }
         clearKlientTextField();
     }
@@ -105,6 +110,7 @@ public class AdminController extends KlientController {
                 KontoFx kontoFx = setKontoFx(e);
                 kontoFxList.add(kontoFx);            }
         });
+        logger.logFileAndConsole("info", "Wyszukano konto/a.");
         kontoListView.setItems(kontoFxList);
         kontoTextField.clear();
     }
@@ -150,7 +156,7 @@ public class AdminController extends KlientController {
         filmDao.insertFilm(filmFx);
 
         egzemplarzDao.insertEgzemplarz(filmFx.getIlosc(), filmDao.findFilm(filmFx.getNazwa()));
-
+        logger.logFileAndConsole("info", "Dodano film " + filmFx.getNazwa() + " do bazy danych. Ilosc egzemplarzy: " + filmFx.getIlosc());
     }
 
     private void clearKlientTextField(){
@@ -200,7 +206,7 @@ public class AdminController extends KlientController {
 
         kontoDao.deleteKonto(kontoFx);
         klientDao.deleteKlient(kontoFx.getKlientfx());
-
+        logger.logFileAndConsole("info", "Konto o ID " + kontoFx.getId() + " zostalo usuniete.");
     }
     @FXML
     private void editKonto(){
@@ -222,7 +228,7 @@ public class AdminController extends KlientController {
 
         egzemplarzDao.deleteEgzemplarzByIdFilmu(filmFx);
         filmDao.deleteFilm(filmFx);
-
+        logger.logFileAndConsole("info", "Film " + filmFx.getNazwa() + " zostal usuniety.");
     }
     @FXML
     private void editFilm() {

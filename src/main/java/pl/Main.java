@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import pl.accessories.LoggerClass;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -26,6 +27,8 @@ public class Main extends Application {
         primaryStage.setMinWidth(640);
         primaryStage.setMaxWidth(1024);
         primaryStage.show();
+        LoggerClass logger = new LoggerClass();
+        logger.logFileAndConsole("info", "START APLIKACJI");
     }
 
     public static void main(String[] args) throws IOException, SQLException {launch(args);}

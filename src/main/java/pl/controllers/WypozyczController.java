@@ -24,6 +24,7 @@ public class WypozyczController extends FilmEditController{
         DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
 
         daneWypozyczeniaDao.insertDaneWypozyczenia(daneWypozyczeniaFx);
+        logger.logFileAndConsole("info", "Dodano wypozyczenie do BD.");
     }
     private void setFreeEgzemplarz(DaneWypozyczeniaFx daneWypozyczeniaFx){
         if(freeEgzemplarzFxList.size() != 0)

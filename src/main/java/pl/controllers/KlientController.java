@@ -10,6 +10,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.*;
 
 import pl.accessories.Converters;
+import pl.accessories.LoggerClass;
 import pl.accessories.Singleton;
 import pl.bazadanych.dao.FilmDao;
 import pl.bazadanych.dao.GatunekDao;
@@ -49,6 +50,8 @@ public class KlientController extends BaseController{
 
     private ObjectProperty<FilmFx> filmFxObjectProperty = new SimpleObjectProperty<>();
 
+    protected LoggerClass logger = new LoggerClass();
+
     @FXML
     public void initialize() throws SQLException {
         setGatunekFxList();
@@ -74,11 +77,13 @@ public class KlientController extends BaseController{
             if (Pattern.matches("[a-zA-Z0-9\\s]*" + title + "[a-zA-Z0-9\\s]*", e.getNazwa())) {
                 FilmFx filmFx = setFilmFx(e);
                 filmFxList.add(filmFx);
-            } else if (title.isEmpty()) {
+            }
+            else if (title.isEmpty()) {
                 FilmFx filmFx = setFilmFx(e);
                 filmFxList.add(filmFx);
             }
         });
+        logger.logFileAndConsole("info", "Wyszukano film po nazwie.");
         filmListView.setItems(filmFxList);
         //czyscimy liste przy kazdym wywolaniu
         filmList.clear();
@@ -99,6 +104,7 @@ public class KlientController extends BaseController{
             }
         });
         filmListView.setItems(filmFxList);
+        logger.logFileAndConsole("info", "Wyszukano film po kategorii.");
     }
 
     protected FilmFx setFilmFx(Film e){
@@ -119,6 +125,7 @@ public class KlientController extends BaseController{
     }
     @FXML
     protected void logOut(ActionEvent actionEvent) {
+        logger.logFileAndConsole("info", "Wylogowanie.");
         changeWindow(actionEvent, LOGIN_FXML);
     }
 
@@ -154,6 +161,7 @@ public class KlientController extends BaseController{
         RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
         rezerwacjaDao.insertRezerwacje(filmFx, klientID);
         //
+        logger.logFileAndConsole("info", "Klient stworzyl nowa rezerwacje.");
         warningWindow("Dodano rezerwację.");
     }
 }

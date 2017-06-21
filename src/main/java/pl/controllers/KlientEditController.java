@@ -32,6 +32,10 @@ public class KlientEditController extends AdminController{
             KontoDao kontoDao = new KontoDao();
             klientDao.updateKlient(klientFx);
             kontoDao.updateKonto(kontoFx);
+            logger.logFileAndConsole("info", "Zaktualizowano dane klienta w BD.");
+        }
+        else {
+            logger.logFileAndConsole("debug", "Klient nie mogl zaktualizowac danych w BD.");
         }
     }
     protected void setTextFields(){

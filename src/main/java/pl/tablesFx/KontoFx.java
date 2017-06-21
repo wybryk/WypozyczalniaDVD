@@ -76,10 +76,9 @@ public class KontoFx {
 
     @Override
     public String toString() {
-        return  "id=" + id.getValue() +
-                ", login=" + login.getValue() +
-                ", haslo=" + haslo.getValue() +
-                ", admin=" + admin.getValue() +
-                ", klient=" + klientfx.getValue() ;
+        return  "ID: " + id.getValue() +
+                ", LOGIN: " + login.getValue() +
+                ", CZY ADMIN?: " + admin.getValue() +
+                ", KLIENT:" + klientfx.getValue() ;
     }
 }

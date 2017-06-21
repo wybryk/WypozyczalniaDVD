@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import pl.accessories.Converters;
+import pl.accessories.LoggerClass;
 import pl.bazadanych.dao.KontoDao;
 import pl.bazadanych.tables.Konto;
 import pl.accessories.Singleton;
@@ -19,10 +20,13 @@ import java.util.List;
 
 
 
+
 public class LogController extends BaseController{
 
     private static final String KLIENT_FXML = "/klient.fxml";
     private static final String ADMIN_FXML = "/admin.fxml";
+
+    private LoggerClass logger = new LoggerClass();
 
     @FXML
     private TextField loginText, hasloText;
@@ -54,18 +58,21 @@ public class LogController extends BaseController{
             {
                 if (e.getAdmin() == 1) {
                     changeWindow(event, ADMIN_FXML);
-                    System.out.println("Zalogowano admin");
+                    logger.logFileAndConsole("debug", "Zalogowano Admin");
                 }
                 else if (e.getAdmin() == 0) {
                     Singleton.getInstance().setKontoFx(Converters.toKontoFx(e));
                     changeWindow(event, KLIENT_FXML);
-                    System.out.println("Zalogowano klient");
+                    logger.logFileAndConsole("debug", "Zalogowano Klienta");
                 }
                 exist = true;
                 break;
             }
         }
-        if ( exist == false )warningWindow("Błędna nazwa użytkownika lub hasło.");
+        if ( exist == false ) {
+            logger.logFileAndConsole("info", "Nieudane logowanie.");
+            warningWindow("Błędna nazwa użytkownika lub hasło.");
+        }
 
     }
 
