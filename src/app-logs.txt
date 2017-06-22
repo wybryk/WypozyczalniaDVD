@@ -11,3 +11,4 @@
 [DEBUG] root - Zalogowano Admin - Data wpisu: 2017-06-21 18:32:32,044 
 [INFO] root - Wyszukano konto/a. - Data wpisu: 2017-06-21 18:32:38,154 
 [INFO] root - Wylogowanie. - Data wpisu: 2017-06-21 18:32:48,083 
+[INFO] root - START APLIKACJI - Data wpisu: 2017-06-22 14:36:36,510 
