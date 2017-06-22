@@ -10,17 +10,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Film w BD</h2>
+ * <p>Zawiera metody do pobierania, wyszukiwania, usuwania, edytowania i wstawiania elementów z/do bazy.</p>
  */
 public class FilmDao {
-
+    /**
+     * Metoda wstawiająca dane do tabeli FILM
+     * @param filmFx parametr będący obiektem typu FilmFx
+     */
     public void insertFilm(FilmFx filmFx){
         Connections.initDataBase();
         Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+filmFx.getNazwa()+"', '"+filmFx.getOpis()+"', "+filmFx.getIlosc()+", '"
                 +filmFx.getPremiera()+"', "+filmFx.getGatunekFx()+", "+filmFx.getRezyserFx());
         Connections.closeConnection();
     }
-
+    /**
+     * Metoda pobierająca rekordy z tabeli FILM
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAllFilm(){
         ObservableList<Film> filmList = FXCollections.observableArrayList();
         Connections.initDataBase();
@@ -45,7 +52,10 @@ public class FilmDao {
         Connections.closeConnection();
         return filmList;
     }
-
+    /**
+     * Metoda wyszukująca Film po nazwie.
+     * @param nazwa tytuł filmu do wyszukania
+     */
     public int findFilm(String nazwa){
         ObservableList<Film> filmList = selectAllFilm();
         int id = 0;
@@ -57,13 +67,19 @@ public class FilmDao {
         }
         return id;
     }
-
+    /**
+     * Metoda usuwająca dane z tabeli FILM, używając pola id obiektu typu FilmFx.
+     * @param filmFx parametr obiektem typu FilmFx
+     */
     public void deleteFilm(FilmFx filmFx){
         Connections.initDataBase();
         Connections.deleteRecord("FILM", "ID_FILMU = " + filmFx.getId());
         Connections.closeConnection();
     }
-
+    /**
+     * Metoda aktualizująca dane w tabeli FILM.
+     * @param filmFx parametr obiektem typu FilmFx
+     */
     public void updateFilm(FilmFx filmFx){
         Connections.initDataBase();
         Connections.updateRecord("FILM", "NAZWA = '"+filmFx.getNazwa()+"', OPIS = '"+filmFx.getOpis()+"', ILOSC = "+

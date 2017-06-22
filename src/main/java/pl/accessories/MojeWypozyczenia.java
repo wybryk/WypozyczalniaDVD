@@ -6,7 +6,8 @@ import pl.tablesFx.FilmFx;
 import pl.tablesFx.WypozyczenieFx;
 
 /**
- * Created by Mateusz on 2017-05-26.
+ * <h2>Klasa Wypozyczeń</h2>
+ * <p>Przechowuje obiekty typu FilmFx, WypozeczenieFx oraz EgzemplarzFx.</p>
  */
 public class MojeWypozyczenia {
 
@@ -14,27 +15,45 @@ public class MojeWypozyczenia {
     private WypozyczenieFx wypozyczenieFx;
     private EgzemplarzFx egzemplarzFx;
 
-
+    /**
+     * Metoda zwracająca wartość pola egzemplarzFx
+     * @return obiekt typu EgzemplarzFx
+     */
     public EgzemplarzFx getEgzemplarzFx() {
         return egzemplarzFx;
     }
-
+    /**
+     * Metoda ustawiająca wartość pola egzemplarzFx
+     * @param egzemplarzFx obiekt typu EgzemplarzFx
+     */
     public void setEgzemplarzFx(EgzemplarzFx egzemplarzFx) {
         this.egzemplarzFx = egzemplarzFx;
     }
-
+    /**
+     * Metoda zwracająca wartość pola filmFx
+     * @return obiekt typu FilmFx
+     */
     public FilmFx getFilmFx() {
         return filmFx;
     }
-
+    /**
+     * Metoda ustawiająca wartość pola filmFx
+     * @param filmFx obiekt typu FilmFx
+     */
     public void setFilmFx(FilmFx filmFx) {
         this.filmFx = filmFx;
     }
-
+    /**
+     * Metoda zwracająca wartość pola wypozyczenieFx
+     * @return obiekt typu WypozyczenieFx
+     */
     public WypozyczenieFx getWypozyczenieFx() {
         return wypozyczenieFx;
     }
-
+    /**
+     * Metoda ustawiająca wartość pola wypozyczenieFx
+     * @param wypozyczenieFx obiekt typu WypozyczenieFx
+     */
     public void setWypozyczenieFx(WypozyczenieFx wypozyczenieFx) {
         this.wypozyczenieFx = wypozyczenieFx;
     }

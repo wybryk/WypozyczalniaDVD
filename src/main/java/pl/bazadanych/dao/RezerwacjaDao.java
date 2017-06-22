@@ -10,10 +10,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Damian on 2017-05-25.
+ * <h2>Klasa łącząca z tabelą Rezerwacje w BD</h2>
+ * <p>Zawiera metody do pobierania i wstawiania elementów z/do bazy.</p>
  */
 public class RezerwacjaDao {
-
+    /**
+     * Metoda pobierająca rekordy z tabeli REZERWACJE
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         Connections.initDataBase();
         ObservableList<Rezerwacja> rezerwacjaList = FXCollections.observableArrayList();
@@ -34,7 +38,11 @@ public class RezerwacjaDao {
         Connections.closeConnection();
         return rezerwacjaList;
     }
-
+    /**
+     * Metoda wstawiająca dane do tabeli REZERWACJE
+     * @param filmFx parametr będący obiektem typu FilmFx
+     * @param klientID parametr będący identyfikatorem klienta który złożył rezerwację
+     */
     public void insertRezerwacje(FilmFx filmFx, int klientID) {
         Connections.initDataBase();
         Connections.insertRecord("REZERWACJE", "RezerwacjeSeq.NEXTVAL," + filmFx.getId() + "," + klientID + "");

@@ -10,7 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Rezyser w BD</h2>
+ * <p>Zawiera metody do pobierania, szukania i wstawiania elementów z/do bazy.</p>
  */
 public class RezyserDao{
 
@@ -32,7 +33,10 @@ public class RezyserDao{
         Connections.closeConnection();
         return rezyser;
     }
-
+    /**
+     * Metoda pobierająca rekordy z tabeli REZYSER
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         ObservableList<Rezyser> rezyserList= FXCollections.observableArrayList();
         Connections.initDataBase();
@@ -53,7 +57,11 @@ public class RezyserDao{
         Connections.closeConnection();
         return rezyserList;
     }
-
+    /**
+     * Metoda wyszukująca Reżysera po nazwie.
+     * @param rezyserNazwa nazwa reżysera
+     * @return wartość typu int
+     */
     public int findRezyser(String rezyserNazwa){
         ObservableList<Rezyser> rezyserList = selectAll();
         boolean exist = false;
@@ -74,7 +82,11 @@ public class RezyserDao{
         }
         return id;
     }
-
+    /**
+     * Metoda wstawiająca dane do tabeli REZYSER
+     * @param rezyserNazwa parametr będący obiektem typu String - Nazwa rezysera
+     * @return wartość typu int
+     */
     public int insertRezyser(String rezyserNazwa) {
         Connections.initDataBase();
         Rezyser rezyser = new Rezyser();

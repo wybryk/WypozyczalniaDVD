@@ -12,10 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Konto w BD</h2>
+ * <p>Zawiera metody do pobierania, edytowania, usuwania i wstawiania elementów z/do bazy.</p>
  */
 public class KontoDao {
-
+    /**
+     * Metoda pobierająca rekordy z tabeli KONTO
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         Connections.initDataBase();
         ObservableList<Konto> kontoList = FXCollections.observableArrayList();
@@ -38,7 +42,11 @@ public class KontoDao {
         Connections.closeConnection();
         return kontoList;
     }
-
+    /**
+     * Metoda wstawiająca dane do tabeli KONTO
+     * @param kontoFx parametr będący obiektem typu KontoFx
+     * @param id parametr będący identyfikatorem rekordu
+     */
     public void insertKonto(KontoFx kontoFx, int id) {
         Connections.initDataBase();
         Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + kontoFx.getLogin() + "', '" + kontoFx.getHaslo() + "', "

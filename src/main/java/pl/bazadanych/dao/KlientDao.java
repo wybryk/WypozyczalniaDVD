@@ -11,10 +11,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Klient w BD</h2>
+ * <p>Zawiera metody do pobierania, usuwania, szukania i wstawiania elementów z/do bazy.</p>
  */
 public class KlientDao  {
-
+    /**
+     * Metoda wyszukująca Klienta po identyfikatorze.
+     * @param id id klienta do odnalezienia
+     * @return obiekt typu Klient
+     */
     public Klient findKlientById(int id) {
         Connections.initDataBase();
 
@@ -35,20 +40,29 @@ public class KlientDao  {
         Connections.closeConnection();
         return klient;
     }
-
+    /**
+     * Metoda wstawiająca dane do tabeli KLIENT
+     * @param klientFx parametr będący obiektem typu KlientFx
+     */
     public void insertKlient(KlientFx klientFx) {
             Connections.initDataBase();
             Connections.insertRecord("KLIENT", "KlientSeq.NEXTVAL, '" + klientFx.getImie() + "', '" +
                     klientFx.getNazwisko() + "', '" + klientFx.getEmail() + "'");
             Connections.closeConnection();
     }
-
+    /**
+     * Metoda usuwająca dane z tabeli KLIENT, używając identyfikatora klienta.
+     * @param id identyfikator klienta
+     */
     public void deleteKlient(int id) {
         Connections.initDataBase();
         Connections.deleteRecord("KLIENT", "ID_KLIENTA = " + id);
         Connections.closeConnection();
     }
-
+    /**
+     * Metoda pobierająca rekordy z tabeli KLIENT
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         Connections.initDataBase();
         ObservableList<Klient> klientList = FXCollections.observableArrayList();
@@ -71,7 +85,11 @@ public class KlientDao  {
         Connections.closeConnection();
         return klientList;
     }
-
+    /**
+     * Metoda wyszukująca Klienta.
+     * @param klientFx obiekt typu KlientFx
+     * @return wartość typu int
+     */
     public int findKlient(KlientFx klientFx){
         ObservableList<Klient> klientList = selectAll();
         int id = 0;
@@ -85,7 +103,10 @@ public class KlientDao  {
         }
         return id;
     }
-
+    /**
+     * Metoda aktualizująca dane w tabeli KLIENT.
+     * @param klientFx parametr obiektem typu KlientFx
+     */
     public void updateKlient(KlientFx klientFx){
         Connections.initDataBase();
         Connections.updateRecord("KLIENT", "IMIE = '" + klientFx.getImie() + "', NAZWISKO = '" + klientFx.getNazwisko()

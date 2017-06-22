@@ -11,10 +11,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Wypozyczenia w BD</h2>
+ * <p>Zawiera metody do pobierania i wstawiania elementów z/do bazy.</p>
  */
 public class DaneWypozyczeniaDao{
-
+    /**
+     * Metoda pobierająca rekordy z tabeli DANE_WYPOZYCZENIA
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         Connections.initDataBase();
         ObservableList<DaneWypozyczenia> daneWypozyczeniaList = FXCollections.observableArrayList();
@@ -36,7 +40,10 @@ public class DaneWypozyczeniaDao{
         Connections.closeConnection();
         return daneWypozyczeniaList;
     }
-
+    /**
+     * Metoda wstawiająca dane do tabeli DANE_WYPOZYCZENIA
+     * @param daneWypozyczeniaFx parametr będący obiektem typu DaneWypozyczeniaFx
+     */
     public void insertDaneWypozyczenia(DaneWypozyczeniaFx daneWypozyczeniaFx){
         Connections.initDataBase();
         Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczeniaFx.getIdEgzemplarzu() + ", "

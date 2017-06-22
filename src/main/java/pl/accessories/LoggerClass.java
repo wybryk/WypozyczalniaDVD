@@ -7,7 +7,8 @@ import java.util.SplittableRandom;
 import java.util.logging.Logger;
 
 /**
- * Created by Damian on 2017-06-20.
+ * <h2>Klasa do tworzenia logów</h2>
+ * <p>Korzysta z log4j do logowania eventów.</p>
  */
 public class LoggerClass {
     private org.apache.log4j.Logger logger;
@@ -15,15 +16,27 @@ public class LoggerClass {
     private Layout layout;
     private Appender appender;
     private Appender fileAppender;
-
+    /**
+     * Konstruktor, tworzy nowy Layout dla logów i obiekt typu Logger.
+     */
     public LoggerClass() {
         layout = new PatternLayout("[%p] %c - %m - Data wpisu: %d %n");
         this.logger = org.apache.log4j.Logger.getRootLogger();
     }
+    /**
+     * Metoda wypisująca logi zarówno do pliku jak i na konsolę.
+     * @param mode parametr będący typem logu który zapisujemy
+     * @param msg parametr będący treścią zapisywanego logu
+     */
     public void logFileAndConsole(String mode, String msg) {
         logToConsole(mode, msg);
         logToFile(mode, msg);
     }
+    /**
+     * Metoda wypisująca logi do pliku.
+     * @param mode parametr będący typem logu który zapisujemy
+     * @param msg parametr będący treścią zapisywanego logu
+     */
     public void logToFile(String mode, String msg) {
         try {
             fileAppender = new FileAppender(layout, "D:/Code/WypozyczalniaDVD/src/app-logs.txt");
@@ -35,12 +48,22 @@ public class LoggerClass {
         BasicConfigurator.configure(fileAppender);
         log(mode, msg);
     }
+    /**
+     * Metoda wypisująca logi na konsolę.
+     * @param mode parametr będący typem logu który zapisujemy
+     * @param msg parametr będący treścią zapisywanego logu
+     */
     public void logToConsole(String mode, String msg) {
         appender = new ConsoleAppender(layout);
         BasicConfigurator.resetConfiguration();
         BasicConfigurator.configure(appender);
         log(mode, msg);
     }
+    /**
+     * Metoda wypisująca logi.
+     * @param mode parametr będący typem logu który zapisujemy
+     * @param msg parametr będący treścią zapisywanego logu
+     */
     private void log(String mode, String msg) {
         switch ( mode ) {
             case "error":

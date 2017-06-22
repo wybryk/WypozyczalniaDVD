@@ -11,26 +11,43 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Egzemplarz w BD</h2>
+ * <p>Zawiera metody do pobierania, usuwania i wstawiania elementów z/do bazy.</p>
  */
 public class EgzemplarzDao {
-
+    /**
+     * Metoda wstawiająca dane do tabeli EGZEMPLARZ
+     * @param n parametr będący wartością typu int
+     * @param id parametr będący identyfikatorem rekordu
+     */
     public void insertEgzemplarz(int n, int id ){
         Connections.initDataBase();
         for(int i = 0; i < n; i++)
             Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + id);
         Connections.closeConnection();
     }
+    /**
+     * Metoda usuwająca dane z tabeli EGZEMPLARZ, używając pola id obiektu typu FilmFx.
+     * @param filmFx parametr obiektem typu FilmFx
+     */
     public void deleteEgzemplarzByIdFilmu(FilmFx filmFx){
         Connections.initDataBase();
         Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + filmFx.getId());
         Connections.closeConnection();
     }
+    /**
+     * Metoda usuwająca dane z tabeli EGZEMPLARZ, używając id Egzemplarza
+     * @param id identyfikator egzemplarza
+     */
     public void deleteEgzemplarzByIdEgzemplarzu(int id){
         Connections.initDataBase();
         Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + id);
         Connections.closeConnection();
     }
+    /**
+     * Metoda pobierająca rekordy z tabeli EGZEMPLARZ
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         Connections.initDataBase();
         ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList();

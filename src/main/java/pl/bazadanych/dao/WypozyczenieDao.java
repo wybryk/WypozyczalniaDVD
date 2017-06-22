@@ -13,12 +13,18 @@ import java.sql.SQLException;
  * Created by Mateusz on 2017-04-20.
  */
 public class WypozyczenieDao {
-
+    /**
+     * Metoda wstawiająca dane do tabeli WYPOZYCZENIE.
+     */
     public void insertWypozyczenie() {
         Connections.initDataBase();
         Connections.insertRecord("WYPOZYCZENIE", "WypozyczenieSeq.NEXTVAL, SYSDATE, SYSDATE+7");
         Connections.closeConnection();
     }
+    /**
+     * Metoda pobierająca rekordy z tabeli WYPOZYCZENIE.
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll(){
         ObservableList<Wypozyczenie> wypozyczeniesList = FXCollections.observableArrayList();
         Connections.initDataBase();
@@ -40,7 +46,10 @@ public class WypozyczenieDao {
         Connections.closeConnection();
         return wypozyczeniesList;
     }
-
+    /**
+     * Metoda znajdująca ostatni wstawiony rekord w tabeli WYPOZYCZENIE.
+     * @return id rekordu
+     */
     public int selectMaxId(){
         int id = 0;
         Connections.initDataBase();

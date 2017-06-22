@@ -11,7 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-20.
+ * <h2>Klasa łącząca z tabelą Gatunek w BD</h2>
+ * <p>Zawiera metody do pobierania i szukanai elementów z/w bazy.</p>
  */
 public class GatunekDao  {
 
@@ -33,7 +34,10 @@ public class GatunekDao  {
         Connections.closeConnection();
         return gatunek;
     }
-
+    /**
+     * Metoda pobierająca rekordy z tabeli GATUNEK
+     * @return obiekt typu ObservableList
+     */
     public ObservableList selectAll()  {
         ObservableList<Gatunek> gatunekList = FXCollections.observableArrayList();
         Connections.initDataBase();
