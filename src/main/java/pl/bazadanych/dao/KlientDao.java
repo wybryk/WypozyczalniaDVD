@@ -9,17 +9,18 @@ import pl.tablesFx.KlientFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class KlientDao  {
 
-    public Klient findKlientById(int id) {
+    public Klient findKlientById(Klient klient) {
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("KLIENT", "ID_KLIENTA = " + id);
-        Klient klient = new Klient();
+        ResultSet resultSet = Connections.selectRecords("KLIENT", "ID_KLIENTA = " + klient.getId());
         try{
             while (resultSet.next()) {
                 //System.out.println(resultSet.getInt(1) + "  " + resultSet.getString(2) +  "  " + resultSet.getString(3));
@@ -36,22 +37,22 @@ public class KlientDao  {
         return klient;
     }
 
-    public void insertKlient(KlientFx klientFx) {
+    public void insertKlient(Klient klient) {
             Connections.initDataBase();
-            Connections.insertRecord("KLIENT", "KlientSeq.NEXTVAL, '" + klientFx.getImie() + "', '" +
-                    klientFx.getNazwisko() + "', '" + klientFx.getEmail() + "'");
+            Connections.insertRecord("KLIENT", "KlientSeq.NEXTVAL, '" + klient.getImie() + "', '" +
+                    klient.getNazwisko() + "', '" + klient.getEmail() + "'");
             Connections.closeConnection();
     }
 
-    public void deleteKlient(int id) {
+    public void deleteKlient(Klient klient) {
         Connections.initDataBase();
-        Connections.deleteRecord("KLIENT", "ID_KLIENTA = " + id);
+        Connections.deleteRecord("KLIENT", "ID_KLIENTA = " + klient.getId());
         Connections.closeConnection();
     }
 
-    public ObservableList selectAll(){
+    public List selectAll(){
         Connections.initDataBase();
-        ObservableList<Klient> klientList = FXCollections.observableArrayList();
+        List<Klient> klientList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("KLIENT");
         try{
             while (resultSet.next()) {
@@ -72,24 +73,25 @@ public class KlientDao  {
         return klientList;
     }
 
-    public int findKlient(KlientFx klientFx){
-        ObservableList<Klient> klientList = selectAll();
+    public Klient findKlient(Klient klient){
+        List<Klient> klientList = selectAll();
         int id = 0;
         for(Klient e: klientList){
             //System.out.println(e);
-            if( klientFx.getImie().equals(e.getImie()) && klientFx.getNazwisko().equals(e.getNazwisko()) &&
-                    klientFx.getEmail().equals(e.getEmail())) {
+            if( klient.getImie().equals(e.getImie()) && klient.getNazwisko().equals(e.getNazwisko()) &&
+                    klient.getEmail().equals(e.getEmail())) {
                 id = e.getId();
                 break;
             }
         }
-        return id;
+        klient.setId(id);
+        return klient;
     }
 
-    public void updateKlient(KlientFx klientFx){
+    public void updateKlient(Klient klient){
         Connections.initDataBase();
-        Connections.updateRecord("KLIENT", "IMIE = '" + klientFx.getImie() + "', NAZWISKO = '" + klientFx.getNazwisko()
-                + "', EMAIL = '" + klientFx.getEmail() + "'"," ID_KLIENTA = " + klientFx.getId());
+        Connections.updateRecord("KLIENT", "IMIE = '" + klient.getImie() + "', NAZWISKO = '" + klient.getNazwisko()
+                + "', EMAIL = '" + klient.getEmail() + "'"," ID_KLIENTA = " + klient.getId());
         Connections.closeConnection();
     }
 

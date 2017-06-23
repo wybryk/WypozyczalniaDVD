@@ -24,7 +24,7 @@
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.0.0</version>
                 <executions>
-                    <execution>
+                   <execution>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
@@ -40,6 +40,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 
     <properties>
@@ -47,13 +48,13 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/com.oracle/ojdbc14 -->
+    <!--<dependencies>
+        <!- https://mvnrepository.com/artifact/com.oracle/ojdbc14 ->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>10.2.0.4.0</version>
         </dependency>
-    </dependencies>
+    </dependencies>-->
 
 </project>

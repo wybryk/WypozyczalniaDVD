@@ -8,18 +8,19 @@ import pl.tablesFx.RezyserFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class RezyserDao{
 
-    public Rezyser findRezyserById(int id) {
+    public Rezyser findRezyserById(Rezyser rezyser) {
 
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSERA = " + id);
-        Rezyser rezyser = new Rezyser();
+        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSERA = " + rezyser.getId());
         try{
             while (resultSet.next()) {
                 rezyser.setId(resultSet.getInt(1));
@@ -33,8 +34,8 @@ public class RezyserDao{
         return rezyser;
     }
 
-    public ObservableList selectAll(){
-        ObservableList<Rezyser> rezyserList= FXCollections.observableArrayList();
+    public List selectAll(){
+        List<Rezyser> rezyserList= new ArrayList<>();
         Connections.initDataBase();
 
         ResultSet resultSet = Connections.selectRecords("REZYSER");
@@ -54,8 +55,9 @@ public class RezyserDao{
         return rezyserList;
     }
 
-    public int findRezyser(String rezyserNazwa){
-        ObservableList<Rezyser> rezyserList = selectAll();
+    public Rezyser findRezyser(Rezyser rezyser){
+        List<Rezyser> rezyserList = selectAll();
+        String rezyserNazwa = rezyser.getNazwa();
         boolean exist = false;
         int id = 0;
 
@@ -72,14 +74,13 @@ public class RezyserDao{
         if( exist == false) {
             id = insertRezyser(rezyserNazwa);
         }
-        return id;
+        rezyser.setId(id);
+        return rezyser;
     }
 
     public int insertRezyser(String rezyserNazwa) {
         Connections.initDataBase();
-        Rezyser rezyser = new Rezyser();
-        rezyser.setNazwa(rezyserNazwa);
-        Connections.insertRecord("REZYSER", "RezyserSeq.NEXTVAL, '"+rezyser.getNazwa()+"'");
+        Connections.insertRecord("REZYSER", "RezyserSeq.NEXTVAL, '"+rezyserNazwa+"'");
         Connections.closeConnection();
         return 0;
     }

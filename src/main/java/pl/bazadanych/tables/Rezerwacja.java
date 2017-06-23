@@ -1,9 +1,11 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * Created by Damian on 2017-05-31.
  */
-public class Rezerwacja {
+public class Rezerwacja extends BaseTable implements Serializable {
     private int id;
     private int idFilmu;
     private int idKlienta;

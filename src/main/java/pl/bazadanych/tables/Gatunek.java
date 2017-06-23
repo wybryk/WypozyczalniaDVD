@@ -1,9 +1,11 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * Created by Mateusz on 2017-04-20.
  */
-public class Gatunek {
+public class Gatunek extends BaseTable implements Serializable {
 
     private int id;
     private String nazwa;
@@ -26,4 +28,11 @@ public class Gatunek {
         this.nazwa = nazwa;
     }
 
+    @Override
+    public String toString() {
+        return "Gatunek{" +
+                "id=" + id +
+                ", nazwa='" + nazwa + '\'' +
+                '}';
+    }
 }

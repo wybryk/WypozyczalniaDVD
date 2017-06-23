@@ -34,4 +34,12 @@ public class EgzemplarzFx {
     public void setIdFilmu(int idFilmu) {
         this.idFilmu.set(idFilmu);
     }
+
+    @Override
+    public String toString() {
+        return "EgzemplarzFx{" +
+                "id=" + id +
+                ", idFilmu=" + idFilmu +
+                '}';
+    }
 }

@@ -1,12 +1,13 @@
 package pl.controllers;
 
 import javafx.fxml.FXML;
-import pl.accessories.Converters;
-import pl.bazadanych.dao.KlientDao;
-import pl.bazadanych.dao.KontoDao;
 import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
 import pl.accessories.Singleton;
+
+import static pl.accessories.Converters.toKlient;
+import static pl.accessories.Converters.toKlientFx;
+import static pl.accessories.Converters.toKonto;
 
 
 /**
@@ -28,12 +29,11 @@ public class KlientEditController extends AdminController{
         klientFx.setId(this.klientFx.getId());
 
         if(haslo2.equals(kontoFx.getHaslo()) == true ) {
-            KlientDao klientDao = new KlientDao();
-            KontoDao kontoDao = new KontoDao();
-            klientDao.updateKlient(klientFx);
-            kontoDao.updateKonto(kontoFx);
+            wypozyczalniaClient("Klient", "update", toKlient(klientFx));
+            wypozyczalniaClient("Konto", "update", toKonto(kontoFx));
         }
     }
+
     protected void setTextFields(){
         imieTextField.setText(this.klientFx.getImie());
         nazwiskoTextField.setText(this.klientFx.getNazwisko());
@@ -42,9 +42,12 @@ public class KlientEditController extends AdminController{
         hasloPasswordField.setText(this.kontoFx.getHaslo());
         haslo2PasswordField.setText(this.kontoFx.getHaslo());
     }
+
     protected void getKlientFromDataBase(){
-        KlientDao klientDao = new KlientDao();
-        this.klientFx = Converters.toKlientFx(klientDao.findKlientById(this.kontoFx.getKlientfx()));
+        KlientFx klientFx = new KlientFx();
+        klientFx.setId(this.kontoFx.getKlientfx());
+        wypozyczalniaClient("Klient", "findById", toKlient(klientFx));
+        this.klientFx = toKlientFx(super.klient);
     }
 
     @FXML

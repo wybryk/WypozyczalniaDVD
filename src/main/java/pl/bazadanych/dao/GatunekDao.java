@@ -9,18 +9,19 @@ import pl.tablesFx.GatunekFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class GatunekDao  {
 
-    public Gatunek findGatunekById(int id) {
+    public Gatunek findGatunekById(Gatunek gatunek) {
 
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("GATUNEK", "ID_GATUNKU = " + id);
-        Gatunek gatunek = new Gatunek();
+        ResultSet resultSet = Connections.selectRecords("GATUNEK", "ID_GATUNKU = " + gatunek.getId());
         try{
             while (resultSet.next()) {
             gatunek.setId(resultSet.getInt(1));
@@ -34,8 +35,8 @@ public class GatunekDao  {
         return gatunek;
     }
 
-    public ObservableList selectAll()  {
-        ObservableList<Gatunek> gatunekList = FXCollections.observableArrayList();
+    public List selectAll()  {
+        List<Gatunek> gatunekList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("GATUNEK");
         try{

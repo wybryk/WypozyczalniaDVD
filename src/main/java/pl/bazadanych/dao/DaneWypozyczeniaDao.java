@@ -9,15 +9,17 @@ import pl.tablesFx.KlientFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class DaneWypozyczeniaDao{
 
-    public ObservableList selectAll(){
+    public List selectAll(){
         Connections.initDataBase();
-        ObservableList<DaneWypozyczenia> daneWypozyczeniaList = FXCollections.observableArrayList();
+        List<DaneWypozyczenia> daneWypozyczeniaList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("DANE_WYPOZYCZENIA");
         try{
             while (resultSet.next()) {
@@ -37,10 +39,10 @@ public class DaneWypozyczeniaDao{
         return daneWypozyczeniaList;
     }
 
-    public void insertDaneWypozyczenia(DaneWypozyczeniaFx daneWypozyczeniaFx){
+    public void insertDaneWypozyczenia(DaneWypozyczenia daneWypozyczenia){
         Connections.initDataBase();
-        Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczeniaFx.getIdEgzemplarzu() + ", "
-                + daneWypozyczeniaFx.getIdKlienta() + ", " + daneWypozyczeniaFx.getIdWypozyczenia());
+        Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczenia.getIdEgzemplarzu() + ", "
+                + daneWypozyczenia.getIdKlienta() + ", " + daneWypozyczenia.getIdWypozyczenia());
         Connections.closeConnection();
     }
 }

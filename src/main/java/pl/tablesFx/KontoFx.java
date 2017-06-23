@@ -1,7 +1,6 @@
 package pl.tablesFx;
 
 import javafx.beans.property.*;
-import pl.bazadanych.tables.Klient;
 
 /**
  * Created by Mateusz on 2017-04-22.

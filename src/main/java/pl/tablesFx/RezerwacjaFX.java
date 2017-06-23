@@ -2,6 +2,7 @@ package pl.tablesFx;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import pl.bazadanych.tables.BaseTable;
 
 /**
  * Created by Damian on 2017-05-25.

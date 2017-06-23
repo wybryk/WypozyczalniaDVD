@@ -47,4 +47,13 @@ public class DaneWypozyczeniaFx {
     public void setIdWypozyczenia(int idWypozyczenia) {
         this.idWypozyczenia.set(idWypozyczenia);
     }
+
+    @Override
+    public String toString() {
+        return "DaneWypozyczeniaFx{" +
+                "idEgzemplarzu=" + idEgzemplarzu +
+                ", idKlienta=" + idKlienta +
+                ", idWypozyczenia=" + idWypozyczenia +
+                '}';
+    }
 }

@@ -1,12 +1,12 @@
 package pl.controllers;
 
 import javafx.fxml.FXML;
-import pl.bazadanych.dao.DaneWypozyczeniaDao;
-import pl.bazadanych.dao.WypozyczenieDao;
-import pl.bazadanych.tables.DaneWypozyczenia;
 import pl.tablesFx.DaneWypozyczeniaFx;
-import pl.tablesFx.FilmFx;
 import pl.accessories.Singleton;
+import pl.tablesFx.WypozyczenieFx;
+
+import static pl.accessories.Converters.toDaneWypozyczenia;
+import static pl.accessories.Converters.toWypozyczenieFx;
 
 /**
  * Created by Mateusz on 2017-05-24.
@@ -16,29 +16,37 @@ public class WypozyczController extends FilmEditController{
     @FXML
     private void borrow(){
         DaneWypozyczeniaFx daneWypozyczeniaFx = new DaneWypozyczeniaFx();
-        manageSearch();
-        setFreeEgzemplarz(daneWypozyczeniaFx);
-        setKlient(daneWypozyczeniaFx);
-        setWypozyczenie(daneWypozyczeniaFx);
+        boolean exist = setFreeEgzemplarz(daneWypozyczeniaFx);
+        if(exist == true) {
+            setKlient(daneWypozyczeniaFx);
+            setWypozyczenie(daneWypozyczeniaFx);
 
-        DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
+            wypozyczalniaClient("DaneWypozyczenia", "insert", toDaneWypozyczenia(daneWypozyczeniaFx));
+            System.out.println(daneWypozyczeniaFx);
 
-        daneWypozyczeniaDao.insertDaneWypozyczenia(daneWypozyczeniaFx);
-    }
-    private void setFreeEgzemplarz(DaneWypozyczeniaFx daneWypozyczeniaFx){
-        if(freeEgzemplarzFxList.size() != 0)
-            daneWypozyczeniaFx.setIdEgzemplarzu(freeEgzemplarzFxList.get(0).getId());
-        else
+            warningWindow("Wypożyczono.");
+        }
+        else if (exist == false)
             warningWindow("Brak wolnych egzemplarzy");
+    }
+    private boolean setFreeEgzemplarz(DaneWypozyczeniaFx daneWypozyczeniaFx){
+        super.manageSearch();
+        if(freeEgzemplarzFxList.size() != 0) {
+            daneWypozyczeniaFx.setIdEgzemplarzu(super.freeEgzemplarzFxList.get(0).getId());
+            return true;
+        }
+        else
+            return false;
     }
     private void setKlient(DaneWypozyczeniaFx daneWypozyczeniaFx){
         kontoFxObjectProperty.set(kontoListView.getSelectionModel().getSelectedItem());
         daneWypozyczeniaFx.setIdKlienta(kontoFxObjectProperty.getValue().getId());
     }
     private void setWypozyczenie(DaneWypozyczeniaFx daneWypozyczeniaFx){
-        WypozyczenieDao wypozyczenieDao = new WypozyczenieDao();
-        wypozyczenieDao.insertWypozyczenie();
-        daneWypozyczeniaFx.setIdWypozyczenia(wypozyczenieDao.selectMaxId());
+        wypozyczalniaClient("Wypozyczenie", "insert", null);
+        wypozyczalniaClient("Wypozyczenie", "selectMaxId", null);
+        WypozyczenieFx wypozyczenieFx = toWypozyczenieFx(super.wypozyczenie);
+        daneWypozyczeniaFx.setIdWypozyczenia(wypozyczenieFx.getId());
     }
     public void initialize(){
         this.filmFx = Singleton.getInstance().getFilmFx();

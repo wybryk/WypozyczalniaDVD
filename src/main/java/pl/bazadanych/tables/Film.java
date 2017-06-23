@@ -1,12 +1,13 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
-public class Film {
+public class Film extends BaseTable implements Serializable {
 
     private int id;
     private String nazwa;

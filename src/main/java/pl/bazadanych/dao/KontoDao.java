@@ -10,15 +10,17 @@ import pl.tablesFx.KontoFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class KontoDao {
 
-    public ObservableList selectAll(){
+    public List selectAll(){
         Connections.initDataBase();
-        ObservableList<Konto> kontoList = FXCollections.observableArrayList();
+        List<Konto> kontoList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("KONTO");
         try{
             while (resultSet.next()) {
@@ -39,23 +41,23 @@ public class KontoDao {
         return kontoList;
     }
 
-    public void insertKonto(KontoFx kontoFx, int id) {
+    public void insertKonto(Konto konto) {
         Connections.initDataBase();
-        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + kontoFx.getLogin() + "', '" + kontoFx.getHaslo() + "', "
-                + kontoFx.getAdmin()+", " + id);
+        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + konto.getLogin() + "', '" + konto.getHaslo() + "', "
+                + konto.getAdmin()+", " + konto.getKlient());
         Connections.closeConnection();
     }
 
-    public void deleteKonto(KontoFx kontoFx){
+    public void deleteKonto(Konto konto){
         Connections.initDataBase();
-        Connections.deleteRecord("KONTO", "ID_KONTA = " + kontoFx.getId());
+        Connections.deleteRecord("KONTO", "ID_KONTA = " + konto.getId());
         Connections.closeConnection();
     }
 
-    public void updateKonto(KontoFx kontoFx){
+    public void updateKonto(Konto konto){
         Connections.initDataBase();
-        Connections.updateRecord("KONTO", "LOGIN = '" + kontoFx.getLogin() + "', HASLO = '" + kontoFx.getHaslo()
-                + "', CZY_ADMIN = " + kontoFx.getAdmin()," ID_KONTA = " + kontoFx.getId());
+        Connections.updateRecord("KONTO", "LOGIN = '" + konto.getLogin() + "', HASLO = '" + konto.getHaslo()
+                + "', CZY_ADMIN = " + konto.getAdmin()," ID_KONTA = " + konto.getId());
         Connections.closeConnection();
     }
 }

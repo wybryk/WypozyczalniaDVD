@@ -8,6 +8,8 @@ import pl.bazadanych.tables.Wypozyczenie;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
@@ -19,8 +21,9 @@ public class WypozyczenieDao {
         Connections.insertRecord("WYPOZYCZENIE", "WypozyczenieSeq.NEXTVAL, SYSDATE, SYSDATE+7");
         Connections.closeConnection();
     }
-    public ObservableList selectAll(){
-        ObservableList<Wypozyczenie> wypozyczeniesList = FXCollections.observableArrayList();
+
+    public List selectAll(){
+        List<Wypozyczenie> wypozyczeniesList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("WYPOZYCZENIE");
         try{
@@ -41,7 +44,8 @@ public class WypozyczenieDao {
         return wypozyczeniesList;
     }
 
-    public int selectMaxId(){
+    public Wypozyczenie selectMaxId(){
+        Wypozyczenie wypozyczenie = new Wypozyczenie();
         int id = 0;
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectMaxId("WYPOZYCZENIE", "ID_WYPOZYCZENIA");
@@ -55,6 +59,7 @@ public class WypozyczenieDao {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return id;
+        wypozyczenie.setId(id);
+        return wypozyczenie;
     }
 }

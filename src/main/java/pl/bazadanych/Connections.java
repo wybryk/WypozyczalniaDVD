@@ -69,6 +69,7 @@ public class Connections {
         }
         return null;
     }
+
     public static ResultSet selectMaxId( String table, String query) {
         try {
             stmt = conn.createStatement();
@@ -113,4 +114,5 @@ public class Connections {
             e.printStackTrace();
         }
     }
+
 }

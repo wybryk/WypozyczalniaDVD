@@ -8,21 +8,23 @@ import pl.tablesFx.FilmFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class FilmDao {
 
-    public void insertFilm(FilmFx filmFx){
+    public void insertFilm(Film film){
         Connections.initDataBase();
-        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+filmFx.getNazwa()+"', '"+filmFx.getOpis()+"', "+filmFx.getIlosc()+", '"
-                +filmFx.getPremiera()+"', "+filmFx.getGatunekFx()+", "+filmFx.getRezyserFx());
+        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+film.getNazwa()+"', '"+film.getOpis()+"', "+film.getIlosc()+", '"
+                +film.getPremiera()+"', "+film.getGatunek()+", "+film.getRezyser());
         Connections.closeConnection();
     }
 
-    public ObservableList selectAllFilm(){
-        ObservableList<Film> filmList = FXCollections.observableArrayList();
+    public List selectAllFilm(){
+        List<Film> filmList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("FILM");
         try{
@@ -46,8 +48,9 @@ public class FilmDao {
         return filmList;
     }
 
-    public int findFilm(String nazwa){
-        ObservableList<Film> filmList = selectAllFilm();
+    public Film findFilm(Film film){
+        List<Film> filmList = selectAllFilm();
+        String nazwa = film.getNazwa();
         int id = 0;
         for(Film e: filmList){
             if( nazwa.equals(e.getNazwa())) {
@@ -55,20 +58,23 @@ public class FilmDao {
                 break;
             }
         }
-        return id;
+        film.setId(id);
+        return film;
     }
 
-    public void deleteFilm(FilmFx filmFx){
+    public void deleteFilm(Film film){
         Connections.initDataBase();
-        Connections.deleteRecord("FILM", "ID_FILMU = " + filmFx.getId());
+        System.out.println(film.getId());
+        Connections.deleteRecord("FILM", "ID_FILMU = " + film.getId());
+        System.out.println(film.getId());
         Connections.closeConnection();
     }
 
-    public void updateFilm(FilmFx filmFx){
+    public void updateFilm(Film film){
         Connections.initDataBase();
-        Connections.updateRecord("FILM", "NAZWA = '"+filmFx.getNazwa()+"', OPIS = '"+filmFx.getOpis()+"', ILOSC = "+
-                filmFx.getIlosc()+", PREMIERA = '" +filmFx.getPremiera()+"', ID_GATUNKU = "+filmFx.getGatunekFx()+", ID_REZYSERA = "+
-                filmFx.getRezyserFx(), " Id_FILMU = " + filmFx.getId());
+        Connections.updateRecord("FILM", "NAZWA = '"+film.getNazwa()+"', OPIS = '"+film.getOpis()+"', ILOSC = "+
+                film.getIlosc()+", PREMIERA = '" +film.getPremiera()+"', ID_GATUNKU = "+film.getGatunek()+", ID_REZYSERA = "+
+                film.getRezyser(), " Id_FILMU = " + film.getId());
         Connections.closeConnection();
     }
 

@@ -9,31 +9,32 @@ import pl.tablesFx.FilmFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
 public class EgzemplarzDao {
 
-    public void insertEgzemplarz(int n, int id ){
+    public void insertEgzemplarz(Egzemplarz egzemplarz ){
         Connections.initDataBase();
-        for(int i = 0; i < n; i++)
-            Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + id);
+        Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + egzemplarz.getIdFilmu());
         Connections.closeConnection();
     }
-    public void deleteEgzemplarzByIdFilmu(FilmFx filmFx){
+    public void deleteEgzemplarzByIdFilmu(Egzemplarz egzemplarz){
         Connections.initDataBase();
-        Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + filmFx.getId());
+        Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + egzemplarz.getIdFilmu());
         Connections.closeConnection();
     }
-    public void deleteEgzemplarzByIdEgzemplarzu(int id){
+    public void deleteEgzemplarzByIdEgzemplarzu(Egzemplarz egzemplarz){
         Connections.initDataBase();
-        Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + id);
+        Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + egzemplarz.getId());
         Connections.closeConnection();
     }
-    public ObservableList selectAll(){
+    public List selectAll(){
         Connections.initDataBase();
-        ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList();
+        List<Egzemplarz> egzemplarzList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("EGZEMPLARZ");
         try{
             while (resultSet.next()) {

@@ -1,11 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Mateusz on 2017-04-20.
  */
-public class Wypozyczenie {
+public class Wypozyczenie extends BaseTable implements Serializable {
     private int id;
     private Date dataWypozyczenia;
     private Date dataOddania;

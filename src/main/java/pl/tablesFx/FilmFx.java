@@ -3,7 +3,6 @@ package pl.tablesFx;
 import javafx.beans.property.*;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  * Created by Mateusz on 2017-04-26.

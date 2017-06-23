@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.SpinnerValueFactory;
 import pl.accessories.Converters;
-import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.DaneWypozyczenia;
 import pl.bazadanych.tables.Egzemplarz;
 import pl.bazadanych.tables.Wypozyczenie;
@@ -17,18 +16,20 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 
+import static pl.accessories.Converters.*;
+
 /**
  * Created by Mateusz on 2017-05-24.
  */
 public class FilmEditController extends AdminController{
 
-    ObservableList<EgzemplarzFx> egzemplarzFxList = FXCollections.observableArrayList();
+    protected ObservableList<EgzemplarzFx> egzemplarzFxList = FXCollections.observableArrayList();
 
-    ObservableList<DaneWypozyczeniaFx> daneWypozyczeniaFxList = FXCollections.observableArrayList();
+    protected ObservableList<DaneWypozyczeniaFx> daneWypozyczeniaFxList = FXCollections.observableArrayList();
 
-    ObservableList<WypozyczenieFx> wypozyczenieFxList = FXCollections.observableArrayList();
+    protected ObservableList<WypozyczenieFx> wypozyczenieFxList = FXCollections.observableArrayList();
 
-    ObservableList<EgzemplarzFx> freeEgzemplarzFxList = FXCollections.observableArrayList();
+    protected ObservableList<EgzemplarzFx> freeEgzemplarzFxList = FXCollections.observableArrayList();
 
     protected FilmFx filmFx;
 
@@ -36,26 +37,33 @@ public class FilmEditController extends AdminController{
     private void updateFilmToDataBase(){
         FilmFx filmFx = getFilmValues();
         filmFx.setId(this.filmFx.getId());
-        FilmDao filmDao = new FilmDao();
-        EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
+        EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
 
-        if (this.filmFx.getIlosc() < filmFx.getIlosc())
-            egzemplarzDao.insertEgzemplarz(filmFx.getIlosc() - this.filmFx.getIlosc(), filmDao.findFilm(filmFx.getNazwa()));
+        if (this.filmFx.getIlosc() < filmFx.getIlosc()) {
+            wypozyczalniaClient("Film", "find", toFilm(filmFx));
+            egzemplarzFx.setIdFilmu(super.film.getId());
+            for (int i = 0; i < (filmFx.getIlosc() - this.filmFx.getIlosc()); i++)
+                wypozyczalniaClient("Egzemplarz", "insert", toEgzemplarz(egzemplarzFx));
+        }
         else if (this.filmFx.getIlosc() > filmFx.getIlosc()) {
             manageSearch();
-            if (freeEgzemplarzFxList.size() > filmFx.getIlosc() - this.filmFx.getIlosc()) {
-                for (int i = freeEgzemplarzFxList.size() - 1; i > filmFx.getIlosc() - 1; i--)
-                    egzemplarzDao.deleteEgzemplarzByIdEgzemplarzu(freeEgzemplarzFxList.get(i).getId());
+            if (freeEgzemplarzFxList.size() >= ( this.filmFx.getIlosc() - filmFx.getIlosc())) {
+                for (int i = freeEgzemplarzFxList.size() - 1; i > filmFx.getIlosc() - 1; i--) {
+                    egzemplarzFx.setId(freeEgzemplarzFxList.get(i).getId());
+                    wypozyczalniaClient("Egzemplarz", "deleteByIdEgzemplarzu", toEgzemplarz(egzemplarzFx));
+                    System.out.println("Usuwam: " + egzemplarzFx.getId());
+                }
             } else
                 warningWindow("Brak wolnych egzemplarzy");
         }
-        filmDao.updateFilm(filmFx);
         this.filmFx = filmFx;
-
+        wypozyczalniaClient("Film", "update", toFilm(filmFx));
+        freeEgzemplarzFxList.removeAll();
     }
+
     private void getEgzemplarzFromDataBase(){
-        EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
-        List<Egzemplarz> egzemplarzList = egzemplarzDao.selectAll();
+        wypozyczalniaClient("Egzemplarz", "selectAll", null);
+        ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList(super.egzemplarzList);
         egzemplarzList.forEach(e->{
             if (e.getIdFilmu() == this.filmFx.getId()) {
                 EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
@@ -65,9 +73,10 @@ public class FilmEditController extends AdminController{
             }
         });
     }
+
     private void getDaneWypozyczeniaFromDataBase(){
-        DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
-        List<DaneWypozyczenia> daneWypozyczeniaList = daneWypozyczeniaDao.selectAll();
+        wypozyczalniaClient("DaneWypozyczenia", "selectAll", null);
+        ObservableList<DaneWypozyczenia> daneWypozyczeniaList = FXCollections.observableArrayList(super.daneWypozyczeniaList);
             egzemplarzFxList.forEach(i -> {
                 daneWypozyczeniaList.forEach(e-> {
                     if ( e.getIdEgzemplarzu() == i.getId() ){
@@ -80,9 +89,10 @@ public class FilmEditController extends AdminController{
                 });
             });
     }
+
     private void getWypozyczenieFromDataBase(){
-        WypozyczenieDao wypozyczenieDao = new WypozyczenieDao();
-        List<Wypozyczenie> wypozyczenieList = wypozyczenieDao.selectAll();
+        wypozyczalniaClient("Wypozyczenie", "selectAll", null);
+        ObservableList<Wypozyczenie> wypozyczenieList = FXCollections.observableArrayList(super.wypozyczenieList);
         wypozyczenieList.forEach(e->{
             daneWypozyczeniaFxList.forEach(i->{
                 if(e.getId() == i.getIdWypozyczenia()) {
@@ -95,8 +105,8 @@ public class FilmEditController extends AdminController{
             });
         });
     }
+
     private void searchFreeEgzemplarz(){
-        System.out.println("1");
         int [] egzemplarzIndex = new int[egzemplarzFxList.size()];
         for(int i = 0; i < egzemplarzIndex.length; i++)
            egzemplarzIndex[i]=-1;
@@ -118,8 +128,8 @@ public class FilmEditController extends AdminController{
         }
         System.out.println(freeEgzemplarzFxList);
     }
+
     private void searchEgzemplarz(){
-        System.out.println("2");
         int [] [] wypozyczenieIndex = new int[wypozyczenieFxList.size()][2];
         int [] egzemplarzIndex;
         if( wypozyczenieIndex.length == 0)
@@ -171,10 +181,8 @@ public class FilmEditController extends AdminController{
                 this.freeEgzemplarzFxList.add(egzemplarzFx);
             }
         }
-        freeEgzemplarzFxList.forEach(e->{
-            System.out.println(e.getId());
-        });
     }
+
     private int findIdFilmu(int id){
         int idFilmu = -1;
         for(EgzemplarzFx e: egzemplarzFxList){
@@ -184,6 +192,7 @@ public class FilmEditController extends AdminController{
         }
         return idFilmu;
     }
+
     protected void manageSearch(){
         getEgzemplarzFromDataBase();
         getDaneWypozyczeniaFromDataBase();
@@ -191,20 +200,26 @@ public class FilmEditController extends AdminController{
         searchFreeEgzemplarz();
         searchEgzemplarz();
     }
+
     private void setTextFields(){
+        RezyserFx rezyserFx = new RezyserFx();
+        rezyserFx.setId(filmFx.getRezyserFx());
+        rezyserFx = findRezyser(rezyserFx);
         nazwaTextField.setText(filmFx.getNazwa());
         opisTextArea.setText(filmFx.getOpis());
         valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, filmFx.getIlosc());
         liczbaKopiSpinner.setValueFactory(valueFactory);
         premieraDatePicker.setValue(Converters.toLocalDate(filmFx.getPremiera()));
         gatunekComboBox.getSelectionModel().select(filmFx.getGatunekFx()-1);
-        rezyserTextField.setText(findRezyser(filmFx.getRezyserFx()).getNazwa());
+        rezyserTextField.setText(rezyserFx.getNazwa());
 
     }
-    private RezyserFx findRezyser(int id){
-        RezyserDao rezyserDao = new RezyserDao();
-        return Converters.toRezyserFx(rezyserDao.findRezyserById(id));
+
+    private RezyserFx findRezyser(RezyserFx rezyserFx){
+        wypozyczalniaClient("Rezyser", "findById", toRezyser(rezyserFx));
+        return toRezyserFx(super.rezyser);
     }
+
     @FXML
     public void initialize()  {
         this.filmFx = Singleton.getInstance().getFilmFx();
@@ -212,6 +227,5 @@ public class FilmEditController extends AdminController{
         setGatunekFxList();
         gatunekComboBox.setItems(gatunekFxList);
         setTextFields();
-        manageSearch();
     }
 }

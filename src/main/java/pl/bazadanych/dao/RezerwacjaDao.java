@@ -5,18 +5,21 @@ import javafx.collections.ObservableList;
 import pl.bazadanych.Connections;
 import pl.bazadanych.tables.Rezerwacja;
 import pl.tablesFx.FilmFx;
+import pl.tablesFx.RezerwacjaFX;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Damian on 2017-05-25.
  */
 public class RezerwacjaDao {
 
-    public ObservableList selectAll(){
+    public List selectAll(){
         Connections.initDataBase();
-        ObservableList<Rezerwacja> rezerwacjaList = FXCollections.observableArrayList();
+        List<Rezerwacja> rezerwacjaList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("REZERWACJE");
         try{
             while (resultSet.next()) {
@@ -35,9 +38,10 @@ public class RezerwacjaDao {
         return rezerwacjaList;
     }
 
-    public void insertRezerwacje(FilmFx filmFx, int klientID) {
+    public void insertRezerwacje(Rezerwacja rezerwacja) {
         Connections.initDataBase();
-        Connections.insertRecord("REZERWACJE", "RezerwacjeSeq.NEXTVAL," + filmFx.getId() + "," + klientID + "");
+        Connections.insertRecord("REZERWACJE", "RezerwacjeSeq.NEXTVAL, " + rezerwacja.getIdFilmu() + ", " +
+                rezerwacja.getIdKlienta());
         Connections.closeConnection();
     }
 }

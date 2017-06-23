@@ -1,9 +1,11 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * Created by Mateusz on 2017-04-19.
  */
-public class Klient {
+public class Klient extends BaseTable implements Serializable {
 
     private int id;
     private String imie;
@@ -44,4 +46,13 @@ public class Klient {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Klient{" +
+                "id=" + id +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

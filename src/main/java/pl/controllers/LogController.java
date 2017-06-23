@@ -4,20 +4,18 @@ package pl.controllers;
  * Created by Mateusz on 2017-04-22.
  */
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import pl.accessories.Converters;
-import pl.bazadanych.dao.KontoDao;
 import pl.bazadanych.tables.Konto;
 import pl.accessories.Singleton;
 
 import java.util.List;
-
-
-
 
 public class LogController extends BaseController{
 
@@ -44,9 +42,9 @@ public class LogController extends BaseController{
         boolean exist = false;
         login = loginText.getText();
         haslo = hasloText.getText();
-        KontoDao kontoDao = new KontoDao();
 
-        List<Konto> kontoList = kontoDao.selectAll();
+        wypozyczalniaClient("Konto", "selectAll", null);
+        ObservableList<Konto> kontoList = FXCollections.observableArrayList(super.kontoList);
 
         for(Konto e : kontoList){
             //System.out.println(e);
@@ -66,8 +64,5 @@ public class LogController extends BaseController{
             }
         }
         if ( exist == false )warningWindow("Błędna nazwa użytkownika lub hasło.");
-
     }
-
-
 }

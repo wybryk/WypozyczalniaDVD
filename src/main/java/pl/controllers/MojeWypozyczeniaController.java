@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import pl.accessories.MojeWypozyczenia;
 import pl.accessories.Singleton;
-import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
@@ -16,12 +15,11 @@ import java.util.List;
 /**
  * Created by Mateusz on 2017-05-25.
  */
-public class MojeWypozyczeniaController {
+public class MojeWypozyczeniaController extends BaseController{
     @FXML
     private ListView<FilmFx>  reservationListView;
     @FXML
     private ListView<MojeWypozyczenia>  borrowsListView;
-
 
     ObservableList<DaneWypozyczeniaFx> daneWypozyczeniaFxList = FXCollections.observableArrayList();
 
@@ -39,8 +37,8 @@ public class MojeWypozyczeniaController {
     private KontoFx kontoFx;
 
     private void getDaneWypozyczeniaFromDataBase(){
-        DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
-        List<DaneWypozyczenia> daneWypozyczeniaList = daneWypozyczeniaDao.selectAll();
+        wypozyczalniaClient("DaneWypozyczenia", "selectAll", null);
+        ObservableList<DaneWypozyczenia> daneWypozyczeniaList = FXCollections.observableArrayList(super.daneWypozyczeniaList);
         daneWypozyczeniaList.forEach(e->{
             if(e.getIdKlienta()==kontoFx.getKlientfx()){
                 DaneWypozyczeniaFx daneWypozyczeniaFx = new DaneWypozyczeniaFx();
@@ -52,31 +50,30 @@ public class MojeWypozyczeniaController {
             }
         });
     }
+
     private void getEgzemplarzFromDataBase(){
-        EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
-        List<Egzemplarz> egzemplarzList = egzemplarzDao.selectAll();
+        wypozyczalniaClient("Egzemplarz", "selectAll", null);
+        ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList(super.egzemplarzList);
         egzemplarzList.forEach(e->{
             daneWypozyczeniaFxList.forEach(i-> {
                 if (e.getId() == i.getIdEgzemplarzu()) {
                     EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
                     egzemplarzFx.setId(e.getId());
                     egzemplarzFx.setIdFilmu(e.getIdFilmu());
-
                     this.egzemplarzFxList.add(egzemplarzFx);
                 }
             });
         });
     }
-    private void getFilmFromDataBase() {
-        FilmDao filmDao = new FilmDao();
-        List<Film> filmList = filmDao.selectAllFilm();
 
+    private void getFilmFromDataBase() {
+        wypozyczalniaClient("Film", "selectAll", null);
+        ObservableList<Film> filmList = FXCollections.observableArrayList(super.filmList);
         filmList.forEach(e -> {
             egzemplarzFxList.forEach(i->{
                 if (e.getId() == i.getIdFilmu())
                 {
                     FilmFx filmFx = new FilmFx();
-
                     filmFx.setId(e.getId());
                     filmFx.setNazwa(e.getNazwa());
                     filmFx.setIlosc(e.getIlosc());
@@ -90,9 +87,10 @@ public class MojeWypozyczeniaController {
              });
         });
     }
+
     private void getWypozyczenieFromDataBase(){
-        WypozyczenieDao wypozyczenieDao = new WypozyczenieDao();
-        List<Wypozyczenie> wypozyczenieList = wypozyczenieDao.selectAll();
+        wypozyczalniaClient("Wypozyczenie", "selectAll", null);
+        ObservableList<Wypozyczenie> wypozyczenieList = FXCollections.observableArrayList(super.wypozyczenieList);
 
         wypozyczenieList.forEach(e->{
             daneWypozyczeniaFxList.forEach(i->{
@@ -106,28 +104,29 @@ public class MojeWypozyczeniaController {
             });
         });
     }
-    private void setMojeWypozyczenia(){
 
-            egzemplarzFxList.forEach(i->{
-                wypozyczenieFxList.forEach(j->{
-                    filmFxList.forEach(k->{
-                        daneWypozyczeniaFxList.forEach(l -> {
-                            if (l.getIdWypozyczenia() == j.getId() && l.getIdEgzemplarzu() == i.getId() && i.getIdFilmu() == k.getId()) {
-                                MojeWypozyczenia mojeWypozyczenia = new MojeWypozyczenia();
-                                mojeWypozyczenia.setEgzemplarzFx(i);
-                                mojeWypozyczenia.setFilmFx(k);
-                                mojeWypozyczenia.setWypozyczenieFx(j);
-                                mojeWypozyczeniaList.add(mojeWypozyczenia);
-                            }
-                        });
+    private void setMojeWypozyczenia(){
+        egzemplarzFxList.forEach(i->{
+            wypozyczenieFxList.forEach(j->{
+                filmFxList.forEach(k->{
+                    daneWypozyczeniaFxList.forEach(l -> {
+                        if (l.getIdWypozyczenia() == j.getId() && l.getIdEgzemplarzu() == i.getId() && i.getIdFilmu() == k.getId()) {
+                            MojeWypozyczenia mojeWypozyczenia = new MojeWypozyczenia();
+                            mojeWypozyczenia.setEgzemplarzFx(i);
+                            mojeWypozyczenia.setFilmFx(k);
+                            mojeWypozyczenia.setWypozyczenieFx(j);
+                            mojeWypozyczeniaList.add(mojeWypozyczenia);
+                        }
                     });
                 });
             });
+        });
         borrowsListView.setItems(mojeWypozyczeniaList);
     }
+
     private void getReservationsFromDatabase() {
-        RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
-        List<Rezerwacja> rezerwacjaList = rezerwacjaDao.selectAll();
+        wypozyczalniaClient("Rezerwacja", "selectAll", null);
+        ObservableList<Rezerwacja> rezerwacjaList = FXCollections.observableArrayList(super.rezerwacjaList);
         rezerwacjaList.forEach(e -> {
             if (e.getIdKlienta() == kontoFx.getKlientfx()) {
                 RezerwacjaFX rezerwacjaFX = new RezerwacjaFX();
@@ -139,10 +138,11 @@ public class MojeWypozyczeniaController {
             }
         });
     }
+
     private void getResFilms() {
         if (rezerwacjaFxList.size() != 0) {
-            FilmDao filmDao = new FilmDao();
-            List<Film> filmList = filmDao.selectAllFilm();
+            wypozyczalniaClient("Film", "selectAll", null);
+            ObservableList<Film> filmList = FXCollections.observableArrayList(super.filmList);
             filmList.forEach(e -> {
                 rezerwacjaFxList.forEach(ev -> {
                     if (e.getId() == ev.getFilmFx()) {
