@@ -10,14 +10,17 @@ import pl.accessories.Singleton;
 
 
 /**
- * Created by Mateusz on 2017-05-03.
+ * <h2>Klasa kontrolera widoku edycji danych klienta.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku edycji danych klienta.</p>
  */
 public class KlientEditController extends AdminController{
 
 
     protected KlientFx klientFx;
     protected KontoFx kontoFx;
-
+    /**
+     * Metoda aktualizuje dane klienta w bazie danych.
+     */
     @FXML
     protected void updateKlientInDataBase(){
 
@@ -38,6 +41,9 @@ public class KlientEditController extends AdminController{
             logger.logFileAndConsole("debug", "Klient nie mogl zaktualizowac danych w BD.");
         }
     }
+    /**
+     * Metoda wypełnia pola danymi klienta w widoku edycji.
+     */
     protected void setTextFields(){
         imieTextField.setText(this.klientFx.getImie());
         nazwiskoTextField.setText(this.klientFx.getNazwisko());
@@ -46,6 +52,9 @@ public class KlientEditController extends AdminController{
         hasloPasswordField.setText(this.kontoFx.getHaslo());
         haslo2PasswordField.setText(this.kontoFx.getHaslo());
     }
+    /**
+     * Metoda pobiera dane klienta z bazy.
+     */
     protected void getKlientFromDataBase(){
         KlientDao klientDao = new KlientDao();
         this.klientFx = Converters.toKlientFx(klientDao.findKlientById(this.kontoFx.getKlientfx()));

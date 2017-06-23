@@ -18,7 +18,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Created by Mateusz on 2017-05-24.
+ * <h2>Klasa kontrolera edycji danych filmu.</h2>
+ * <p>Zawiera metody potrzebne do edycji danych filmu.</p>
  */
 public class FilmEditController extends AdminController{
 
@@ -32,6 +33,9 @@ public class FilmEditController extends AdminController{
 
     protected FilmFx filmFx;
 
+    /**
+     * Metoda aktualizuje dane filmu w bazie danych.
+     */
     @FXML
     private void updateFilmToDataBase(){
         FilmFx filmFx = getFilmValues();
@@ -53,6 +57,9 @@ public class FilmEditController extends AdminController{
         this.filmFx = filmFx;
 
     }
+    /**
+     * Metoda pobiera egzemplarz danego filmu z bazy danych.
+     */
     private void getEgzemplarzFromDataBase(){
         EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
         List<Egzemplarz> egzemplarzList = egzemplarzDao.selectAll();
@@ -65,6 +72,9 @@ public class FilmEditController extends AdminController{
             }
         });
     }
+    /**
+     * Metoda pobiera dane na temat wypożyczeń z bazy danych.
+     */
     private void getDaneWypozyczeniaFromDataBase(){
         DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
         List<DaneWypozyczenia> daneWypozyczeniaList = daneWypozyczeniaDao.selectAll();
@@ -80,6 +90,9 @@ public class FilmEditController extends AdminController{
                 });
             });
     }
+    /**
+     * Metoda pobiera dane na temat wypożyczenia danego filmu z bazy danych.
+     */
     private void getWypozyczenieFromDataBase(){
         WypozyczenieDao wypozyczenieDao = new WypozyczenieDao();
         List<Wypozyczenie> wypozyczenieList = wypozyczenieDao.selectAll();
@@ -95,6 +108,9 @@ public class FilmEditController extends AdminController{
             });
         });
     }
+    /**
+     * Metoda wyszukująca wolny egzemplarz danego filmu.
+     */
     private void searchFreeEgzemplarz(){
         System.out.println("1");
         int [] egzemplarzIndex = new int[egzemplarzFxList.size()];
@@ -118,6 +134,9 @@ public class FilmEditController extends AdminController{
         }
         System.out.println(freeEgzemplarzFxList);
     }
+    /**
+     * Metoda wyszukująca egzemplarze danego filmu.
+     */
     private void searchEgzemplarz(){
         System.out.println("2");
         int [] [] wypozyczenieIndex = new int[wypozyczenieFxList.size()][2];
@@ -175,6 +194,11 @@ public class FilmEditController extends AdminController{
             System.out.println(e.getId());
         });
     }
+    /**
+     * Metoda wyszukująca filmy o danym id na liście filmów.
+     * @param id identyfikator filmu
+     * @return int identyfikator elementu listy filmów.
+     */
     private int findIdFilmu(int id){
         int idFilmu = -1;
         for(EgzemplarzFx e: egzemplarzFxList){
@@ -184,6 +208,10 @@ public class FilmEditController extends AdminController{
         }
         return idFilmu;
     }
+    /**
+     * Metoda zarządzająca wyszukiwaniem wolnego egzemplarza.
+     * Wywołuje tylko inne metody.
+     */
     protected void manageSearch(){
         getEgzemplarzFromDataBase();
         getDaneWypozyczeniaFromDataBase();
@@ -191,6 +219,9 @@ public class FilmEditController extends AdminController{
         searchFreeEgzemplarz();
         searchEgzemplarz();
     }
+    /**
+     * Metoda ustawiająca wartości pól dla danego filmu.
+     */
     private void setTextFields(){
         nazwaTextField.setText(filmFx.getNazwa());
         opisTextArea.setText(filmFx.getOpis());
@@ -201,6 +232,11 @@ public class FilmEditController extends AdminController{
         rezyserTextField.setText(findRezyser(filmFx.getRezyserFx()).getNazwa());
 
     }
+    /**
+     * Metoda znajdująca reżysera o danym id i konwertująca go na obiekt typu RezyserFx.
+     * @param id identyfikator reżysera
+     * @return obiekt typu RezyserFx
+     */
     private RezyserFx findRezyser(int id){
         RezyserDao rezyserDao = new RezyserDao();
         return Converters.toRezyserFx(rezyserDao.findRezyserById(id));

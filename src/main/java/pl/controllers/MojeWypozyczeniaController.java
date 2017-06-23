@@ -14,7 +14,8 @@ import java.sql.Date;
 import java.util.List;
 
 /**
- * Created by Mateusz on 2017-05-25.
+ * <h2>Klasa kontrolera widoku wypożyczeń klienta.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku wypożyczeń klienta.</p>
  */
 public class MojeWypozyczeniaController {
     @FXML
@@ -37,7 +38,9 @@ public class MojeWypozyczeniaController {
     ObservableList<RezerwacjaFX> rezerwacjaFxList = FXCollections.observableArrayList();
 
     private KontoFx kontoFx;
-
+    /**
+     * Metoda pobiera wypozyczenia klienta z bazy danych.
+     */
     private void getDaneWypozyczeniaFromDataBase(){
         DaneWypozyczeniaDao daneWypozyczeniaDao = new DaneWypozyczeniaDao();
         List<DaneWypozyczenia> daneWypozyczeniaList = daneWypozyczeniaDao.selectAll();
@@ -52,6 +55,9 @@ public class MojeWypozyczeniaController {
             }
         });
     }
+    /**
+     * Metoda pobiera dane o egzemplarzu filmu z bazy danych.
+     */
     private void getEgzemplarzFromDataBase(){
         EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
         List<Egzemplarz> egzemplarzList = egzemplarzDao.selectAll();
@@ -67,6 +73,9 @@ public class MojeWypozyczeniaController {
             });
         });
     }
+    /**
+     * Metoda pobiera dane filmu z bazy danych.
+     */
     private void getFilmFromDataBase() {
         FilmDao filmDao = new FilmDao();
         List<Film> filmList = filmDao.selectAllFilm();
@@ -90,6 +99,9 @@ public class MojeWypozyczeniaController {
              });
         });
     }
+    /**
+     * Metoda pobiera listę wypozyczeń z bazy danych.
+     */
     private void getWypozyczenieFromDataBase(){
         WypozyczenieDao wypozyczenieDao = new WypozyczenieDao();
         List<Wypozyczenie> wypozyczenieList = wypozyczenieDao.selectAll();
@@ -106,6 +118,9 @@ public class MojeWypozyczeniaController {
             });
         });
     }
+    /**
+     * Metoda tworzy listę wypożyczeń klienta.
+     */
     private void setMojeWypozyczenia(){
 
             egzemplarzFxList.forEach(i->{
@@ -125,6 +140,9 @@ public class MojeWypozyczeniaController {
             });
         borrowsListView.setItems(mojeWypozyczeniaList);
     }
+    /**
+     * Metoda pobiera rezerwacje klienta z bazy danych.
+     */
     private void getReservationsFromDatabase() {
         RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
         List<Rezerwacja> rezerwacjaList = rezerwacjaDao.selectAll();
@@ -139,6 +157,9 @@ public class MojeWypozyczeniaController {
             }
         });
     }
+    /**
+     * Metoda tworzy listę zarezerwowanych filmów.
+     */
     private void getResFilms() {
         if (rezerwacjaFxList.size() != 0) {
             FilmDao filmDao = new FilmDao();

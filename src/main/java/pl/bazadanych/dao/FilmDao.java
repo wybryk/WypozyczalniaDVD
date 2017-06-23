@@ -55,6 +55,7 @@ public class FilmDao {
     /**
      * Metoda wyszukująca Film po nazwie.
      * @param nazwa tytuł filmu do wyszukania
+     * @return int id filmu
      */
     public int findFilm(String nazwa){
         ObservableList<Film> filmList = selectAllFilm();

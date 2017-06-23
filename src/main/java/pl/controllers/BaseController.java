@@ -22,11 +22,16 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * Created by Mateusz on 2017-04-23.
+ * <h2>Klasa głównego kontrolera</h2>
+ * <p>Zawiera podstawowe metody i jest abstrakcyjna.</p>
  */
 public abstract class BaseController {
 
-
+    /**
+     * Metoda zmieniająca okno programu.
+     * @param event Event zdarzenie wywołujące metodę
+     * @param path String ścieżka do pliku xml
+     */
     public void changeWindow(Event event, String path){
         Parent root;
         try {
@@ -44,7 +49,10 @@ public abstract class BaseController {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Metoda otwierająca nowe okno programu.
+     * @param path String ścieżka do pliku xml
+     */
     public void openWindow(String path){
         Parent root;
         try {
@@ -57,6 +65,10 @@ public abstract class BaseController {
             e.printStackTrace();
         }
     }
+    /**
+     * Metoda wyświetlająca Alert.
+     * @param info String będący informacją do wyświetlenia.
+     */
     public void warningWindow(String info){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");

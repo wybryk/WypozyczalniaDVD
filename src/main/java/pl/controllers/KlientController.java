@@ -26,7 +26,8 @@ import java.util.List;
 import java.util.regex.*;
 
 /**
- * Created by Mateusz on 2017-04-22.
+ * <h2>Klasa kontrolera widoku klienta.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku klienta.</p>
  */
 public class KlientController extends BaseController{
     @FXML
@@ -57,6 +58,9 @@ public class KlientController extends BaseController{
         setGatunekFxList();
         gatunekListView.setItems(gatunekFxList);
     }
+    /**
+     * Metoda tworzy listę gatunków filmowych.
+     */
     protected void setGatunekFxList(){
         GatunekDao gatunekDao = new GatunekDao();
         List<Gatunek> gatunekList = gatunekDao.selectAll();
@@ -67,6 +71,9 @@ public class KlientController extends BaseController{
             gatunekFxList.add(gatunekFx);
         });
     }
+    /**
+     * Metoda wyszukuje film w bazie filmów przy użyciu wyrażenia regularnego.
+     */
     @FXML
     protected void findMovie() {
         filmListView.getItems().clear();
@@ -88,6 +95,9 @@ public class KlientController extends BaseController{
         //czyscimy liste przy kazdym wywolaniu
         filmList.clear();
     }
+    /**
+     * Metoda wyszukuje filmy w bazie filmów po kategorii.
+     */
     @FXML
     private void findMovieByCategory(){
         filmListView.getItems().clear();
@@ -106,7 +116,11 @@ public class KlientController extends BaseController{
         filmListView.setItems(filmFxList);
         logger.logFileAndConsole("info", "Wyszukano film po kategorii.");
     }
-
+    /**
+     * Metoda tworzy obiekt typu FilmFX
+     * @param e obiekt typu Film
+     * @return obiekt typu FilmFx
+     */
     protected FilmFx setFilmFx(Film e){
         FilmFx filmFx = new FilmFx();
         filmFx.setId(e.getId());
@@ -118,28 +132,45 @@ public class KlientController extends BaseController{
         filmFx.setRezyserFx(e.getRezyser());
         return filmFx;
     }
+    /**
+     * Metoda pobiera obiekt typu GatunekFx z listy gatunków.
+     * @param gatunekFx obiekt typu GatunekFx
+     */
     @FXML
     private void getGatunekFromListView(GatunekFx gatunekFx){
         gatunekFxObjectProperty.set(gatunekListView.getSelectionModel().getSelectedItem());
         gatunekFx.setId(gatunekFxObjectProperty.getValue().getId());
     }
+    /**
+     * Metoda wylogowuje z okna klienta.
+     * @param actionEvent obiekt typu ActionEvent
+     */
     @FXML
     protected void logOut(ActionEvent actionEvent) {
         logger.logFileAndConsole("info", "Wylogowanie.");
         changeWindow(actionEvent, LOGIN_FXML);
     }
-
+    /**
+     * Metoda wyświetla okno z wypozyczeniami danego klienta.
+     * @param actionEvent obiekt typu ActionEvent
+     */
     public void viewBorrowed(ActionEvent actionEvent) {
         openWindow(WYPOZYCZENIA_FXML);
     }
-
+    /**
+     * Metoda wyświetla okno z danymi klienta.
+     * @param actionEvent obiekt typu ActionEvent
+     */
     public void viewAccount(ActionEvent actionEvent) {
         KontoFx kontoFx = Singleton.getInstance().getKontoFx();
         KlientDao klientDao = new KlientDao();
         Singleton.getInstance().setKlientFx(Converters.toKlientFx(klientDao.findKlientById(kontoFx.getKlientfx())));
         openWindow(EDIT_KONTO_FXML);
     }
-
+    /**
+     * Metoda pobiera obiekt typu FilmFx z listy filmów.
+     * @param filmFx obiekt typu FilmFx
+     */
     private void getFilmFromListView(FilmFx filmFx){
         filmFxObjectProperty.set(filmListView.getSelectionModel().getSelectedItem());
         filmFx.setId(filmFxObjectProperty.getValue().getId());
@@ -150,7 +181,10 @@ public class KlientController extends BaseController{
         filmFx.setGatunekFx(filmFxObjectProperty.getValue().getGatunekFx());
         filmFx.setRezyserFx(filmFxObjectProperty.getValue().getRezyserFx());
     }
-
+    /**
+     * Metoda rezerwuje film dla danego klienta.
+     * @param actionEvent obiekt typu ActionEvent
+     */
     public void reserveMovie(ActionEvent actionEvent) {
         FilmFx filmFx = new FilmFx();
         getFilmFromListView(filmFx);

@@ -4,10 +4,17 @@ import pl.tablesFx.KlientFx;
 import pl.tablesFx.KontoFx;
 
 /**
- * Created by Mateusz on 2017-05-24.
+ * <h2>Klasa kontrolera widoku wyświatlania danych klienta.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku wyświatlania danych klienta.</p>
  */
 public class KlientEditKlientController extends KlientEditController{
 
+    /**
+     * Metoda przeciążająca, pobiera dane klienta z formularza.
+     * @param klientFx obiekt typu KlientFx
+     * @param kontoFx obiekt typu KontoFx
+     * @return String hasło klienta
+     */
     @Override
     protected String getKlientValues(KlientFx klientFx, KontoFx kontoFx){
 

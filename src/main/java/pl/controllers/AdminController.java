@@ -19,7 +19,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
- * Created by Mateusz on 2017-04-22.
+ * <h2>Klasa kontrolera widoku admina.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku admina.</p>
  */
 public class AdminController extends KlientController {
 
@@ -58,7 +59,12 @@ public class AdminController extends KlientController {
 
     protected SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 15, 1);
 
-
+    /**
+     * Metoda pobiera z widoku wartości dla klienta.
+     * @param klientFx obiekt typu KlientFx
+     * @param kontoFx obiekt typu KontoFx
+     * @return String wartości
+     */
     protected String getKlientValues(KlientFx klientFx, KontoFx kontoFx){
 
         if(adminCheckBox.isSelected())
@@ -73,6 +79,9 @@ public class AdminController extends KlientController {
         kontoFx.setHaslo(hasloPasswordField.getText());
         return haslo2PasswordField.getText();
     }
+    /**
+     * Metoda dodaje klienta do bazy danych.
+     */
     @FXML
     private void addKlientToDataBase() {
         KlientFx klientFx = new KlientFx();
@@ -92,6 +101,9 @@ public class AdminController extends KlientController {
         }
         clearKlientTextField();
     }
+    /**
+     * Metoda wyszukuje konto w bazie danych o nazwie podanej w inpucie.
+     */
     @FXML
     private void findKontoButton() {
         kontoListView.getItems().clear();
@@ -114,7 +126,11 @@ public class AdminController extends KlientController {
         kontoListView.setItems(kontoFxList);
         kontoTextField.clear();
     }
-
+    /**
+     * Metoda tworzy obiekt typu KontoFx
+     * @param e obiekt typu Konto
+     * @return obiekt typu KontoFx
+     */
     private KontoFx setKontoFx(Konto e){
         KontoFx kontoFx = new KontoFx();
         kontoFx.setId(e.getId());
@@ -124,6 +140,10 @@ public class AdminController extends KlientController {
         kontoFx.setKlientfx(e.getKlient());
         return kontoFx;
     }
+    /**
+     * Metoda pobiera z widoku dane Filmu.
+     * @return obiekt typu FilmFx
+     */
     @FXML
     protected FilmFx getFilmValues() {
         FilmFx filmFx = new FilmFx();
@@ -146,6 +166,9 @@ public class AdminController extends KlientController {
 
         return filmFx;
     }
+    /**
+     * Metoda dodaje film do bazy danych.
+     */
     @FXML
     private void addFilmToDataBase(){
         FilmFx filmFx = getFilmValues();
@@ -158,7 +181,9 @@ public class AdminController extends KlientController {
         egzemplarzDao.insertEgzemplarz(filmFx.getIlosc(), filmDao.findFilm(filmFx.getNazwa()));
         logger.logFileAndConsole("info", "Dodano film " + filmFx.getNazwa() + " do bazy danych. Ilosc egzemplarzy: " + filmFx.getIlosc());
     }
-
+    /**
+     * Metoda czyści pola dodawania klienta.
+     */
     private void clearKlientTextField(){
         imieTextField.clear();
         nazwiskoTextField.clear();
@@ -167,7 +192,9 @@ public class AdminController extends KlientController {
         hasloPasswordField.clear();
         haslo2PasswordField.clear();
     }
-
+    /**
+     * Metoda czyści pola dodawania filmu.
+     */
     private void clearFilmTextField(){
         nazwaTextField.clear();
         rezyserTextField.clear();
@@ -176,7 +203,10 @@ public class AdminController extends KlientController {
         premieraDatePicker.setValue(null);
         valueFactory.setValue(1);
     }
-
+    /**
+     * Metoda pobiera obiekt typu KontoFx z listy kont.
+     * @param kontoFx obiekt typu KontoFx
+     */
     private void getKontoFromListView(KontoFx kontoFx){
         kontoFxObjectProperty.set(kontoListView.getSelectionModel().getSelectedItem());
         kontoFx.setId(kontoFxObjectProperty.getValue().getId());
@@ -184,7 +214,10 @@ public class AdminController extends KlientController {
         kontoFx.setHaslo(kontoFxObjectProperty.getValue().getHaslo());
         kontoFx.setKlientfx(kontoFxObjectProperty.getValue().getKlientfx());
     }
-
+    /**
+     * Metoda pobiera obiekt typu FilmFx z listy filmów.
+     * @param filmFx obiekt typu FilmFx
+     */
     private void getFilmFromListView(FilmFx filmFx){
         filmFxObjectProperty.set(filmListView.getSelectionModel().getSelectedItem());
         filmFx.setId(filmFxObjectProperty.getValue().getId());
@@ -208,6 +241,9 @@ public class AdminController extends KlientController {
         klientDao.deleteKlient(kontoFx.getKlientfx());
         logger.logFileAndConsole("info", "Konto o ID " + kontoFx.getId() + " zostalo usuniete.");
     }
+    /**
+     * Metoda do edycji konta.
+     */
     @FXML
     private void editKonto(){
 
@@ -217,6 +253,9 @@ public class AdminController extends KlientController {
 
         openWindow(EDIT_KONTO_FXML);
     }
+    /**
+     * Metoda do usuwania filmów.
+     */
     @FXML
     private void deleteFilm() {
         FilmFx filmFx = new FilmFx();
@@ -230,6 +269,9 @@ public class AdminController extends KlientController {
         filmDao.deleteFilm(filmFx);
         logger.logFileAndConsole("info", "Film " + filmFx.getNazwa() + " zostal usuniety.");
     }
+    /**
+     * Metoda do edycji filmów.
+     */
     @FXML
     private void editFilm() {
         FilmFx filmFx = new FilmFx();
@@ -238,6 +280,9 @@ public class AdminController extends KlientController {
 
         openWindow(EDIT_FILM_FXML);
     }
+    /**
+     * Metoda do wypozyczania filmów.
+     */
     @FXML
     private void borrowFilm() {
         FilmFx filmFx = new FilmFx();

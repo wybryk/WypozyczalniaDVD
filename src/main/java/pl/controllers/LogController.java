@@ -1,7 +1,8 @@
 package pl.controllers;
 
 /**
- * Created by Mateusz on 2017-04-22.
+ * <h2>Klasa kontrolera widoku logowania.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku logowania.</p>
  */
 
 import javafx.event.Event;
@@ -42,6 +43,10 @@ public class LogController extends BaseController{
             }
         });
     }
+    /**
+     * Metoda loguje do odpowiedniego okna w zależności od wprowadzonych danych logowania.
+     * @param event obiekt typu Event
+     */
     @FXML
     private void logIn(Event event) {
         String login, haslo;
