@@ -2,84 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec238c1f-4c3c-4621-bd7b-8db081bed5a3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc14_10_2_0_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WypozyczalniaDVD.iml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/accessories/Converters.class" afterPath="$PROJECT_DIR$/target/classes/pl/accessories/Converters.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/Connections.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/Connections.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/DaneWypozyczeniaDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/DaneWypozyczeniaDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/EgzemplarzDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/EgzemplarzDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/FilmDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/FilmDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/GatunekDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/GatunekDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/KlientDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/KlientDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/KontoDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/KontoDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/RezerwacjaDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/RezerwacjaDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/RezyserDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/RezyserDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/WypozyczenieDao.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/dao/WypozyczenieDao.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/DaneWypozyczenia.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/DaneWypozyczenia.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Egzemplarz.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Egzemplarz.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Film.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Film.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Gatunek.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Gatunek.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Klient.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Klient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Konto.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Konto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Rezerwacja.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Rezerwacja.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Rezyser.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Rezyser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Wypozyczenie.class" afterPath="$PROJECT_DIR$/target/classes/pl/bazadanych/tables/Wypozyczenie.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/AdminController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/AdminController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/BaseController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/BaseController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/FilmEditController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/FilmEditController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/KlientController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/KlientController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/KlientEditController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/KlientEditController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/LogController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/LogController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/MojeWypozyczeniaController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/MojeWypozyczeniaController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/controllers/WypozyczController.class" afterPath="$PROJECT_DIR$/target/classes/pl/controllers/WypozyczController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/tablesFx/DaneWypozyczeniaFx.class" afterPath="$PROJECT_DIR$/target/classes/pl/tablesFx/DaneWypozyczeniaFx.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/tablesFx/EgzemplarzFx.class" afterPath="$PROJECT_DIR$/target/classes/pl/tablesFx/EgzemplarzFx.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/tablesFx/FilmFx.class" afterPath="$PROJECT_DIR$/target/classes/pl/tablesFx/FilmFx.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/tablesFx/KontoFx.class" afterPath="$PROJECT_DIR$/target/classes/pl/tablesFx/KontoFx.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pl/tablesFx/RezerwacjaFX.class" afterPath="$PROJECT_DIR$/target/classes/pl/tablesFx/RezerwacjaFX.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daneDoBazy/BAZA_CREATE.sql" afterPath="$PROJECT_DIR$/daneDoBazy/BAZA_CREATE.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daneDoBazy/BAZA_INSERT.sql" afterPath="$PROJECT_DIR$/daneDoBazy/BAZA_INSERT.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/accessories/Converters.java" afterPath="$PROJECT_DIR$/src/main/java/pl/accessories/Converters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/Connections.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/Connections.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/DaneWypozyczeniaDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/DaneWypozyczeniaDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/EgzemplarzDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/EgzemplarzDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/FilmDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/FilmDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/GatunekDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/GatunekDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/KlientDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/KlientDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/KontoDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/KontoDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/RezerwacjaDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/RezerwacjaDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/RezyserDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/RezyserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/WypozyczenieDao.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/WypozyczenieDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/DaneWypozyczenia.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/DaneWypozyczenia.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Egzemplarz.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Egzemplarz.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Film.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Film.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Gatunek.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Gatunek.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Klient.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Klient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Konto.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Konto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Rezerwacja.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Rezerwacja.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Rezyser.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Rezyser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Wypozyczenie.java" afterPath="$PROJECT_DIR$/src/main/java/pl/bazadanych/tables/Wypozyczenie.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/BaseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/FilmEditController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/FilmEditController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/KlientController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/KlientController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/KlientEditController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/KlientEditController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/LogController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/LogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/MojeWypozyczeniaController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/MojeWypozyczeniaController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java" afterPath="$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/tablesFx/DaneWypozyczeniaFx.java" afterPath="$PROJECT_DIR$/src/main/java/pl/tablesFx/DaneWypozyczeniaFx.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/tablesFx/EgzemplarzFx.java" afterPath="$PROJECT_DIR$/src/main/java/pl/tablesFx/EgzemplarzFx.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/tablesFx/FilmFx.java" afterPath="$PROJECT_DIR$/src/main/java/pl/tablesFx/FilmFx.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/tablesFx/KontoFx.java" afterPath="$PROJECT_DIR$/src/main/java/pl/tablesFx/KontoFx.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pl/tablesFx/RezerwacjaFX.java" afterPath="$PROJECT_DIR$/src/main/java/pl/tablesFx/RezerwacjaFX.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +18,8 @@
       <file leaf-file-name="BaseController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/BaseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2247">
-              <caret line="141" column="59" lean-forward="false" selection-start-line="141" selection-start-column="59" selection-end-line="141" selection-end-column="59" />
+            <state relative-caret-position="565">
+              <caret line="115" column="30" lean-forward="true" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#changeWindow#0;class#BaseController#0" expanded="false" />
@@ -110,7 +33,7 @@
       <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/AdminController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
+            <state relative-caret-position="182">
               <caret line="216" column="30" lean-forward="false" selection-start-line="216" selection-start-column="30" selection-end-line="216" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -135,11 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WypozyczController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1113">
+              <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WypozyczController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+            <state relative-caret-position="630">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,18 +83,8 @@
       <file leaf-file-name="RequestHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/bazadanych/RequestHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2313">
-              <caret line="145" column="13" lean-forward="false" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="749">
-              <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+            <state relative-caret-position="125">
+              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -226,7 +149,6 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/tablesFx/EgzemplarzFx.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/bazadanych/dao/FilmDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/bazadanych/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/bazadanych/RequestHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/controllers/FilmEditController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/controllers/AdminController.java" />
@@ -234,6 +156,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/controllers/KlientEditController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/controllers/MojeWypozyczeniaController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/bazadanych/RequestHandler.java" />
       </list>
     </option>
   </component>
@@ -294,8 +217,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -378,107 +299,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tablesFx" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="bazadanych" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WypozyczalniaDVD" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bazadanych" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -902,7 +731,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -914,19 +743,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36806342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36806342" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20837809" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21482277" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -976,23 +805,23 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/admin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="17" column="227" lean-forward="false" selection-start-line="17" selection-start-column="227" selection-end-line="17" selection-end-column="227" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/klient.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+      <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/klient.fxml">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/tablesFx/BaseTableFx.java" />
@@ -1023,10 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="e#510#511#0" expanded="false" />
-            <element signature="e#535#536#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1056,10 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding>
-            <element signature="method#selectAll#0;class#DaneWypozyczeniaDao#0" expanded="false" />
-            <element signature="method#insertDaneWypozyczenia#0;class#DaneWypozyczeniaDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1067,10 +888,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="37" column="29" lean-forward="false" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <element signature="method#findGatunekById#0;class#GatunekDao#0" expanded="false" />
-            <element signature="method#selectAll#0;class#GatunekDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1078,12 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="20" column="27" lean-forward="false" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
-          <folding>
-            <element signature="method#selectAll#0;class#KontoDao#0" expanded="false" />
-            <element signature="method#insertKonto#0;class#KontoDao#0" expanded="false" />
-            <element signature="method#deleteKonto#0;class#KontoDao#0" expanded="false" />
-            <element signature="method#updateKonto#0;class#KontoDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,7 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,11 +921,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1008">
           <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="method#deleteKlient#0;class#KlientDao#0" expanded="false" />
-            <element signature="method#selectAll#0;class#KlientDao#0" expanded="false" />
-            <element signature="method#findKlient#0;class#KlientDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1123,9 +928,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="42" column="77" lean-forward="false" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
-          <folding>
-            <element signature="method#selectAll#0;class#RezerwacjaDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1157,7 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="7" column="60" lean-forward="false" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1240,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="89" column="26" lean-forward="false" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1248,19 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
           <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/BaseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2247">
-          <caret line="141" column="59" lean-forward="false" selection-start-line="141" selection-start-column="59" selection-end-line="141" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#changeWindow#0;class#BaseController#0" expanded="false" />
-            <element signature="method#openWindow#0;class#BaseController#0" expanded="false" />
-            <element signature="method#warningWindow#0;class#BaseController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,12 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="68" column="41" lean-forward="false" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
-          <folding>
-            <element signature="method#insertFilm#0;class#FilmDao#0" expanded="false" />
-            <element signature="method#selectAllFilm#0;class#FilmDao#0" expanded="false" />
-            <element signature="method#findFilm#0;class#FilmDao#0" expanded="false" />
-            <element signature="method#updateFilm#0;class#FilmDao#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1315,18 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="423">
           <caret line="217" column="54" lean-forward="false" selection-start-line="217" selection-start-column="54" selection-end-line="217" selection-end-column="54" />
-          <folding>
-            <element signature="method#updateFilmToDataBase#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#getEgzemplarzFromDataBase#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#getDaneWypozyczeniaFromDataBase#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#getWypozyczenieFromDataBase#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#searchFreeEgzemplarz#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#searchEgzemplarz#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#findIdFilmu#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#manageSearch#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#setTextFields#0;class#FilmEditController#0" expanded="false" />
-            <element signature="method#findRezyser#0;class#FilmEditController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1334,17 +1101,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="147" column="54" lean-forward="false" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#setGatunekFxList#0;class#KlientController#0" expanded="false" />
-            <element signature="method#findMovie#0;class#KlientController#0" expanded="false" />
-            <element signature="method#findMovieByCategory#0;class#KlientController#0" expanded="false" />
-            <element signature="method#setFilmFx#0;class#KlientController#0" expanded="false" />
-            <element signature="method#getGatunekFromListView#0;class#KlientController#0" expanded="false" />
-            <element signature="method#viewAccount#0;class#KlientController#0" expanded="false" />
-            <element signature="method#getFilmFromListView#0;class#KlientController#0" expanded="false" />
-            <element signature="method#reserveMovie#0;class#KlientController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1352,12 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#updateKlientInDataBase#0;class#KlientEditController#0" expanded="false" />
-            <element signature="method#setTextFields#0;class#KlientEditController#0" expanded="false" />
-            <element signature="method#getKlientFromDataBase#0;class#KlientEditController#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1365,7 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1398,7 +1147,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
+        <state relative-caret-position="182">
           <caret line="216" column="30" lean-forward="false" selection-start-line="216" selection-start-column="30" selection-end-line="216" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1422,29 +1171,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="45" column="60" lean-forward="false" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
+        <state relative-caret-position="1113">
+          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="115" column="30" lean-forward="true" selection-start-line="115" selection-start-column="30" selection-end-line="115" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#changeWindow#0;class#BaseController#0" expanded="false" />
+            <element signature="method#openWindow#0;class#BaseController#0" expanded="false" />
+            <element signature="method#warningWindow#0;class#BaseController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/bazadanych/RequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2313">
-          <caret line="145" column="13" lean-forward="false" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
+        <state relative-caret-position="125">
+          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/controllers/WypozyczController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="749">
-          <caret line="53" column="41" lean-forward="true" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
-          <folding />
+        <state relative-caret-position="630">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
