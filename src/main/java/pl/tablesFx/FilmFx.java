@@ -3,7 +3,6 @@ package pl.tablesFx;
 import javafx.beans.property.*;
 
 import java.sql.Date;
-import java.time.LocalDate;
 
 /**
  * <h2>Klasa przechowująca dane filmu</h2>
@@ -151,4 +150,5 @@ public class FilmFx {
                 "\n Premiera: " + premiera.getValue() +
                 "\n Opis: " + opis.getValue() + "";
     }
+
 }

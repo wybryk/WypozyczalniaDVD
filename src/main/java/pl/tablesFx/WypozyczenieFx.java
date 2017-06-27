@@ -70,4 +70,5 @@ public class WypozyczenieFx {
     public void setDataOddania(Date dataOddania) {
         this.dataOddania.set(dataOddania);
     }
+
 }

@@ -2,11 +2,12 @@ package pl.tablesFx;
 
 import javafx.beans.property.*;
 
+
 /**
  * <h2>Klasa przechowująca dane klienta wypozyczalni.</h2>
  * <p>Zawiera pola z tabeli KLIENT.</p>
  */
-public class KlientFx {
+public class KlientFx  {
 
     private IntegerProperty id = new SimpleIntegerProperty();
     private StringProperty imie = new SimpleStringProperty();
@@ -93,4 +94,5 @@ public class KlientFx {
                 nazwisko.getValue() +" "+
                 email.getValue();
     }
+
 }

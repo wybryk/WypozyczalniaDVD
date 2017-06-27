@@ -5,6 +5,8 @@ package pl.controllers;
  * <p>Zawiera metody potrzebne do obsługi widoku logowania.</p>
  */
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -22,6 +24,10 @@ import java.util.List;
 
 
 
+/**
+ * <h2>Klasa kontrolera widoku logowania.</h2>
+ * <p>Zawiera metody potrzebne do obsługi widoku logowania.</p>
+ */
 public class LogController extends BaseController{
 
     private static final String KLIENT_FXML = "/klient.fxml";
@@ -53,9 +59,9 @@ public class LogController extends BaseController{
         boolean exist = false;
         login = loginText.getText();
         haslo = hasloText.getText();
-        KontoDao kontoDao = new KontoDao();
 
-        List<Konto> kontoList = kontoDao.selectAll();
+        wypozyczalniaClient("Konto", "selectAll", null);
+        ObservableList<Konto> kontoList = FXCollections.observableArrayList(super.kontoList);
 
         for(Konto e : kontoList){
             //System.out.println(e);
@@ -83,3 +89,4 @@ public class LogController extends BaseController{
 
 
 }
+

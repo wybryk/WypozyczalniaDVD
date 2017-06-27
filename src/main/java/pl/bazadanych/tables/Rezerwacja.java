@@ -1,10 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * <h2>Klasa przechowująca dane rezerwacji filmu.</h2>
  * <p>Zawiera pola z tabeli REZERWACJE.</p>
  */
-public class Rezerwacja {
+public class Rezerwacja extends BaseTable implements Serializable {
     private int id;
     private int idFilmu;
     private int idKlienta;

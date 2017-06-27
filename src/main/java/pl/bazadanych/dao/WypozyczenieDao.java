@@ -8,6 +8,8 @@ import pl.bazadanych.tables.Wypozyczenie;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Mateusz on 2017-04-20.
@@ -23,10 +25,10 @@ public class WypozyczenieDao {
     }
     /**
      * Metoda pobierająca rekordy z tabeli WYPOZYCZENIE.
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAll(){
-        ObservableList<Wypozyczenie> wypozyczeniesList = FXCollections.observableArrayList();
+    public List<Wypozyczenie> selectAll(){
+        List<Wypozyczenie> wypozyczeniesList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("WYPOZYCZENIE");
         try{
@@ -48,9 +50,10 @@ public class WypozyczenieDao {
     }
     /**
      * Metoda znajdująca ostatni wstawiony rekord w tabeli WYPOZYCZENIE.
-     * @return id rekordu
+     * @return obiekt typu Wypozyczenie
      */
-    public int selectMaxId(){
+    public Wypozyczenie selectMaxId(){
+        Wypozyczenie wypozyczenie = new Wypozyczenie();
         int id = 0;
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectMaxId("WYPOZYCZENIE", "ID_WYPOZYCZENIA");
@@ -64,6 +67,7 @@ public class WypozyczenieDao {
             e.printStackTrace();
         }
         Connections.closeConnection();
-        return id;
+        wypozyczenie.setId(id);
+        return wypozyczenie;
     }
 }

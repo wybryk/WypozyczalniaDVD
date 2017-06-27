@@ -2,6 +2,7 @@ package pl.tablesFx;
 
 import javafx.beans.property.*;
 
+
 /**
  * <h2>Klasa przechowująca dane gatunku filmowego</h2>
  * <p>Zawiera pola z tabeli GATUNEK.</p>
@@ -50,4 +51,6 @@ public class GatunekFx {
     public String toString() {
         return  nazwa.getValue();
     }
+
+
 }

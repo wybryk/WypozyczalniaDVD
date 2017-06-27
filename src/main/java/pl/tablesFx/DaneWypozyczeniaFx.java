@@ -3,11 +3,12 @@ package pl.tablesFx;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+
 /**
  * <h2>Klasa przechowująca dane wypozyczenia</h2>
  * <p>Zawiera pola z tabeli DANE_WYPOZYCZENIA.</p>
  */
-public class DaneWypozyczeniaFx {
+public class DaneWypozyczeniaFx{
 
     private IntegerProperty idEgzemplarzu = new SimpleIntegerProperty();
     private IntegerProperty idKlienta = new SimpleIntegerProperty();
@@ -66,4 +67,14 @@ public class DaneWypozyczeniaFx {
     public void setIdWypozyczenia(int idWypozyczenia) {
         this.idWypozyczenia.set(idWypozyczenia);
     }
+
+    @Override
+    public String toString() {
+        return "DaneWypozyczeniaFx{" +
+                "idEgzemplarzu=" + idEgzemplarzu +
+                ", idKlienta=" + idKlienta +
+                ", idWypozyczenia=" + idWypozyczenia +
+                '}';
+    }
+
 }

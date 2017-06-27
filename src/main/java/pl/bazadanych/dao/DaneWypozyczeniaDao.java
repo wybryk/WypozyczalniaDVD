@@ -9,6 +9,8 @@ import pl.tablesFx.KlientFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Wypozyczenia w BD</h2>
@@ -19,9 +21,9 @@ public class DaneWypozyczeniaDao{
      * Metoda pobierająca rekordy z tabeli DANE_WYPOZYCZENIA
      * @return obiekt typu ObservableList
      */
-    public ObservableList selectAll(){
+    public List<DaneWypozyczenia> selectAll(){
         Connections.initDataBase();
-        ObservableList<DaneWypozyczenia> daneWypozyczeniaList = FXCollections.observableArrayList();
+        List<DaneWypozyczenia> daneWypozyczeniaList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("DANE_WYPOZYCZENIA");
         try{
             while (resultSet.next()) {
@@ -42,12 +44,12 @@ public class DaneWypozyczeniaDao{
     }
     /**
      * Metoda wstawiająca dane do tabeli DANE_WYPOZYCZENIA
-     * @param daneWypozyczeniaFx parametr będący obiektem typu DaneWypozyczeniaFx
+     * @param daneWypozyczenia parametr będący obiektem typu DaneWypozyczeniaFx
      */
-    public void insertDaneWypozyczenia(DaneWypozyczeniaFx daneWypozyczeniaFx){
+    public void insertDaneWypozyczenia(DaneWypozyczenia daneWypozyczenia){
         Connections.initDataBase();
-        Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczeniaFx.getIdEgzemplarzu() + ", "
-                + daneWypozyczeniaFx.getIdKlienta() + ", " + daneWypozyczeniaFx.getIdWypozyczenia());
+        Connections.insertRecord("DANE_WYPOZYCZENIA", daneWypozyczenia.getIdEgzemplarzu() + ", "
+                + daneWypozyczenia.getIdKlienta() + ", " + daneWypozyczenia.getIdWypozyczenia());
         Connections.closeConnection();
     }
 }

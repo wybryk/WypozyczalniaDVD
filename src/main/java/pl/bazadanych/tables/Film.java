@@ -1,5 +1,6 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -7,7 +8,7 @@ import java.time.LocalDate;
  * <h2>Klasa przechowująca dane filmu</h2>
  * <p>Zawiera pola z tabeli FILM.</p>
  */
-public class Film {
+public class Film extends BaseTable implements Serializable {
 
     private int id;
     private String nazwa;
@@ -120,7 +121,8 @@ public class Film {
 
     @Override
     public String toString() {
-        return "id=" + id +
+        return "Film{" +
+                "id=" + id +
                 ", nazwa='" + nazwa + '\'' +
                 ", opis='" + opis + '\'' +
                 ", ilosc=" + ilosc +

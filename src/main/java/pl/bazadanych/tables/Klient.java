@@ -1,10 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * <h2>Klasa przechowująca dane klienta wypozyczalni.</h2>
  * <p>Zawiera pola z tabeli KLIENT.</p>
  */
-public class Klient {
+public class Klient extends BaseTable implements Serializable {
 
     private int id;
     private String imie;
@@ -69,4 +71,13 @@ public class Klient {
         this.email = email;
     }
 
+    @Override
+    public String toString() {
+        return "Klient{" +
+                "id=" + id +
+                ", imie='" + imie + '\'' +
+                ", nazwisko='" + nazwisko + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

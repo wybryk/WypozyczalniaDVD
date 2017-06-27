@@ -1,7 +1,7 @@
 package pl.tablesFx;
 
 import javafx.beans.property.*;
-import pl.bazadanych.tables.Klient;
+
 
 /**
  * <h2>Klasa przechowująca dane konta w wypożyczalni</h2>
@@ -112,4 +112,5 @@ public class KontoFx {
                 ", CZY ADMIN?: " + admin.getValue() +
                 ", KLIENT:" + klientfx.getValue() ;
     }
+
 }

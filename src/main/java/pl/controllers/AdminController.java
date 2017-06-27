@@ -9,14 +9,13 @@ import javafx.scene.control.*;
 import pl.accessories.Converters;
 import pl.accessories.LoggerClass;
 import pl.accessories.Singleton;
-import pl.bazadanych.dao.*;
 import pl.bazadanych.tables.*;
 import pl.tablesFx.*;
 
 import java.sql.SQLException;
-import java.util.*;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
+
+
+import static pl.accessories.Converters.*;
 
 /**
  * <h2>Klasa kontrolera widoku admina.</h2>
@@ -89,11 +88,11 @@ public class AdminController extends KlientController {
         String haslo2 = getKlientValues(klientFx, kontoFx);
 
         if(haslo2.equals(kontoFx.getHaslo()) == true ) {
-            KlientDao klientDao = new KlientDao();
-            KontoDao kontoDao = new KontoDao();
-            klientDao.insertKlient(klientFx);
-            int id = klientDao.findKlient(klientFx);
-            kontoDao.insertKonto(kontoFx, id);
+            wypozyczalniaClient("Klient", "insert", toKlient(klientFx));
+            wypozyczalniaClient("Klient", "find", toKlient(klientFx));
+            klientFx = toKlientFx(super.klient);
+            kontoFx.setKlientfx(klientFx.getId());
+            wypozyczalniaClient("Konto", "insert", toKonto(kontoFx));
             logger.logFileAndConsole("debug", "Dodano klienta do BD.");
         }
         else {
@@ -108,8 +107,8 @@ public class AdminController extends KlientController {
     private void findKontoButton() {
         kontoListView.getItems().clear();
         String nazwa = kontoTextField.getText();
-        KontoDao kontoDao = new KontoDao();
-        List<Konto> kontoList = kontoDao.selectAll();
+        wypozyczalniaClient("Konto", "selectAll", null);
+        ObservableList<Konto> kontoList = FXCollections.observableArrayList(super.kontoList);
 
         kontoList.forEach(e->{
             if(nazwa.equals(Integer.toString(e.getId())) || nazwa.equalsIgnoreCase(e.getLogin()))
@@ -149,13 +148,17 @@ public class AdminController extends KlientController {
         FilmFx filmFx = new FilmFx();
         filmFx.setNazwa(nazwaTextField.getText());
         filmFx.setOpis(opisTextArea.getText());
-        RezyserDao rezyserDao = new RezyserDao();
+        RezyserFx rezyserFx = new RezyserFx();
+        rezyserFx.setNazwa(rezyserTextField.getText());
 
-        int id = rezyserDao.findRezyser(rezyserTextField.getText());
-        if( id == 0 )
-            id = rezyserDao.findRezyser(rezyserTextField.getText());
+        wypozyczalniaClient("Rezyser", "find", toRezyser(rezyserFx));
+        rezyserFx = toRezyserFx(super.rezyser);
+        if( rezyserFx.getId() == 0 ) {
+            wypozyczalniaClient("Rezyser", "find", toRezyser(rezyserFx));
+            rezyserFx = toRezyserFx(super.rezyser);
+        }
 
-        filmFx.setRezyserFx(id);
+        filmFx.setRezyserFx(rezyserFx.getId());
 
         gatunekFxObjectProperty.set(gatunekComboBox.getSelectionModel().getSelectedItem());
         filmFx.setGatunekFx(gatunekFxObjectProperty.getValue().getId());
@@ -173,13 +176,17 @@ public class AdminController extends KlientController {
     private void addFilmToDataBase(){
         FilmFx filmFx = getFilmValues();
         clearFilmTextField();
-        FilmDao filmDao = new FilmDao();
-        EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
+        wypozyczalniaClient("Film", "insert", toFilm(filmFx));
 
-        filmDao.insertFilm(filmFx);
+        EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
+        wypozyczalniaClient("Film", "find", toFilm(filmFx));
+        egzemplarzFx.setIdFilmu(super.film.getId());
 
-        egzemplarzDao.insertEgzemplarz(filmFx.getIlosc(), filmDao.findFilm(filmFx.getNazwa()));
+        for(int i = 0; i < filmFx.getIlosc(); i++)
+            wypozyczalniaClient("Egzemplarz", "insert", toEgzemplarz(egzemplarzFx));
+
         logger.logFileAndConsole("info", "Dodano film " + filmFx.getNazwa() + " do bazy danych. Ilosc egzemplarzy: " + filmFx.getIlosc());
+
     }
     /**
      * Metoda czyści pola dodawania klienta.
@@ -228,17 +235,19 @@ public class AdminController extends KlientController {
         filmFx.setGatunekFx(filmFxObjectProperty.getValue().getGatunekFx());
         filmFx.setRezyserFx(filmFxObjectProperty.getValue().getRezyserFx());
     }
+    /**
+     * Metoda do usuwania konta.
+     */
     @FXML
     private void deleteKonto(){
         KontoFx kontoFx = new KontoFx();
+        KlientFx klientFx = new KlientFx();
 
         getKontoFromListView(kontoFx);
+        klientFx.setId(kontoFx.getKlientfx());
 
-        KontoDao kontoDao = new KontoDao();
-        KlientDao klientDao = new KlientDao();
-
-        kontoDao.deleteKonto(kontoFx);
-        klientDao.deleteKlient(kontoFx.getKlientfx());
+        wypozyczalniaClient("Konto", "delete", toKonto(kontoFx));
+        wypozyczalniaClient("Klient", "delete", toKlient(klientFx));
         logger.logFileAndConsole("info", "Konto o ID " + kontoFx.getId() + " zostalo usuniete.");
     }
     /**
@@ -262,11 +271,11 @@ public class AdminController extends KlientController {
 
         getFilmFromListView(filmFx);
 
-        FilmDao filmDao = new FilmDao();
-        EgzemplarzDao egzemplarzDao = new EgzemplarzDao();
+        EgzemplarzFx egzemplarzFx = new EgzemplarzFx();
+        egzemplarzFx.setIdFilmu(filmFx.getId());
 
-        egzemplarzDao.deleteEgzemplarzByIdFilmu(filmFx);
-        filmDao.deleteFilm(filmFx);
+        wypozyczalniaClient("Egzemplarz", "deleteByIdFilmu", toEgzemplarz(egzemplarzFx));
+        wypozyczalniaClient("Film", "delete", toFilm(filmFx));
         logger.logFileAndConsole("info", "Film " + filmFx.getNazwa() + " zostal usuniety.");
     }
     /**

@@ -1,12 +1,13 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * <h2>Klasa przechowująca dane wypożyczenia danego filmu.</h2>
  * <p>Zawiera pola z tabeli WYPOZYCZENIA.</p>
  */
-public class Wypozyczenie {
+public class Wypozyczenie extends BaseTable implements Serializable {
     private int id;
     private Date dataWypozyczenia;
     private Date dataOddania;

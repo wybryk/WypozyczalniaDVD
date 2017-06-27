@@ -1,10 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * <h2>Klasa przechowująca dane konta w wypożyczalni</h2>
  * <p>Zawiera pola z tabeli KONTO.</p>
  */
-public class Konto {
+public class Konto extends BaseTable implements Serializable{
     private int id;
     private String login;
     private String haslo;
@@ -86,9 +88,11 @@ public class Konto {
     @Override
     public String toString() {
         return "Konto{" +
-                "ID: " + id +
-                ", LOGIN: '" + login + '\'' +
-                ", CZY ADMIN?:" + admin +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", haslo='" + haslo + '\'' +
+                ", admin=" + admin +
+                ", klient=" + klient +
                 '}';
     }
 }

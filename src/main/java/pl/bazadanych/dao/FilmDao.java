@@ -8,6 +8,8 @@ import pl.tablesFx.FilmFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Film w BD</h2>
@@ -16,20 +18,20 @@ import java.sql.SQLException;
 public class FilmDao {
     /**
      * Metoda wstawiająca dane do tabeli FILM
-     * @param filmFx parametr będący obiektem typu FilmFx
+     * @param film parametr będący obiektem typu Film
      */
-    public void insertFilm(FilmFx filmFx){
+    public void insertFilm(Film film){
         Connections.initDataBase();
-        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+filmFx.getNazwa()+"', '"+filmFx.getOpis()+"', "+filmFx.getIlosc()+", '"
-                +filmFx.getPremiera()+"', "+filmFx.getGatunekFx()+", "+filmFx.getRezyserFx());
+        Connections.insertRecord("FILM", "FilmSeq.NEXTVAL, '"+film.getNazwa()+"', '"+film.getOpis()+"', "+film.getIlosc()+", '"
+                +film.getPremiera()+"', "+film.getGatunek()+", "+film.getRezyser());
         Connections.closeConnection();
     }
     /**
      * Metoda pobierająca rekordy z tabeli FILM
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAllFilm(){
-        ObservableList<Film> filmList = FXCollections.observableArrayList();
+    public List<Film> selectAllFilm(){
+        List<Film> filmList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("FILM");
         try{
@@ -54,11 +56,12 @@ public class FilmDao {
     }
     /**
      * Metoda wyszukująca Film po nazwie.
-     * @param nazwa tytuł filmu do wyszukania
-     * @return int id filmu
+     * @param film parametr będący obiektem typu Film
+     * @return film parametr będący obiektem typu Film
      */
-    public int findFilm(String nazwa){
-        ObservableList<Film> filmList = selectAllFilm();
+    public Film findFilm(Film film){
+        List<Film> filmList = selectAllFilm();
+        String nazwa = film.getNazwa();
         int id = 0;
         for(Film e: filmList){
             if( nazwa.equals(e.getNazwa())) {
@@ -66,26 +69,27 @@ public class FilmDao {
                 break;
             }
         }
-        return id;
+        film.setId(id);
+        return film;
     }
     /**
-     * Metoda usuwająca dane z tabeli FILM, używając pola id obiektu typu FilmFx.
-     * @param filmFx parametr obiektem typu FilmFx
+     * Metoda usuwająca dane z tabeli FILM, używając pola id obiektu typu Film.
+     * @param film parametr obiektem typu Film
      */
-    public void deleteFilm(FilmFx filmFx){
+    public void deleteFilm(Film film){
         Connections.initDataBase();
-        Connections.deleteRecord("FILM", "ID_FILMU = " + filmFx.getId());
+        Connections.deleteRecord("FILM", "ID_FILMU = " + film.getId());
         Connections.closeConnection();
     }
     /**
      * Metoda aktualizująca dane w tabeli FILM.
-     * @param filmFx parametr obiektem typu FilmFx
+     * @param film parametr obiektem typu Film
      */
-    public void updateFilm(FilmFx filmFx){
+    public void updateFilm(Film film){
         Connections.initDataBase();
-        Connections.updateRecord("FILM", "NAZWA = '"+filmFx.getNazwa()+"', OPIS = '"+filmFx.getOpis()+"', ILOSC = "+
-                filmFx.getIlosc()+", PREMIERA = '" +filmFx.getPremiera()+"', ID_GATUNKU = "+filmFx.getGatunekFx()+", ID_REZYSERA = "+
-                filmFx.getRezyserFx(), " Id_FILMU = " + filmFx.getId());
+        Connections.updateRecord("FILM", "NAZWA = '"+film.getNazwa()+"', OPIS = '"+film.getOpis()+"', ILOSC = "+
+                film.getIlosc()+", PREMIERA = '" +film.getPremiera()+"', ID_GATUNKU = "+film.getGatunek()+", ID_REZYSERA = "+
+                film.getRezyser(), " Id_FILMU = " + film.getId());
         Connections.closeConnection();
     }
 

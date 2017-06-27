@@ -8,6 +8,8 @@ import pl.tablesFx.RezyserFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Rezyser w BD</h2>
@@ -15,12 +17,16 @@ import java.sql.SQLException;
  */
 public class RezyserDao{
 
-    public Rezyser findRezyserById(int id) {
+    /**
+     * Metoda wyszukująca Reżysera po id.
+     * @param rezyser parametr będący obiektem typu Rezyser
+     * @return obiekt typu Rezyser
+     */
+    public Rezyser findRezyserById(Rezyser rezyser) {
 
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSERA = " + id);
-        Rezyser rezyser = new Rezyser();
+        ResultSet resultSet = Connections.selectRecords("REZYSER", "ID_REZYSERA = " + rezyser.getId());
         try{
             while (resultSet.next()) {
                 rezyser.setId(resultSet.getInt(1));
@@ -37,8 +43,8 @@ public class RezyserDao{
      * Metoda pobierająca rekordy z tabeli REZYSER
      * @return obiekt typu ObservableList
      */
-    public ObservableList selectAll(){
-        ObservableList<Rezyser> rezyserList= FXCollections.observableArrayList();
+    public List<Rezyser> selectAll(){
+        List<Rezyser> rezyserList= new ArrayList<>();
         Connections.initDataBase();
 
         ResultSet resultSet = Connections.selectRecords("REZYSER");
@@ -59,11 +65,12 @@ public class RezyserDao{
     }
     /**
      * Metoda wyszukująca Reżysera po nazwie.
-     * @param rezyserNazwa nazwa reżysera
-     * @return wartość typu int
+     * @param rezyser parametr będący obiektem typu Rezyser
+     * @return obiekt typu Rezyser
      */
-    public int findRezyser(String rezyserNazwa){
-        ObservableList<Rezyser> rezyserList = selectAll();
+    public Rezyser findRezyser(Rezyser rezyser){
+        List<Rezyser> rezyserList = selectAll();
+        String rezyserNazwa = rezyser.getNazwa();
         boolean exist = false;
         int id = 0;
 
@@ -80,18 +87,17 @@ public class RezyserDao{
         if( exist == false) {
             id = insertRezyser(rezyserNazwa);
         }
-        return id;
+        rezyser.setId(id);
+        return rezyser;
     }
     /**
      * Metoda wstawiająca dane do tabeli REZYSER
      * @param rezyserNazwa parametr będący obiektem typu String - Nazwa rezysera
      * @return wartość typu int
      */
-    public int insertRezyser(String rezyserNazwa) {
+    private int insertRezyser(String rezyserNazwa) {
         Connections.initDataBase();
-        Rezyser rezyser = new Rezyser();
-        rezyser.setNazwa(rezyserNazwa);
-        Connections.insertRecord("REZYSER", "RezyserSeq.NEXTVAL, '"+rezyser.getNazwa()+"'");
+        Connections.insertRecord("REZYSER", "RezyserSeq.NEXTVAL, '"+rezyserNazwa+"'");
         Connections.closeConnection();
         return 0;
     }

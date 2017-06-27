@@ -9,6 +9,8 @@ import pl.tablesFx.FilmFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Egzemplarz w BD</h2>
@@ -17,40 +19,38 @@ import java.sql.SQLException;
 public class EgzemplarzDao {
     /**
      * Metoda wstawiająca dane do tabeli EGZEMPLARZ
-     * @param n parametr będący wartością typu int
-     * @param id parametr będący identyfikatorem rekordu
+     * @param egzemplarz parametr będący obiektem typu Egzemplarz
      */
-    public void insertEgzemplarz(int n, int id ){
+    public void insertEgzemplarz(Egzemplarz egzemplarz ){
         Connections.initDataBase();
-        for(int i = 0; i < n; i++)
-            Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + id);
+        Connections.insertRecord("EGZEMPLARZ", "EgzemplarzSeq.NEXTVAL, " + egzemplarz.getIdFilmu());
         Connections.closeConnection();
     }
     /**
-     * Metoda usuwająca dane z tabeli EGZEMPLARZ, używając pola id obiektu typu FilmFx.
-     * @param filmFx parametr obiektem typu FilmFx
+     * Metoda usuwająca dane z tabeli EGZEMPLARZ
+     * @param egzemplarz parametr obiektem typu Egzemplarz
      */
-    public void deleteEgzemplarzByIdFilmu(FilmFx filmFx){
+    public void deleteEgzemplarzByIdFilmu(Egzemplarz egzemplarz){
         Connections.initDataBase();
-        Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + filmFx.getId());
+        Connections.deleteRecord("EGZEMPLARZ", "ID_FILMU = " + egzemplarz.getIdFilmu());
         Connections.closeConnection();
     }
     /**
      * Metoda usuwająca dane z tabeli EGZEMPLARZ, używając id Egzemplarza
-     * @param id identyfikator egzemplarza
+     * @param egzemplarz parametr obiektem typu Egzemplarz
      */
-    public void deleteEgzemplarzByIdEgzemplarzu(int id){
+    public void deleteEgzemplarzByIdEgzemplarzu(Egzemplarz egzemplarz){
         Connections.initDataBase();
-        Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + id);
+        Connections.deleteRecord("EGZEMPLARZ", "ID_EGZEMPLARZU = " + egzemplarz.getId());
         Connections.closeConnection();
     }
     /**
      * Metoda pobierająca rekordy z tabeli EGZEMPLARZ
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAll(){
+    public List<Egzemplarz> selectAll(){
         Connections.initDataBase();
-        ObservableList<Egzemplarz> egzemplarzList = FXCollections.observableArrayList();
+        List<Egzemplarz> egzemplarzList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("EGZEMPLARZ");
         try{
             while (resultSet.next()) {

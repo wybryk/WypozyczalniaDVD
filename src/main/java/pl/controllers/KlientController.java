@@ -12,10 +12,7 @@ import javafx.scene.control.*;
 import pl.accessories.Converters;
 import pl.accessories.LoggerClass;
 import pl.accessories.Singleton;
-import pl.bazadanych.dao.FilmDao;
-import pl.bazadanych.dao.GatunekDao;
-import pl.bazadanych.dao.KlientDao;
-import pl.bazadanych.dao.RezerwacjaDao;
+
 import pl.bazadanych.tables.Film;
 import pl.bazadanych.tables.Gatunek;
 import pl.tablesFx.*;
@@ -24,6 +21,10 @@ import pl.tablesFx.*;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.*;
+
+import static pl.accessories.Converters.toKlient;
+import static pl.accessories.Converters.toKlientFx;
+import static pl.accessories.Converters.toRezerwacja;
 
 /**
  * <h2>Klasa kontrolera widoku klienta.</h2>
@@ -62,8 +63,8 @@ public class KlientController extends BaseController{
      * Metoda tworzy listę gatunków filmowych.
      */
     protected void setGatunekFxList(){
-        GatunekDao gatunekDao = new GatunekDao();
-        List<Gatunek> gatunekList = gatunekDao.selectAll();
+        wypozyczalniaClient("Gatunek", "selectAll", null);
+        ObservableList<Gatunek> gatunekList = FXCollections.observableArrayList(super.gatunekList);
         gatunekList.forEach(e->{
             GatunekFx gatunekFx = new GatunekFx();
             gatunekFx.setId(e.getId());
@@ -78,8 +79,8 @@ public class KlientController extends BaseController{
     protected void findMovie() {
         filmListView.getItems().clear();
         String title = filmTextField.getText();
-        FilmDao filmDao = new FilmDao();
-        List<Film> filmList = filmDao.selectAllFilm();
+        wypozyczalniaClient("Film", "selectAll", null);
+        ObservableList<Film> filmList = FXCollections.observableArrayList(super.filmList);
         filmList.forEach(e -> {
             if (Pattern.matches("[a-zA-Z0-9\\s]*" + title + "[a-zA-Z0-9\\s]*", e.getNazwa())) {
                 FilmFx filmFx = setFilmFx(e);
@@ -101,8 +102,8 @@ public class KlientController extends BaseController{
     @FXML
     private void findMovieByCategory(){
         filmListView.getItems().clear();
-        FilmDao filmDao = new FilmDao();
-        List<Film> filmList = filmDao.selectAllFilm();
+        wypozyczalniaClient("Film", "selectAll", null);
+        ObservableList<Film> filmList = FXCollections.observableArrayList(super.filmList);
 
         GatunekFx gatunekFx = new GatunekFx();
         getGatunekFromListView(gatunekFx);
@@ -163,8 +164,10 @@ public class KlientController extends BaseController{
      */
     public void viewAccount(ActionEvent actionEvent) {
         KontoFx kontoFx = Singleton.getInstance().getKontoFx();
-        KlientDao klientDao = new KlientDao();
-        Singleton.getInstance().setKlientFx(Converters.toKlientFx(klientDao.findKlientById(kontoFx.getKlientfx())));
+        KlientFx klientFx = new KlientFx();
+        klientFx.setId(kontoFx.getKlientfx());
+        wypozyczalniaClient("Klient", "findById", toKlient(klientFx));
+        Singleton.getInstance().setKlientFx(toKlientFx(super.klient));
         openWindow(EDIT_KONTO_FXML);
     }
     /**
@@ -186,16 +189,18 @@ public class KlientController extends BaseController{
      * @param actionEvent obiekt typu ActionEvent
      */
     public void reserveMovie(ActionEvent actionEvent) {
+        RezerwacjaFX rezerwacjaFX = new RezerwacjaFX();
         FilmFx filmFx = new FilmFx();
         getFilmFromListView(filmFx);
         //
         KontoFx kontoFx = Singleton.getInstance().getKontoFx();
-        int klientID = kontoFx.getKlientfx();
+        rezerwacjaFX.setFilmFx(filmFx.getId());
+        rezerwacjaFX.setKlientFx(kontoFx.getKlientfx());
 
-        RezerwacjaDao rezerwacjaDao = new RezerwacjaDao();
-        rezerwacjaDao.insertRezerwacje(filmFx, klientID);
+        wypozyczalniaClient("Rezerwacja", "insert", toRezerwacja(rezerwacjaFX));
         //
         logger.logFileAndConsole("info", "Klient stworzyl nowa rezerwacje.");
         warningWindow("Dodano rezerwację.");
     }
 }
+

@@ -1,10 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * <h2>Klasa przechowująca dane reżysera.</h2>
  * <p>Zawiera pola z tabeli REZYSER.</p>
  */
-public class Rezyser {
+public class Rezyser extends BaseTable implements Serializable {
     private int id;
     private String nazwa;
 

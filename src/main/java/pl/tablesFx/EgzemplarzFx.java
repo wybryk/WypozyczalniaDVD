@@ -3,6 +3,8 @@ package pl.tablesFx;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
+
+
 /**
  * <h2>Klasa przechowująca dane egzemplarza filmu.</h2>
  * <p>Zawiera pola z tabeli EGZEMPLARZ.</p>
@@ -47,4 +49,14 @@ public class EgzemplarzFx {
     public void setIdFilmu(int idFilmu) {
         this.idFilmu.set(idFilmu);
     }
+
+    @Override
+    public String toString() {
+        return "EgzemplarzFx{" +
+                "id=" + id +
+                ", idFilmu=" + idFilmu +
+                '}';
+    }
+
+
 }

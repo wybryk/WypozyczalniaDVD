@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+
 /**
  * <h2>Klasa przechowująca dane reżysera.</h2>
  * <p>Zawiera pola z tabeli REZYSER.</p>
@@ -48,4 +49,5 @@ public class RezyserFx {
     public void setNazwa(String nazwa) {
         this.nazwa.set(nazwa);
     }
+
 }

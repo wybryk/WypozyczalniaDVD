@@ -1,10 +1,12 @@
 package pl.bazadanych.tables;
 
+import java.io.Serializable;
+
 /**
  * <h2>Klasa przechowująca dane wypozyczenia</h2>
  * <p>Zawiera pola z tabeli DANE_WYPOZYCZENIA.</p>
  */
-public class DaneWypozyczenia {
+public class DaneWypozyczenia extends BaseTable implements Serializable {
     private int idKlienta;
     private int idWypozyczenia;
     private int idEgzemplarzu;

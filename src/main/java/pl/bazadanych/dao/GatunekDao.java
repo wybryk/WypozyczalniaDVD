@@ -9,6 +9,8 @@ import pl.tablesFx.GatunekFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Gatunek w BD</h2>
@@ -16,16 +18,15 @@ import java.sql.SQLException;
  */
 public class GatunekDao  {
 
-    public Gatunek findGatunekById(int id) {
+    public Gatunek findGatunekById(Gatunek gatunek) {
 
         Connections.initDataBase();
 
-        ResultSet resultSet = Connections.selectRecords("GATUNEK", "ID_GATUNKU = " + id);
-        Gatunek gatunek = new Gatunek();
+        ResultSet resultSet = Connections.selectRecords("GATUNEK", "ID_GATUNKU = " + gatunek.getId());
         try{
             while (resultSet.next()) {
-            gatunek.setId(resultSet.getInt(1));
-            gatunek.setNazwa(resultSet.getString(2));
+                gatunek.setId(resultSet.getInt(1));
+                gatunek.setNazwa(resultSet.getString(2));
             }
             resultSet.close();
         } catch (SQLException e) {
@@ -36,10 +37,10 @@ public class GatunekDao  {
     }
     /**
      * Metoda pobierająca rekordy z tabeli GATUNEK
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAll()  {
-        ObservableList<Gatunek> gatunekList = FXCollections.observableArrayList();
+    public List<Gatunek> selectAll()  {
+        List<Gatunek> gatunekList = new ArrayList<>();
         Connections.initDataBase();
         ResultSet resultSet = Connections.selectRecords("GATUNEK");
         try{

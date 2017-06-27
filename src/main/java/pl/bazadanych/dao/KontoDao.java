@@ -10,19 +10,18 @@ import pl.tablesFx.KontoFx;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * <h2>Klasa łącząca z tabelą Konto w BD</h2>
- * <p>Zawiera metody do pobierania, edytowania, usuwania i wstawiania elementów z/do bazy.</p>
- */
+
 public class KontoDao {
     /**
      * Metoda pobierająca rekordy z tabeli KONTO
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAll(){
+    public List<Konto> selectAll(){
         Connections.initDataBase();
-        ObservableList<Konto> kontoList = FXCollections.observableArrayList();
+        List<Konto> kontoList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("KONTO");
         try{
             while (resultSet.next()) {
@@ -44,26 +43,31 @@ public class KontoDao {
     }
     /**
      * Metoda wstawiająca dane do tabeli KONTO
-     * @param kontoFx parametr będący obiektem typu KontoFx
-     * @param id parametr będący identyfikatorem rekordu
+     * @param konto parametr będący obiektem typu Konto
      */
-    public void insertKonto(KontoFx kontoFx, int id) {
+    public void insertKonto(Konto konto) {
         Connections.initDataBase();
-        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + kontoFx.getLogin() + "', '" + kontoFx.getHaslo() + "', "
-                + kontoFx.getAdmin()+", " + id);
+        Connections.insertRecord("KONTO", "KontoSeq.NEXTVAL, '" + konto.getLogin() + "', '" + konto.getHaslo() + "', "
+                + konto.getAdmin()+", " + konto.getKlient());
         Connections.closeConnection();
     }
-
-    public void deleteKonto(KontoFx kontoFx){
+    /**
+     * Metoda usuwająca dane z tabeli KONTO, używając identyfikatora konta.
+     * @param konto parametr będący obiektem typu Konto
+     */
+    public void deleteKonto(Konto konto){
         Connections.initDataBase();
-        Connections.deleteRecord("KONTO", "ID_KONTA = " + kontoFx.getId());
+        Connections.deleteRecord("KONTO", "ID_KONTA = " + konto.getId());
         Connections.closeConnection();
     }
-
-    public void updateKonto(KontoFx kontoFx){
+    /**
+     * Metoda aktualizująca dane w tabeli KONTO.
+     * @param konto parametr obiektem typu Konto
+     */
+    public void updateKonto(Konto konto){
         Connections.initDataBase();
-        Connections.updateRecord("KONTO", "LOGIN = '" + kontoFx.getLogin() + "', HASLO = '" + kontoFx.getHaslo()
-                + "', CZY_ADMIN = " + kontoFx.getAdmin()," ID_KONTA = " + kontoFx.getId());
+        Connections.updateRecord("KONTO", "LOGIN = '" + konto.getLogin() + "', HASLO = '" + konto.getHaslo()
+                + "', CZY_ADMIN = " + konto.getAdmin()," ID_KONTA = " + konto.getId());
         Connections.closeConnection();
     }
 }

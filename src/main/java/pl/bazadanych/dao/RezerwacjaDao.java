@@ -5,9 +5,12 @@ import javafx.collections.ObservableList;
 import pl.bazadanych.Connections;
 import pl.bazadanych.tables.Rezerwacja;
 import pl.tablesFx.FilmFx;
+import pl.tablesFx.RezerwacjaFX;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <h2>Klasa łącząca z tabelą Rezerwacje w BD</h2>
@@ -16,11 +19,11 @@ import java.sql.SQLException;
 public class RezerwacjaDao {
     /**
      * Metoda pobierająca rekordy z tabeli REZERWACJE
-     * @return obiekt typu ObservableList
+     * @return obiekt typu List
      */
-    public ObservableList selectAll(){
+    public List<Rezerwacja> selectAll(){
         Connections.initDataBase();
-        ObservableList<Rezerwacja> rezerwacjaList = FXCollections.observableArrayList();
+        List<Rezerwacja> rezerwacjaList = new ArrayList<>();
         ResultSet resultSet = Connections.selectRecords("REZERWACJE");
         try{
             while (resultSet.next()) {
@@ -40,12 +43,21 @@ public class RezerwacjaDao {
     }
     /**
      * Metoda wstawiająca dane do tabeli REZERWACJE
-     * @param filmFx parametr będący obiektem typu FilmFx
-     * @param klientID parametr będący identyfikatorem klienta który złożył rezerwację
+     * @param rezerwacja parametr będący obiektem typu Rezerwacja
      */
-    public void insertRezerwacje(FilmFx filmFx, int klientID) {
+    public void insertRezerwacje(Rezerwacja rezerwacja) {
         Connections.initDataBase();
-        Connections.insertRecord("REZERWACJE", "RezerwacjeSeq.NEXTVAL," + filmFx.getId() + "," + klientID + "");
+        Connections.insertRecord("REZERWACJE", "RezerwacjeSeq.NEXTVAL, " + rezerwacja.getIdFilmu() + ", " +
+                rezerwacja.getIdKlienta());
+        Connections.closeConnection();
+    }
+    /**
+     * Metoda usuwająca dane z tabeli REZERWACJE, używając identyfikatora rezerwacji.
+     * @param rezerwacja parametr będący obiektem typu Rezerwacja
+     */
+    public void deleteRezerwacja(Rezerwacja rezerwacja){
+        Connections.initDataBase();
+        Connections.deleteRecord("REZERWACJE", "ID_REZERW = " + rezerwacja.getId());
         Connections.closeConnection();
     }
 }
